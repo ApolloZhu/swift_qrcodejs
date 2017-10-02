@@ -88,7 +88,7 @@ struct QRUtil {
         case QRMaskPattern.PATTERN011:
             return (i + j) % 3 == 0
         case QRMaskPattern.PATTERN100:
-            return (floor(i / 2) + floor(j / 3)) % 2 == 0
+            return (i / 2 + j / 3) % 2 == 0
         case QRMaskPattern.PATTERN101:
             return (i * j) % 2 + (i * j) % 3 == 0
         case QRMaskPattern.PATTERN110:
