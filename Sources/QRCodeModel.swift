@@ -14,9 +14,9 @@ struct QRCodeModel {
         dataList.append(newData)
         dataCache = nil
     }
-    func isDark(_ row: Int, _ col: Int) throws -> Bool! {
+    func isDark(_ row: Int, _ col: Int) -> Bool! {
         if (row < 0 || self.moduleCount <= row || col < 0 || self.moduleCount <= col) {
-            throw Error("\(row),\(col)")
+            fatalError("Index out of range: \(row),\(col)")
         }
         return modules[row][col]
     }
@@ -98,7 +98,7 @@ struct QRCodeModel {
     }
 
     mutating func setupPositionAdjustPattern() {
-        let pos = QRUtil.getPatternPosition(typeNumber)
+        let pos = QRPatternLocator.getPatternPosition(typeNumber)
         for i in 0..<pos.count {
             for j in 0..<pos.count {
                 let row = pos[i]
@@ -120,7 +120,7 @@ struct QRCodeModel {
     }
 
     mutating func setupTypeNumber(_ test: Bool) {
-        let bits: Int = QRUtil.getBCHTypeNumber(self.typeNumber)
+        let bits: Int = BCHUtil.getBCHTypeNumber(self.typeNumber)
         // FIXME: Optimize Loop
         for i in 0..<18 {
             let mod = (!test && ((bits >> i) & 1) == 1)
@@ -134,7 +134,7 @@ struct QRCodeModel {
 
     mutating func setupTypeInfo(_ test: Bool, _ maskPattern: Int) {
         let data = (errorCorrectLevel.rawValue << 3) | maskPattern
-        let bits: Int = QRUtil.getBCHTypeInfo(data)
+        let bits: Int = BCHUtil.getBCHTypeInfo(data)
         // FIXME: Optimize Loop
         for i in 0..<15 {
             let mod = !test && ((bits >> i) & 1) == 1
@@ -174,7 +174,7 @@ struct QRCodeModel {
                         if byteIndex < data.count {
                             dark = ((UInt8(data[byteIndex]) >> bitIndex) & 1) == 1
                         }
-                        let mask = QRUtil.getMask(maskPattern, row, col - c)
+                        let mask = maskPattern.getMask(row, col - c)
                         if mask {
                             dark = !dark
                         }
@@ -207,7 +207,7 @@ struct QRCodeModel {
             let data = dataList[i]
             buffer.put(data.mode.rawValue, 4)
             buffer.put(UInt8(data.getLength()),
-                       try! QRUtil.getLengthInBits(data.mode, typeNumber))
+                       try! data.mode.getLengthInBits(typeNumber))
             data.write(&buffer)
         }
         var totalDataCount = 0
@@ -252,7 +252,7 @@ struct QRCodeModel {
                 dcdata[r][i] = Int(0xff & buffer.buffer[i + offset])
             }
             offset += dcCount
-            let rsPoly = QRUtil.getErrorCorrectPolynomial(ecCount)
+            let rsPoly = QRPolynomial.getErrorCorrectPolynomial(ecCount)
             let rawPoly = try! QRPolynomial(dcdata[r]!, rsPoly.getLength() - 1)
             let modPoly = rawPoly.mod(rsPoly)
             ecdata[r] = [Int](repeating: 0, count: rsPoly.getLength() - 1)

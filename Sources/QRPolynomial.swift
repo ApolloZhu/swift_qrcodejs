@@ -45,4 +45,12 @@ struct QRPolynomial {
         }
         return try! QRPolynomial(num, 0).mod(e)
     }
+
+    static func getErrorCorrectPolynomial(_ errorCorrectLength: Int) -> QRPolynomial {
+        var a = try! QRPolynomial([1], 0)
+        for i in 0..<errorCorrectLength {
+            a = a.multiply(try! QRPolynomial([1, QRMath.gexp(i)], 0))
+        }
+        return a
+    }
 }
