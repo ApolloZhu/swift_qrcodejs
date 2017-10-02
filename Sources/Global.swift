@@ -55,7 +55,7 @@ func _getTypeNumber(_ sText: String, _ nCorrectLevel: QRErrorCorrectLevel) throw
     let len = QRCodeLimitLength.count
     for i in 0...len {
         var nLimit = 0
-
+        
         switch (nCorrectLevel) {
         case QRErrorCorrectLevel.L:
             nLimit = QRCodeLimitLength[i][0]
@@ -66,17 +66,17 @@ func _getTypeNumber(_ sText: String, _ nCorrectLevel: QRErrorCorrectLevel) throw
         case QRErrorCorrectLevel.H:
             nLimit = QRCodeLimitLength[i][3]
         }
-
+        
         if (length <= nLimit) {
             break
         } else {
             nType += 1
         }
     }
-
+    
     if (nType > QRCodeLimitLength.count) {
         throw Error("Too long data")
     }
-
+    
     return nType
 }

@@ -16,11 +16,11 @@ struct QRPolynomial {
     func get(_ index: Int) -> Int {
         return num[index]
     }
-
+    
     func getLength() -> Int {
         return num.count
     }
-
+    
     func multiply(_ e: QRPolynomial) -> QRPolynomial {
         var num = [Int](repeating: 0, count: getLength() + e.getLength() - 1)
         for i in 0..<getLength() {
@@ -30,7 +30,7 @@ struct QRPolynomial {
         }
         return try! QRPolynomial(num, 0)
     }
-
+    
     func mod(_ e: QRPolynomial) -> QRPolynomial {
         if (getLength() - e.getLength() < 0) {
             return self
@@ -45,7 +45,7 @@ struct QRPolynomial {
         }
         return try! QRPolynomial(num, 0).mod(e)
     }
-
+    
     static func getErrorCorrectPolynomial(_ errorCorrectLength: Int) -> QRPolynomial {
         var a = try! QRPolynomial([1], 0)
         for i in 0..<errorCorrectLength {

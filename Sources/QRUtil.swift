@@ -52,11 +52,7 @@ struct QRUtil {
                 if qrCode.isDark(row, col) && !qrCode.isDark(row, col + 1) && qrCode.isDark(row, col + 2) && qrCode.isDark(row, col + 3) && qrCode.isDark(row, col + 4) && !qrCode.isDark(row, col + 5) && qrCode.isDark(row, col + 6) {
                     lostPoint += 40
                 }
-            }
-        }
-        for col in 0..<moduleCount {
-            for row in 0..<moduleCount - 6 {
-                if qrCode.isDark(row, col) && !qrCode.isDark(row + 1, col) && qrCode.isDark(row + 2, col) && qrCode.isDark(row + 3, col) && qrCode.isDark(row + 4, col) && !qrCode.isDark(row + 5, col) && qrCode.isDark(row + 6, col) {
+                if qrCode.isDark(col, row) && !qrCode.isDark(col + 1, row) && qrCode.isDark(col + 2, row) && qrCode.isDark(col + 3, row) && qrCode.isDark(col + 4, row) && !qrCode.isDark(col + 5, row) && qrCode.isDark(col + 6, row) {
                     lostPoint += 40
                 }
             }

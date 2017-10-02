@@ -3,17 +3,17 @@ struct QRMath {
         if (n < 1) { throw Error("glog(\(n))") }
         return QRMath.instance.LOG_TABLE[n]
     }
-
+    
     static func gexp(_ n: Int) -> Int {
         var n = n
         while n < 0 { n += 255 }
         while (n >= 256) { n -= 255 }
         return QRMath.instance.EXP_TABLE[n]
     }
-
+    
     private var EXP_TABLE: [Int]
     private var LOG_TABLE: [Int]
-
+    
     private static let instance = QRMath()
     private init() {
         EXP_TABLE = [Int](repeating: 0, count: 256)

@@ -20,21 +20,21 @@ struct QRCodeModel {
         }
         return modules[row][col]
     }
-
+    
     func getModuleCount() -> Int {
         return moduleCount
     }
-
+    
     mutating func make() {
         makeImpl(false, getBestMaskPattern())
     }
-
+    
     mutating func makeImpl(_ test: Bool, _ maskPattern: QRMaskPattern) {
         moduleCount = typeNumber * 4 + 17
         modules = [[Bool?]](repeating:
             [Bool?](repeating: nil, count: moduleCount),
-            count: moduleCount)
-
+                            count: moduleCount)
+        
         setupPositionProbePattern(0, 0)
         setupPositionProbePattern(moduleCount - 7, 0)
         setupPositionProbePattern(0, moduleCount - 7)
@@ -49,7 +49,7 @@ struct QRCodeModel {
         }
         mapData(dataCache, maskPattern)
     }
-
+    
     mutating func setupPositionProbePattern(_ row: Int, _ col: Int) {
         for r in -1...7 {
             if (row + r <= -1 || moduleCount <= row + r) {
@@ -67,7 +67,7 @@ struct QRCodeModel {
             }
         }
     }
-
+    
     mutating func getBestMaskPattern() -> QRMaskPattern! {
         var minLostPoint = 0
         var pattern = 0
@@ -81,7 +81,7 @@ struct QRCodeModel {
         }
         return QRMaskPattern(rawValue: pattern)
     }
-
+    
     mutating func setupTimingPattern() {
         for r in 8..<moduleCount - 8 {
             if (modules[r][6] != nil) {
@@ -96,7 +96,7 @@ struct QRCodeModel {
             modules[6][c] = (c % 2 == 0)
         }
     }
-
+    
     mutating func setupPositionAdjustPattern() {
         let pos = QRPatternLocator.getPatternPosition(typeNumber)
         for i in 0..<pos.count {
@@ -118,26 +118,24 @@ struct QRCodeModel {
             }
         }
     }
-
+    
     mutating func setupTypeNumber(_ test: Bool) {
         let bits: Int = BCHUtil.getBCHTypeNumber(self.typeNumber)
         // FIXME: Optimize Loop
         for i in 0..<18 {
             let mod = (!test && ((bits >> i) & 1) == 1)
             modules[i / 3][i % 3 + moduleCount - 8 - 3] = mod
-        }
-        for i in 0..<18 {
-            let mod = (!test && ((bits >> i) & 1) == 1)
             modules[i % 3 + moduleCount - 8 - 3][i / 3] = mod
         }
     }
-
+    
     mutating func setupTypeInfo(_ test: Bool, _ maskPattern: Int) {
         let data = (errorCorrectLevel.rawValue << 3) | maskPattern
         let bits: Int = BCHUtil.getBCHTypeInfo(data)
         // FIXME: Optimize Loop
         for i in 0..<15 {
             let mod = !test && ((bits >> i) & 1) == 1
+            
             if (i < 6) {
                 modules[i][8] = mod
             } else if (i < 8) {
@@ -145,9 +143,7 @@ struct QRCodeModel {
             } else {
                 modules[moduleCount - 15 + i][8] = mod
             }
-        }
-        for i in 0..<15 {
-            let mod = !test && ((bits >> i) & 1) == 1
+            
             if (i < 8) {
                 modules[8][moduleCount - i - 1] = mod
             } else if (i < 9) {
@@ -158,13 +154,13 @@ struct QRCodeModel {
         }
         modules[moduleCount - 8][8] = !test
     }
-
+    
     mutating func mapData(_ data: [Int], _ maskPattern: QRMaskPattern) {
         var inc = -1
         var row = moduleCount - 1
         var bitIndex = 7
         var byteIndex = 0
-
+        
         for var col in stride(from: moduleCount - 1, to: 0, by: -2) {
             if (col == 6) { col -= 1 }
             while (true) {
@@ -195,11 +191,10 @@ struct QRCodeModel {
             }
         }
     }
-
+    
     static let PAD0: UInt8 = 0xEC
     static let PAD1: UInt8 = 0x11
-
-
+    
     static func createData(_ typeNumber: Int, _ errorCorrectLevel: QRErrorCorrectLevel, _ dataList: [QR8bitByte]) throws -> [Int] {
         var rsBlocks = QRRSBlock.getRSBlocks(typeNumber, errorCorrectLevel)
         var buffer = QRBitBuffer()
@@ -235,7 +230,7 @@ struct QRCodeModel {
         }
         return QRCodeModel.createBytes(buffer, rsBlocks)
     }
-
+    
     static func createBytes(_ buffer: QRBitBuffer, _ rsBlocks: [QRRSBlock]) -> [Int] {
         var offset = 0
         var maxDcCount = 0

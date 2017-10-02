@@ -45,27 +45,27 @@
  }
  */
 
-     /*
-     // Yet another drawing code
-     func createMovieClip(_ target_mc: JSThing, _ instance_name: JSThing, _ depth: JSThing) -> JSThing {
-     var qr_mc = target_mc.createEmptyMovieClip(instance_name, depth)
-     var cs = 1
-     make()
-     for row in 0..<modules.count {
-     var y = row * cs
-     for col in 0..<modules[row].count {
-     let x = col * cs
-     let dark = modules[row][col]
-     if (dark) {
-     qr_mc.beginFill(0, 100)
-     qr_mc.moveTo(x, y)
-     qr_mc.lineTo(x + cs, y)
-     qr_mc.lineTo(x + cs, y + cs)
-     qr_mc.lineTo(x, y + cs)
-     qr_mc.endFill()
-     }
-     }
-     }
-     return qr_mc
-     }
-     */
+/*
+ // Yet another drawing code
+ func createMovieClip(_ target_mc: JSThing, _ instance_name: JSThing, _ depth: JSThing) -> JSThing {
+ var qr_mc = target_mc.createEmptyMovieClip(instance_name, depth)
+ var cs = 1
+ make()
+ for row in 0..<modules.count {
+ var y = row * cs
+ for col in 0..<modules[row].count {
+ let x = col * cs
+ let dark = modules[row][col]
+ if (dark) {
+ qr_mc.beginFill(0, 100)
+ qr_mc.moveTo(x, y)
+ qr_mc.lineTo(x + cs, y)
+ qr_mc.lineTo(x + cs, y + cs)
+ qr_mc.lineTo(x, y + cs)
+ qr_mc.endFill()
+ }
+ }
+ }
+ return qr_mc
+ }
+ */

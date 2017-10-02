@@ -5,7 +5,7 @@ struct QRRSBlock {
         self.totalCount = totalCount
         self.dataCount = dataCount
     }
-
+    
     private static let RS_BLOCK_TABLE: [[Int]] = [
         [1, 26, 19],
         [1, 26, 16],
@@ -168,7 +168,7 @@ struct QRRSBlock {
         [34, 54, 24, 34, 55, 25],
         [20, 45, 15, 61, 46, 16]
     ]
-
+    
     static func getRSBlocks(_ typeNumber: Int, _ errorCorrectLevel: QRErrorCorrectLevel) -> [QRRSBlock] {
         let rsBlock = QRRSBlock.getRsBlockTable(typeNumber, errorCorrectLevel)
         let length = rsBlock.count / 3
@@ -183,8 +183,8 @@ struct QRRSBlock {
         }
         return list
     }
-
-    static func getRsBlockTable(_ typeNumber: Int, _ errorCorrectLevel: QRErrorCorrectLevel) -> [Int] {
+    
+    private static func getRsBlockTable(_ typeNumber: Int, _ errorCorrectLevel: QRErrorCorrectLevel) -> [Int] {
         switch (errorCorrectLevel) {
         case QRErrorCorrectLevel.L:
             return QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 0]

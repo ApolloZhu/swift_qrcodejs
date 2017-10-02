@@ -46,7 +46,7 @@ public struct QRCode {
         self.colorLight = colorLight
         makeCode(text)
     }
-
+    
     /**
      * Make the QRCode
      *
