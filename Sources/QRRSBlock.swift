@@ -1,11 +1,9 @@
 struct QRRSBlock {
     let totalCount: Int
     let dataCount: Int
-    init(_ totalCount: Int, _ dataCount: Int) {
-        self.totalCount = totalCount
-        self.dataCount = dataCount
-    }
-    
+}
+
+extension QRRSBlock {
     private static let RS_BLOCK_TABLE: [[Int]] = [
         [1, 26, 19],
         [1, 26, 16],
@@ -169,8 +167,8 @@ struct QRRSBlock {
         [20, 45, 15, 61, 46, 16]
     ]
     
-    static func getRSBlocks(_ typeNumber: Int, _ errorCorrectLevel: QRErrorCorrectLevel) -> [QRRSBlock] {
-        let rsBlock = QRRSBlock.getRsBlockTable(typeNumber, errorCorrectLevel)
+    static func getRSBlocks(typeNumber: Int, errorCorrectLevel: QRErrorCorrectLevel) -> [QRRSBlock] {
+        let rsBlock = QRRSBlock.getRsBlockTable(typeNumber: typeNumber, errorCorrectLevel: errorCorrectLevel)
         let length = rsBlock.count / 3
         var list = [QRRSBlock]()
         for i in 0..<length {
@@ -178,13 +176,13 @@ struct QRRSBlock {
             let totalCount = rsBlock[i * 3 + 1]
             let dataCount = rsBlock[i * 3 + 2]
             for _ in 0..<count {
-                list.append(QRRSBlock(totalCount, dataCount))
+                list.append(QRRSBlock(totalCount: totalCount, dataCount: dataCount))
             }
         }
         return list
     }
     
-    private static func getRsBlockTable(_ typeNumber: Int, _ errorCorrectLevel: QRErrorCorrectLevel) -> [Int] {
+    private static func getRsBlockTable(typeNumber: Int, errorCorrectLevel: QRErrorCorrectLevel) -> [Int] {
         switch (errorCorrectLevel) {
         case QRErrorCorrectLevel.L:
             return QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 0]

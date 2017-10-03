@@ -1,6 +1,11 @@
 struct QRMath {
-    static func glog(_ n: Int) throws -> Int {
-        if (n < 1) { throw Error("glog(\(n))") }
+    
+    /// glog
+    ///
+    /// - Parameter n: n | n >= 1.
+    /// - Returns: glog(n), or a fatal error if n < 1.
+    static func glog(_ n: Int) -> Int {
+        if (n < 1) { fatalError("glog(\(n))") }
         return QRMath.instance.LOG_TABLE[n]
     }
     

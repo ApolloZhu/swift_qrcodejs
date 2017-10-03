@@ -42,7 +42,7 @@ struct QRPatternLocator {
         [6, 30, 58, 86, 114, 142, 170]
     ]
     
-    static func getPatternPosition(_ typeNumber: Int) -> [Int] {
+    static func getPatternPosition(typeNumber: Int) -> [Int] {
         return PATTERN_POSITION_TABLE[typeNumber - 1]
     }
 }

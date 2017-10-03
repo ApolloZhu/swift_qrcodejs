@@ -1,62 +1,69 @@
+#if os(iOS) || os(tvOS)
+    import UIKit
+#elseif os(watchOS)
+    import WatchKit
+#elseif os(macOS)
+    import AppKit
+#endif
 
-/**
- * @class QRCode
- * @constructor
- * @example
- * new QRCode(document.getElementById("test"), "http://jindo.dev.naver.com/collie")
- *
- * @example
- * var oQRCode = new QRCode("test", {
- *    text : "http://naver.com",
- *    width : 128,
- *    height : 128
- * })
- *
- * oQRCode.clear() // Clear the QRCode.
- * oQRCode.makeCode("http://map.naver.com") // Re-create the QRCode.
- *
- * @param {HTMLElement|String} el target element or 'id' attribute of element.
- * @param {Object|String} vOption
- * @param {String} vOption.text QRCode link data
- * @param {Number} [vOption.width=256]
- * @param {Number} [vOption.height=256]
- * @param {String} [vOption.colorDark="#000000"]
- * @param {String} [vOption.colorLight="#ffffff"]
- * @param {QRCode.CorrectLevel} [vOption.correctLevel=QRCode.CorrectLevel.H] [L|M|Q|H]
- */
-public struct QRCode {
+public class QRCode {
     let text: String
     let width: Int
     let height: Int
-    let typeNumber: Int
     let colorDark: Int
     let colorLight: Int
-    /**
-     * @name QRCode.CorrectLevel
-     */
-    let correctLevel: QRErrorCorrectLevel = .H
-    private var _oQRCode: QRCodeModel! = nil
+    let correctLevel: QRErrorCorrectLevel
+    private let typeNumber: Int
+    private lazy var model: QRCodeModel = QRCodeModel(text: text,
+                                                      typeNumber: typeNumber,
+                                                      errorCorrectLevel: correctLevel)
     
-    public init(_ text: String, width: Int = 256, height: Int = 256, typeNumber: Int = 4, colorDark: Int = 0x000000, colorLight: Int = 0xFFFFFF) {
+    public init?(_ text: String,
+                 width: Int = 256,
+                 height: Int = 256,
+                 colorDark: Int = 0x000000,
+                 colorLight: Int = 0xFFFFFF,
+                 errorCorrectLevel: QRErrorCorrectLevel = .H) {
+        guard let typeNumber = try? QRCodeType
+            .typeNumber(of: text, errorCorrectLevel: errorCorrectLevel)
+            else { return nil }
+        self.typeNumber = typeNumber
+        
         self.text = text
         self.width = width
         self.height = height
-        self.typeNumber = typeNumber
         self.colorDark = colorDark
         self.colorLight = colorLight
-        makeCode(text)
+        self.correctLevel = errorCorrectLevel
     }
     
-    /**
-     * Make the QRCode
-     *
-     * @param {String} sText link data
-     */
-    public mutating func makeCode(_ sText: String) {
-        _oQRCode = QRCodeModel(try! _getTypeNumber(sText, correctLevel),
-                               correctLevel)
-        _oQRCode.addData(sText)
-        _oQRCode.make()
-        // draw(self._oQRCode)
-    }
+    public private(set) lazy var imageCodes: [[Bool]]! = {
+        do {
+            return try model.modules.map {
+                try $0.map {
+                    if $0 == nil { throw Error() }
+                    return $0!
+                }
+            }
+        } catch {
+            return nil
+        }
+    }()
+    
+    public private(set) lazy var cgImage: CGImage! = {
+        return QRCodeRenderer.generate(width: width, height: height, colorDark: colorDark, colorLight: colorLight, errorCorrectLevel: correctLevel)
+    }()
+    
+    #if os(iOS) || os(tvOS) || os(watchOS)
+    public private(set) lazy var image: UIImage! = {
+    guard let cgImage = cgImage else { return nil }
+    return UIImage(cgImage: cgImage)
+    }()
+    #elseif os(macOS)
+    public private(set) lazy var image: NSImage! = {
+        guard let cgImage = cgImage else { return nil }
+        return NSImage(cgImage: cgImage,
+                       size: NSSize(width: width, height: height))
+    }()
+    #endif
 }

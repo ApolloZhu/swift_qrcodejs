@@ -1,55 +1,64 @@
 struct QRPolynomial {
-    var num: [Int]
-    init(_ num: [Int], _ shift: Int) throws {
-        if (num.count == 0) {
-            throw Error("\(num.count)/\(shift)")
-        }
+    
+    var numbers: [Int]
+    
+    init!(_ nums: Int..., shift: Int = 0) {
+        self.init(nums, shift: shift)
+    }
+    
+    init!(_ nums: [Int], shift: Int = 0) {
+        guard nums.count != 0 else { return nil }
         var offset = 0
-        while offset < num.count && num[offset] == 0 {
+        while offset < nums.count && nums[offset] == 0 {
             offset += 1
         }
-        self.num = [Int](repeating: 0, count: num.count - offset + shift)
-        for i in 0..<num.count - offset {
-            self.num[i] = num[i + offset]
+        self.numbers = [Int](repeating: 0, count: nums.count - offset + shift)
+        for i in 0..<nums.count - offset {
+            self.numbers[i] = nums[i + offset]
         }
     }
-    func get(_ index: Int) -> Int {
-        return num[index]
+    
+    func get(index: Int) -> Int {
+        return numbers[index]
     }
     
-    func getLength() -> Int {
-        return num.count
+    subscript(index: Int) -> Int {
+        return get(index: index)
     }
     
-    func multiply(_ e: QRPolynomial) -> QRPolynomial {
-        var num = [Int](repeating: 0, count: getLength() + e.getLength() - 1)
-        for i in 0..<getLength() {
-            for j in 0..<e.getLength() {
-                num[i + j] ^= QRMath.gexp(try! QRMath.glog(get(i)) + QRMath.glog(e.get(j)))
+    var count: Int {
+        return numbers.count
+    }
+    
+    func multiplying(_ e: QRPolynomial) -> QRPolynomial {
+        var nums = [Int](repeating: 0, count: count + e.count - 1)
+        for i in 0..<count {
+            for j in 0..<e.count {
+                nums[i + j] ^= QRMath.gexp(QRMath.glog(self[i]) + QRMath.glog(e[j]))
             }
         }
-        return try! QRPolynomial(num, 0)
+        return QRPolynomial(nums)!
     }
     
-    func mod(_ e: QRPolynomial) -> QRPolynomial {
-        if (getLength() - e.getLength() < 0) {
+    func moded(by e: QRPolynomial) -> QRPolynomial {
+        if (count - e.count < 0) {
             return self
         }
-        let ratio = try! QRMath.glog(get(0)) - QRMath.glog(e.get(0))
-        var num = [Int](repeating: 0, count: getLength())
-        for i in 0..<getLength() {
-            num[i] = get(i)
+        let ratio = QRMath.glog(self[0]) - QRMath.glog(e[0])
+        var num = [Int](repeating: 0, count: count)
+        for i in 0..<count {
+            num[i] = self[i]
         }
-        for i in 0..<e.getLength() {
-            num[i] ^= QRMath.gexp(try! QRMath.glog(e.get(i)) + ratio)
+        for i in 0..<e.count {
+            num[i] ^= QRMath.gexp(QRMath.glog(e[i]) + ratio)
         }
-        return try! QRPolynomial(num, 0).mod(e)
+        return QRPolynomial(num)!.moded(by: e)
     }
     
-    static func getErrorCorrectPolynomial(_ errorCorrectLength: Int) -> QRPolynomial {
-        var a = try! QRPolynomial([1], 0)
+    static func errorCorrectPolynomial(ofLength errorCorrectLength: Int) -> QRPolynomial {
+        var a = QRPolynomial(1)!
         for i in 0..<errorCorrectLength {
-            a = a.multiply(try! QRPolynomial([1, QRMath.gexp(i)], 0))
+            a = a.multiplying(QRPolynomial(1, QRMath.gexp(i))!)
         }
         return a
     }

@@ -1,7 +1,7 @@
 import Foundation
 
 struct QR8bitByte {
-    let mode: QRMode = .MODE_8BIT_BYTE
+    let mode: QRMode = ._8bitByte
     let data: String
     let parsedData: Data!
     
@@ -10,14 +10,14 @@ struct QR8bitByte {
         self.parsedData = data.data(using: .utf8)
     }
     
-    func getLength() -> Int {
+    var count: Int {
         return parsedData.count
     }
     
-    func write(_ buffer: inout QRBitBuffer) {
+    func write(to buffer: inout QRBitBuffer) {
         let l: Int = parsedData.count
         for i in 0..<l {
-            buffer.put(parsedData![i], 8)
+            buffer.put(parsedData![i], length: 8)
         }
     }
 }

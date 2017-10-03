@@ -3,7 +3,7 @@ struct Error: Swift.Error {
         return _localizedDescription
     }
     let _localizedDescription: String
-    init(_ description: String) {
+    init(_ description: String = "") {
         _localizedDescription = description
     }
 }

@@ -1,25 +1,27 @@
 struct BCHUtil {
-    private static let G15      =     0b10100110111
-    private static let G18      =   0b1111100100101
-    private static let G15_MASK = 0b101010000010010
+    private static let g15     =     0b10100110111
+    private static let g18     =   0b1111100100101
+    private static let g15Mask = 0b101010000010010
+    private static let g15BCHDigit = bchDigit(of: g15)
+    private static let g18BCHDigit = bchDigit(of: g18)
     
-    static func getBCHTypeInfo(_ data: Int) -> Int {
+    static func bchTypeInfo(of data: Int) -> Int {
         var d = data << 10
-        while getBCHDigit(d) - getBCHDigit(G15) >= 0 {
-            d ^= (G15 << (getBCHDigit(d) - getBCHDigit(G15)))
+        while bchDigit(of: d) - g15BCHDigit >= 0 {
+            d ^= (g15 << (bchDigit(of: d) - g15BCHDigit))
         }
-        return ((data << 10) | d) ^ G15_MASK
+        return ((data << 10) | d) ^ g15Mask
     }
     
-    static func getBCHTypeNumber(_ data: Int) -> Int {
+    static func bchTypeNumber(of data: Int) -> Int {
         var d = data << 12
-        while getBCHDigit(d) - getBCHDigit(G18) >= 0 {
-            d ^= (G18 << (getBCHDigit(d) - getBCHDigit(G18)))
+        while bchDigit(of: d) - g18BCHDigit >= 0 {
+            d ^= (g18 << (bchDigit(of: d) - g18BCHDigit))
         }
         return (data << 12) | d
     }
     
-    static func getBCHDigit(_ data: Int) -> Int {
+    private static func bchDigit(of data: Int) -> Int {
         var digit = 0
         var data = UInt8(data)
         while (data != 0) {
