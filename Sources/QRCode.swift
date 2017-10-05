@@ -1,9 +1,11 @@
-#if os(iOS) || os(tvOS)
+#if os(iOS) || os(tvOS) || os(watchOS)
     import UIKit
-#elseif os(watchOS)
-    import WatchKit
 #elseif os(macOS)
     import AppKit
+#endif
+
+#if os(watchOS)
+    import WatchKit
 #endif
 
 public class QRCode {
@@ -17,7 +19,7 @@ public class QRCode {
     private lazy var model: QRCodeModel = QRCodeModel(text: text,
                                                       typeNumber: typeNumber,
                                                       errorCorrectLevel: correctLevel)
-    
+
     public init?(_ text: String,
                  width: Int = 256,
                  height: Int = 256,
@@ -28,7 +30,7 @@ public class QRCode {
             .typeNumber(of: text, errorCorrectLevel: errorCorrectLevel)
             else { return nil }
         self.typeNumber = typeNumber
-        
+
         self.text = text
         self.width = width
         self.height = height
@@ -36,7 +38,7 @@ public class QRCode {
         self.colorLight = colorLight
         self.correctLevel = errorCorrectLevel
     }
-    
+
     public private(set) lazy var imageCodes: [[Bool]]! = {
         do {
             return try model.modules.map {
@@ -49,24 +51,25 @@ public class QRCode {
             return nil
         }
     }()
-    
+
     public private(set) lazy var cgImage: CGImage! = {
-        return QRCodeRenderer.generate(model: model,
+        guard let codes = imageCodes else { return nil }
+        return QRCodeRenderer.generate(model: codes,
                                        width: width, height: height,
                                        colorDark: colorDark, colorLight: colorLight,
                                        errorCorrectLevel: correctLevel)
     }()
-    
+
     #if os(iOS) || os(tvOS) || os(watchOS)
     public private(set) lazy var image: UIImage! = {
-        guard let cgImage = cgImage else { return nil }
-        return UIImage(cgImage: cgImage)
+    guard let cgImage = cgImage else { return nil }
+    return UIImage(cgImage: cgImage)
     }()
     #elseif os(macOS)
     public private(set) lazy var image: NSImage! = {
-    guard let cgImage = cgImage else { return nil }
-    return NSImage(cgImage: cgImage,
-    size: NSSize(width: width, height: height))
+        guard let cgImage = cgImage else { return nil }
+        return NSImage(cgImage: cgImage,
+                       size: NSSize(width: width, height: height))
     }()
     #endif
 }

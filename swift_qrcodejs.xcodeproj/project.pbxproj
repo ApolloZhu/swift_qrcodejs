@@ -64,6 +64,7 @@
 		52034E6B1F85DB9700AC36BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52034E6F1F85DD0F00AC36BB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		52034E711F85DD1500AC36BB /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		52DF76941F85EA2E00462436 /* swift_qrcodejs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = swift_qrcodejs.h; sourceTree = "<group>"; };
 		OBJ_10 /* QR8bitByte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR8bitByte.swift; sourceTree = "<group>"; };
 		OBJ_11 /* QRBitBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRBitBuffer.swift; sourceTree = "<group>"; };
 		OBJ_12 /* QRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
@@ -140,7 +141,7 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -149,7 +150,6 @@
 				OBJ_26 /* Products */,
 				52034E6E1F85DD0F00AC36BB /* Frameworks */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -170,6 +170,7 @@
 				OBJ_20 /* QRPatternLocator.swift */,
 				OBJ_21 /* QRPolynomial.swift */,
 				OBJ_22 /* QRRSBlock.swift */,
+				52DF76941F85EA2E00462436 /* swift_qrcodejs.h */,
 				52034E6B1F85DB9700AC36BB /* Info.plist */,
 			);
 			path = Sources;
@@ -251,7 +252,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_26 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

@@ -70,19 +70,28 @@
  }
  */
 
-#if os(iOS) || os(tvOS)
+#if os(iOS) || os(tvOS) || os(watchOS)
     import UIKit
-#elseif os(watchOS)
-    import WatchKit
 #elseif os(macOS)
     import AppKit
 #endif
 
-import CoreGraphics
+#if os(watchOS)
+    import WatchKit
+#endif
+
+extension CGColor {
+    static func fromRGB(_ rgb: Int) -> CGColor {
+        return CGColor(red: CGFloat((rgb >> 16) & 0xFF),
+                       green: CGFloat((rgb >> 8) & 0xFF),
+                       blue: CGFloat(rgb & 0xFF),
+                       alpha: 1)
+    }
+}
 
 struct QRCodeRenderer {
     private static func inContext(size: CGSize, _ action: (CGContext!) -> Void) -> CGImage! {
-        #if os(iOS) || os(tvOS)
+        #if os(iOS) || os(tvOS) || os(watchOS)
             UIGraphicsBeginImageContext(size)
             defer { UIGraphicsEndImageContext() }
             action(UIGraphicsGetCurrentContext())
@@ -91,25 +100,30 @@ struct QRCodeRenderer {
             return nil
         #endif
     }
-    static func generate(model: QRCodeModel,
+
+    static func generate(model: [[Bool]],
                          width: Int = 256,
                          height: Int = 256,
                          colorDark: Int = 0x000000,
                          colorLight: Int = 0xFFFFFF,
                          errorCorrectLevel: QRErrorCorrectLevel = .H) -> CGImage! {
-        guard let count = model.modules?.count, count > 0 else { return nil }
+        let count = model.count
+        guard count > 0 else { return nil }
         let total = min(width, height)
         let side = CGFloat(total) / CGFloat(count)
         let xOffset = CGFloat(total - width) / 2
         let yOffset = CGFloat(total - height) / 2
+        let dark = CGColor.fromRGB(colorDark)
+        let light = CGColor.fromRGB(colorLight)
 
         return inContext(size: CGSize(width: width, height: height)) { context in
             for x in 0..<count {
                 for y in 0..<count {
-                    context.addRect(CGRect(x: xOffset + CGFloat(x),
-                                           y: yOffset + CGFloat(y),
-                                           width: side,
-                                           height: side))
+                    context.setFillColor(model[x][y] ? dark : light)
+                    context.fill(CGRect(x: xOffset + CGFloat(x),
+                                        y: yOffset + CGFloat(y),
+                                        width: side,
+                                        height: side))
                 }
             }
         }
