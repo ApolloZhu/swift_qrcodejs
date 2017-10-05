@@ -2,7 +2,7 @@ struct QRCodeModel {
     let typeNumber: Int
     let errorCorrectLevel: QRErrorCorrectLevel
     var modules: [[Bool?]]! = nil
-    private(set) var moduleCount = 0
+    private var moduleCount = 0
     private let encodedText: QR8bitByte
     private lazy var dataCache: [Int] = try! QRCodeModel.createData(typeNumber: self.typeNumber,
                                                                     errorCorrectLevel: self.errorCorrectLevel,

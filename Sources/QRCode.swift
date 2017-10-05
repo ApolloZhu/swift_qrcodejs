@@ -51,19 +51,22 @@ public class QRCode {
     }()
     
     public private(set) lazy var cgImage: CGImage! = {
-        return QRCodeRenderer.generate(width: width, height: height, colorDark: colorDark, colorLight: colorLight, errorCorrectLevel: correctLevel)
+        return QRCodeRenderer.generate(model: model,
+                                       width: width, height: height,
+                                       colorDark: colorDark, colorLight: colorLight,
+                                       errorCorrectLevel: correctLevel)
     }()
     
     #if os(iOS) || os(tvOS) || os(watchOS)
     public private(set) lazy var image: UIImage! = {
-    guard let cgImage = cgImage else { return nil }
-    return UIImage(cgImage: cgImage)
+        guard let cgImage = cgImage else { return nil }
+        return UIImage(cgImage: cgImage)
     }()
     #elseif os(macOS)
     public private(set) lazy var image: NSImage! = {
-        guard let cgImage = cgImage else { return nil }
-        return NSImage(cgImage: cgImage,
-                       size: NSSize(width: width, height: height))
+    guard let cgImage = cgImage else { return nil }
+    return NSImage(cgImage: cgImage,
+    size: NSSize(width: width, height: height))
     }()
     #endif
 }

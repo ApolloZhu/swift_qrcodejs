@@ -70,14 +70,48 @@
  }
  */
 
+#if os(iOS) || os(tvOS)
+    import UIKit
+#elseif os(watchOS)
+    import WatchKit
+#elseif os(macOS)
+    import AppKit
+#endif
+
 import CoreGraphics
 
 struct QRCodeRenderer {
-    static func generate(width: Int = 256,
-                  height: Int = 256,
-                  colorDark: Int = 0x000000,
-                  colorLight: Int = 0xFFFFFF,
-                  errorCorrectLevel: QRErrorCorrectLevel = .H) -> CGImage! {
-        return nil
+    private static func inContext(size: CGSize, _ action: (CGContext!) -> Void) -> CGImage! {
+        #if os(iOS) || os(tvOS)
+            UIGraphicsBeginImageContext(size)
+            defer { UIGraphicsEndImageContext() }
+            action(UIGraphicsGetCurrentContext())
+            return UIGraphicsGetImageFromCurrentImageContext()?.cgImage
+        #else
+            return nil
+        #endif
+    }
+    static func generate(model: QRCodeModel,
+                         width: Int = 256,
+                         height: Int = 256,
+                         colorDark: Int = 0x000000,
+                         colorLight: Int = 0xFFFFFF,
+                         errorCorrectLevel: QRErrorCorrectLevel = .H) -> CGImage! {
+        guard let count = model.modules?.count, count > 0 else { return nil }
+        let total = min(width, height)
+        let side = CGFloat(total) / CGFloat(count)
+        let xOffset = CGFloat(total - width) / 2
+        let yOffset = CGFloat(total - height) / 2
+
+        return inContext(size: CGSize(width: width, height: height)) { context in
+            for x in 0..<count {
+                for y in 0..<count {
+                    context.addRect(CGRect(x: xOffset + CGFloat(x),
+                                           y: yOffset + CGFloat(y),
+                                           width: side,
+                                           height: side))
+                }
+            }
+        }
     }
 }

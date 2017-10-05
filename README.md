@@ -1,4 +1,4 @@
-# swift-qrcodejs
+# swift_qrcodejs
 
 Cross-appleOS ***SIMPLE*** QRCode generator for swift, modified based on [qrcodejs](https://github.com/davidshimjs/qrcodejs).
 

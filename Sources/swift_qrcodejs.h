@@ -40,7 +40,7 @@
 
 //
 //  swift_qrcodejs.h
-//  swift-qrcodejs
+//  swift_qrcodejs
 //
 //  Created by Apollo Zhu on 10/1/17.
 //
@@ -50,7 +50,3 @@ FOUNDATION_EXPORT double swift_qrcodejs_VersionNumber;
 
 //! Project version string for swift_qrcodejs.
 FOUNDATION_EXPORT const unsigned char swift_qrcodejs_VersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <swift_qrcodejs/PublicHeader.h>
-
-
