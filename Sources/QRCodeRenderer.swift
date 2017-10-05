@@ -81,11 +81,15 @@
 #endif
 
 extension CGColor {
-    static func fromRGB(_ rgb: Int) -> CGColor {
-        return CGColor(red: CGFloat((rgb >> 16) & 0xFF),
-                       green: CGFloat((rgb >> 8) & 0xFF),
-                       blue: CGFloat(rgb & 0xFF),
-                       alpha: 1)
+    static func fromRGB(_ rgb: Int) -> CGColor! {
+        #if os(iOS) || os(tvOS) || os(watchOS)
+            return UIColor(red: CGFloat((rgb >> 16) & 0xFF),
+                           green: CGFloat((rgb >> 8) & 0xFF),
+                           blue: CGFloat(rgb & 0xFF),
+                           alpha: 1).cgColor
+        #elseif os(macOS)
+            return nil
+        #endif
     }
 }
 
@@ -113,8 +117,8 @@ struct QRCodeRenderer {
         let side = CGFloat(total) / CGFloat(count)
         let xOffset = CGFloat(total - width) / 2
         let yOffset = CGFloat(total - height) / 2
-        let dark = CGColor.fromRGB(colorDark)
-        let light = CGColor.fromRGB(colorLight)
+        let dark = CGColor.fromRGB(colorDark)!
+        let light = CGColor.fromRGB(colorLight)!
 
         return inContext(size: CGSize(width: width, height: height)) { context in
             for x in 0..<count {
