@@ -15,16 +15,15 @@ struct QRCodeModel {
         makeImpl(isTest: false, maskPattern: getBestMaskPattern())
     }
     
-    private func isDark(_ row: Int, _ col: Int) -> Bool! {
+    private func isDark(_ row: Int, _ col: Int) -> Bool {
         if (row < 0 || moduleCount <= row || col < 0 || moduleCount <= col) {
             fatalError("Index out of range: \(row),\(col)")
         }
-        return modules[row][col]
+        return modules[row][col] == true
     }
     
     private func isLight(_ row: Int, _ col: Int) -> Bool! {
-        guard let isDark = isDark(row, col) else { return nil }
-        return !isDark
+        return !isDark(row, col)
     }
     
     private mutating func makeImpl(isTest test: Bool, maskPattern: QRMaskPattern) {
