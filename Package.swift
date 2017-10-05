@@ -22,5 +22,8 @@ let package = Package(
             name: "swift_qrcodejs",
             dependencies: [],
             path: "Sources/"),
+        .testTarget(
+            name: "swift_qrcodejsTests",
+            dependencies: ["swift_qrcodejs"]),
     ]
 )

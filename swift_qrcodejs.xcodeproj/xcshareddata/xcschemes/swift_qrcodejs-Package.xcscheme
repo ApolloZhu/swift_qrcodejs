@@ -29,6 +29,16 @@
       language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "swift_qrcodejs::swift_qrcodejsTests"
+               BuildableName = "swift_qrcodejsTests.xctest"
+               BlueprintName = "swift_qrcodejsTests"
+               ReferencedContainer = "container:swift_qrcodejs.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <AdditionalOptions>
       </AdditionalOptions>
