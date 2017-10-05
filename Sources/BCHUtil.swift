@@ -23,7 +23,7 @@ struct BCHUtil {
     
     private static func bchDigit(of data: Int) -> Int {
         var digit = 0
-        var data = UInt8(data)
+        var data = UInt(data)
         while (data != 0) {
             digit += 1
             data >>= 1

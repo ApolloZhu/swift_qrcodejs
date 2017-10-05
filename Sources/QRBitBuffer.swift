@@ -25,7 +25,7 @@ struct QRBitBuffer {
             buffer.append(0)
         }
         if bit {
-            buffer[bufIndex] |= (UInt8(0x80) >> UInt8(bitCount % 8))
+            buffer[bufIndex] |= (UInt8(0x80) >> (bitCount % 8))
         }
         bitCount += 1
     }

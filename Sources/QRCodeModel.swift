@@ -144,7 +144,7 @@ struct QRCodeModel {
                     if modules[row][col - c] == nil {
                         var dark = false
                         if byteIndex < data.count {
-                            dark = ((UInt8(data[byteIndex]) >> bitIndex) & 1) == 1
+                            dark = ((UInt(data[byteIndex]) >> bitIndex) & 1) == 1
                         }
                         let mask = maskPattern.getMask(row, col - c)
                         if mask {
