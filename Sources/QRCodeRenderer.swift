@@ -72,6 +72,14 @@
 
 #if os(iOS) || os(tvOS) || os(watchOS)
     import UIKit
+    extension UIColor {
+        convenience init(rgb: Int) {
+            self.init(red: CGFloat((rgb >> 16) & 0xFF) / 255,
+                      green: CGFloat((rgb >> 8) & 0xFF) / 255,
+                      blue: CGFloat(rgb & 0xFF) / 255,
+                      alpha: 1)
+        }
+    }
 #elseif os(macOS)
     import AppKit
 #endif
@@ -79,14 +87,10 @@
 #if os(watchOS)
     import WatchKit
 #endif
-
 extension CGColor {
     static func fromRGB(_ rgb: Int) -> CGColor! {
         #if os(iOS) || os(tvOS) || os(watchOS)
-            return UIColor(red: CGFloat((rgb >> 16) & 0xFF),
-                           green: CGFloat((rgb >> 8) & 0xFF),
-                           blue: CGFloat(rgb & 0xFF),
-                           alpha: 1).cgColor
+            return UIColor(rgb: rgb).cgColor
         #elseif os(macOS)
             return nil
         #endif
@@ -106,21 +110,20 @@ struct QRCodeRenderer {
     }
 
     static func generate(model: [[Bool]],
-                         width: Int = 256,
-                         height: Int = 256,
+                         size: CGSize = CGSize(width: 256, height: 256),
                          colorDark: Int = 0x000000,
                          colorLight: Int = 0xFFFFFF,
                          errorCorrectLevel: QRErrorCorrectLevel = .H) -> CGImage! {
         let count = model.count
         guard count > 0 else { return nil }
-        let total = min(width, height)
-        let side = CGFloat(total) / CGFloat(count)
-        let xOffset = CGFloat(total - width) / 2
-        let yOffset = CGFloat(total - height) / 2
+        let total = min(size.width, size.height)
+        let side = total / CGFloat(count)
+        let xOffset = (size.width - total) / 2
+        let yOffset = (size.height - total) / 2
         let dark = CGColor.fromRGB(colorDark)!
         let light = CGColor.fromRGB(colorLight)!
 
-        return inContext(size: CGSize(width: width, height: height)) { context in
+        return inContext(size: size) { context in
             for x in 0..<count {
                 for y in 0..<count {
                     context.setFillColor(model[x][y] ? dark : light)

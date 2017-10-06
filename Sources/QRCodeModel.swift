@@ -1,8 +1,8 @@
 struct QRCodeModel {
     let typeNumber: Int
     let errorCorrectLevel: QRErrorCorrectLevel
-    var modules: [[Bool?]]! = nil
-    private var moduleCount = 0
+    private var modules: [[Bool?]]! = nil
+    private(set) var moduleCount = 0
     private let encodedText: QR8bitByte
     private lazy var dataCache: [Int] = try! QRCodeModel.createData(typeNumber: self.typeNumber,
                                                                     errorCorrectLevel: self.errorCorrectLevel,
@@ -15,14 +15,14 @@ struct QRCodeModel {
         makeImpl(isTest: false, maskPattern: getBestMaskPattern())
     }
     
-    private func isDark(_ row: Int, _ col: Int) -> Bool {
+    public func isDark(_ row: Int, _ col: Int) -> Bool {
         if (row < 0 || moduleCount <= row || col < 0 || moduleCount <= col) {
             fatalError("Index out of range: \(row),\(col)")
         }
         return modules[row][col] == true
     }
     
-    private func isLight(_ row: Int, _ col: Int) -> Bool! {
+    public func isLight(_ row: Int, _ col: Int) -> Bool! {
         return !isDark(row, col)
     }
     
