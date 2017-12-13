@@ -108,7 +108,7 @@ struct QRCodeRenderer {
             return nil
         #endif
     }
-
+    
     static func generate(model: [[Bool]],
                          size: CGSize = CGSize(width: 256, height: 256),
                          colorDark: Int = 0x000000,
@@ -122,7 +122,7 @@ struct QRCodeRenderer {
         let yOffset = (size.height - total) / 2
         let dark = CGColor.fromRGB(colorDark)!
         let light = CGColor.fromRGB(colorLight)!
-
+        
         return inContext(size: size) { context in
             for x in 0..<count {
                 for y in 0..<count {

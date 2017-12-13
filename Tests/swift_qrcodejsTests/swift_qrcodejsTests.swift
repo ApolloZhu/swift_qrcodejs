@@ -3,9 +3,7 @@ import XCTest
 
 class swift_qrcodejsTests: XCTestCase {
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
+        print(QRCode("https://gist.github.com/agentgt/1700331")!.toString(filledWith: "MM", patchedWith: "  "))
     }
 
     static var allTests = [

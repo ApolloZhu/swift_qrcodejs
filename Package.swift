@@ -10,6 +10,9 @@ let package = Package(
         .library(
             name: "swift_qrcodejs",
             targets: ["swift_qrcodejs"]),
+        .executable(
+            name: "swift_qrcodejs-cli",
+            targets: ["swift_qrcodejs-cli"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -22,6 +25,10 @@ let package = Package(
             name: "swift_qrcodejs",
             dependencies: [],
             path: "Sources/"),
+        .target(
+            name: "swift_qrcodejs-cli",
+            dependencies: ["swift_qrcodejs"],
+            path: "Example/"),
         .testTarget(
             name: "swift_qrcodejsTests",
             dependencies: ["swift_qrcodejs"]),

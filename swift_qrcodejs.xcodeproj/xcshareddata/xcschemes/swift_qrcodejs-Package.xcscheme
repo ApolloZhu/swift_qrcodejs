@@ -14,6 +14,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "swift_qrcodejs::swift_qrcodejs-cli"
+               BuildableName = "swift_qrcodejs-cli"
+               BlueprintName = "swift_qrcodejs-cli"
+               ReferencedContainer = "container:swift_qrcodejs.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "swift_qrcodejs::swift_qrcodejs"
                BuildableName = "swift_qrcodejs.framework"
                BlueprintName = "swift_qrcodejs"
@@ -57,9 +71,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "swift_qrcodejs::swift_qrcodejs"
-            BuildableName = "swift_qrcodejs.framework"
-            BlueprintName = "swift_qrcodejs"
+            BlueprintIdentifier = "swift_qrcodejs::swift_qrcodejs-cli"
+            BuildableName = "swift_qrcodejs-cli"
+            BlueprintName = "swift_qrcodejs-cli"
             ReferencedContainer = "container:swift_qrcodejs.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

@@ -1,6 +1,6 @@
 struct QRPolynomial {
     
-    var numbers: [Int]
+    private var numbers: [Int]
     
     init!(_ nums: Int..., shift: Int = 0) {
         self.init(nums, shift: shift)

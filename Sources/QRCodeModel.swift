@@ -74,7 +74,7 @@ struct QRCodeModel {
     }
     
     private mutating func setupPositionAdjustPattern() {
-        let pos = QRPatternLocator.getPatternPosition(typeNumber: typeNumber)
+        let pos = QRPatternLocator.getPatternPositionOfType(typeNumber)
         for i in 0..<pos.count {
             for j in 0..<pos.count {
                 let row = pos[i]
@@ -171,7 +171,7 @@ struct QRCodeModel {
     private static let PAD1: UInt8 = 0x11
     
     private static func createData(typeNumber: Int, errorCorrectLevel: QRErrorCorrectLevel, data: QR8bitByte) throws -> [Int] {
-        var rsBlocks = QRRSBlock.getRSBlocks(typeNumber: typeNumber, errorCorrectLevel: errorCorrectLevel)
+        var rsBlocks = errorCorrectLevel.getRSBlocksOfType(typeNumber)
         var buffer = QRBitBuffer()
         
         buffer.put(data.mode.rawValue, length: 4)
@@ -190,7 +190,7 @@ struct QRCodeModel {
             buffer.put(0, length: 4)
         }
         while buffer.bitCount % 8 != 0 {
-            buffer.putBit(false)
+            buffer.put(false)
         }
         while (true) {
             if buffer.bitCount >= totalDataCount * 8 {

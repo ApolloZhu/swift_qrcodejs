@@ -4,7 +4,7 @@ struct QRRSBlock {
 }
 
 extension QRRSBlock {
-    private static let RS_BLOCK_TABLE: [[Int]] = [
+    fileprivate static let RS_BLOCK_TABLE: [[Int]] = [
         [1, 26, 19],
         [1, 26, 16],
         [1, 26, 13],
@@ -166,9 +166,11 @@ extension QRRSBlock {
         [34, 54, 24, 34, 55, 25],
         [20, 45, 15, 61, 46, 16]
     ]
-    
-    static func getRSBlocks(typeNumber: Int, errorCorrectLevel: QRErrorCorrectLevel) -> [QRRSBlock] {
-        let rsBlock = QRRSBlock.getRsBlockTable(typeNumber: typeNumber, errorCorrectLevel: errorCorrectLevel)
+}
+
+extension QRErrorCorrectLevel {
+    func getRSBlocksOfType(_ typeNumber: Int) -> [QRRSBlock] {
+        let rsBlock = getRsBlockTableOfType(typeNumber)
         let length = rsBlock.count / 3
         var list = [QRRSBlock]()
         for i in 0..<length {
@@ -182,15 +184,15 @@ extension QRRSBlock {
         return list
     }
     
-    private static func getRsBlockTable(typeNumber: Int, errorCorrectLevel: QRErrorCorrectLevel) -> [Int] {
-        switch (errorCorrectLevel) {
-        case QRErrorCorrectLevel.L:
+    private func getRsBlockTableOfType(_ typeNumber: Int) -> [Int] {
+        switch (self) {
+        case .L:
             return QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 0]
-        case QRErrorCorrectLevel.M:
+        case .M:
             return QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 1]
-        case QRErrorCorrectLevel.Q:
+        case .Q:
             return QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 2]
-        case QRErrorCorrectLevel.H:
+        case .H:
             return QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 3]
         }
     }

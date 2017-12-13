@@ -9,11 +9,11 @@
 /* Begin PBXAggregateTarget section */
 		"swift_qrcodejs::swift_qrcodejsPackageTests::ProductTarget" /* swift_qrcodejsPackageTests */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = OBJ_66 /* Build configuration list for PBXAggregateTarget "swift_qrcodejsPackageTests" */;
+			buildConfigurationList = OBJ_80 /* Build configuration list for PBXAggregateTarget "swift_qrcodejsPackageTests" */;
 			buildPhases = (
 			);
 			dependencies = (
-				OBJ_69 /* PBXTargetDependency */,
+				OBJ_83 /* PBXTargetDependency */,
 			);
 			name = swift_qrcodejsPackageTests;
 			productName = swift_qrcodejsPackageTests;
@@ -21,37 +21,44 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		52034E701F85DD0F00AC36BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52034E6F1F85DD0F00AC36BB /* Foundation.framework */; };
-		52034E721F85DD1500AC36BB /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52034E711F85DD1500AC36BB /* Accelerate.framework */; };
-		OBJ_34 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_40 /* swift_qrcodejsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* swift_qrcodejsTests.swift */; };
-		OBJ_42 /* swift_qrcodejs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift_qrcodejs::swift_qrcodejs::Product" /* swift_qrcodejs.framework */; };
-		OBJ_49 /* BCHUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_8 /* BCHUtil.swift */; };
-		OBJ_50 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Error.swift */; };
-		OBJ_51 /* QR8bitByte.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* QR8bitByte.swift */; };
-		OBJ_52 /* QRBitBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* QRBitBuffer.swift */; };
-		OBJ_53 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* QRCode.swift */; };
-		OBJ_54 /* QRCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* QRCodeModel.swift */; };
-		OBJ_55 /* QRCodeRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* QRCodeRenderer.swift */; };
-		OBJ_56 /* QRCodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* QRCodeType.swift */; };
-		OBJ_57 /* QRErrorCorrectLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* QRErrorCorrectLevel.swift */; };
-		OBJ_58 /* QRMaskPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* QRMaskPattern.swift */; };
-		OBJ_59 /* QRMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* QRMath.swift */; };
-		OBJ_60 /* QRMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* QRMode.swift */; };
-		OBJ_61 /* QRPatternLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* QRPatternLocator.swift */; };
-		OBJ_62 /* QRPolynomial.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* QRPolynomial.swift */; };
-		OBJ_63 /* QRRSBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* QRRSBlock.swift */; };
+		OBJ_39 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_45 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* main.swift */; };
+		OBJ_47 /* swift_qrcodejs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift_qrcodejs::swift_qrcodejs::Product" /* swift_qrcodejs.framework */; };
+		OBJ_55 /* swift_qrcodejsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* swift_qrcodejsTests.swift */; };
+		OBJ_57 /* swift_qrcodejs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift_qrcodejs::swift_qrcodejs::Product" /* swift_qrcodejs.framework */; };
+		OBJ_63 /* BCHUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* BCHUtil.swift */; };
+		OBJ_64 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Error.swift */; };
+		OBJ_65 /* QR8bitByte.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* QR8bitByte.swift */; };
+		OBJ_66 /* QRBitBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* QRBitBuffer.swift */; };
+		OBJ_67 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* QRCode.swift */; };
+		OBJ_68 /* QRCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* QRCodeModel.swift */; };
+		OBJ_69 /* QRCodeRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* QRCodeRenderer.swift */; };
+		OBJ_70 /* QRCodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* QRCodeType.swift */; };
+		OBJ_71 /* QRErrorCorrectLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* QRErrorCorrectLevel.swift */; };
+		OBJ_72 /* QRMaskPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* QRMaskPattern.swift */; };
+		OBJ_73 /* QRMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* QRMath.swift */; };
+		OBJ_74 /* QRMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* QRMode.swift */; };
+		OBJ_75 /* QRPatternLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* QRPatternLocator.swift */; };
+		OBJ_76 /* QRPolynomial.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* QRPolynomial.swift */; };
+		OBJ_77 /* QRRSBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* QRRSBlock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		52034E681F85D76100AC36BB /* PBXContainerItemProxy */ = {
+		52D2754A1FE0730A009F82DC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "swift_qrcodejs::swift_qrcodejs";
 			remoteInfo = swift_qrcodejs;
 		};
-		52034E691F85D76200AC36BB /* PBXContainerItemProxy */ = {
+		52D2754B1FE0730A009F82DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "swift_qrcodejs::swift_qrcodejs";
+			remoteInfo = swift_qrcodejs;
+		};
+		52D2754C1FE0730B009F82DC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
@@ -61,139 +68,145 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		52034E6B1F85DB9700AC36BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		52034E6F1F85DD0F00AC36BB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		52034E711F85DD1500AC36BB /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		52DF76941F85EA2E00462436 /* swift_qrcodejs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = swift_qrcodejs.h; sourceTree = "<group>"; };
-		OBJ_10 /* QR8bitByte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR8bitByte.swift; sourceTree = "<group>"; };
-		OBJ_11 /* QRBitBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRBitBuffer.swift; sourceTree = "<group>"; };
-		OBJ_12 /* QRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
-		OBJ_13 /* QRCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeModel.swift; sourceTree = "<group>"; };
-		OBJ_14 /* QRCodeRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeRenderer.swift; sourceTree = "<group>"; };
-		OBJ_15 /* QRCodeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeType.swift; sourceTree = "<group>"; };
-		OBJ_16 /* QRErrorCorrectLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRErrorCorrectLevel.swift; sourceTree = "<group>"; };
-		OBJ_17 /* QRMaskPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRMaskPattern.swift; sourceTree = "<group>"; };
-		OBJ_18 /* QRMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRMath.swift; sourceTree = "<group>"; };
-		OBJ_19 /* QRMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRMode.swift; sourceTree = "<group>"; };
-		OBJ_20 /* QRPatternLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRPatternLocator.swift; sourceTree = "<group>"; };
-		OBJ_21 /* QRPolynomial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRPolynomial.swift; sourceTree = "<group>"; };
-		OBJ_22 /* QRRSBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRRSBlock.swift; sourceTree = "<group>"; };
-		OBJ_25 /* swift_qrcodejsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift_qrcodejsTests.swift; sourceTree = "<group>"; };
+		OBJ_10 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		OBJ_11 /* QR8bitByte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR8bitByte.swift; sourceTree = "<group>"; };
+		OBJ_12 /* QRBitBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRBitBuffer.swift; sourceTree = "<group>"; };
+		OBJ_13 /* QRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
+		OBJ_14 /* QRCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeModel.swift; sourceTree = "<group>"; };
+		OBJ_15 /* QRCodeRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeRenderer.swift; sourceTree = "<group>"; };
+		OBJ_16 /* QRCodeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeType.swift; sourceTree = "<group>"; };
+		OBJ_17 /* QRErrorCorrectLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRErrorCorrectLevel.swift; sourceTree = "<group>"; };
+		OBJ_18 /* QRMaskPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRMaskPattern.swift; sourceTree = "<group>"; };
+		OBJ_19 /* QRMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRMath.swift; sourceTree = "<group>"; };
+		OBJ_20 /* QRMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRMode.swift; sourceTree = "<group>"; };
+		OBJ_21 /* QRPatternLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRPatternLocator.swift; sourceTree = "<group>"; };
+		OBJ_22 /* QRPolynomial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRPolynomial.swift; sourceTree = "<group>"; };
+		OBJ_23 /* QRRSBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRRSBlock.swift; sourceTree = "<group>"; };
+		OBJ_25 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		OBJ_28 /* swift_qrcodejsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift_qrcodejsTests.swift; sourceTree = "<group>"; };
+		OBJ_29 /* Example */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Example; sourceTree = SOURCE_ROOT; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		OBJ_8 /* BCHUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCHUtil.swift; sourceTree = "<group>"; };
-		OBJ_9 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		OBJ_9 /* BCHUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCHUtil.swift; sourceTree = "<group>"; };
+		"swift_qrcodejs::swift_qrcodejs-cli::Product" /* swift_qrcodejs-cli */ = {isa = PBXFileReference; lastKnownFileType = text; path = "swift_qrcodejs-cli"; sourceTree = BUILT_PRODUCTS_DIR; };
 		"swift_qrcodejs::swift_qrcodejs::Product" /* swift_qrcodejs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = swift_qrcodejs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"swift_qrcodejs::swift_qrcodejsTests::Product" /* swift_qrcodejsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = swift_qrcodejsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"swift_qrcodejs::swift_qrcodejsTests::Product" /* swift_qrcodejsTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = swift_qrcodejsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		OBJ_41 /* Frameworks */ = {
+		OBJ_46 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_42 /* swift_qrcodejs.framework in Frameworks */,
+				OBJ_47 /* swift_qrcodejs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_64 /* Frameworks */ = {
+		OBJ_56 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				52034E721F85DD1500AC36BB /* Accelerate.framework in Frameworks */,
-				52034E701F85DD0F00AC36BB /* Foundation.framework in Frameworks */,
+				OBJ_57 /* swift_qrcodejs.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_78 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		52034E6E1F85DD0F00AC36BB /* Frameworks */ = {
+		OBJ_24 /* swift_qrcodejs-cli */ = {
 			isa = PBXGroup;
 			children = (
-				52034E711F85DD1500AC36BB /* Accelerate.framework */,
-				52034E6F1F85DD0F00AC36BB /* Foundation.framework */,
+				OBJ_25 /* main.swift */,
 			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		OBJ_23 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_24 /* swift_qrcodejsTests */,
-			);
-			path = Tests;
+			name = "swift_qrcodejs-cli";
+			path = Example;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_24 /* swift_qrcodejsTests */ = {
+		OBJ_26 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_25 /* swift_qrcodejsTests.swift */,
+				OBJ_27 /* swift_qrcodejsTests */,
 			);
-			path = swift_qrcodejsTests;
-			sourceTree = "<group>";
+			name = Tests;
+			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_26 /* Products */ = {
+		OBJ_27 /* swift_qrcodejsTests */ = {
 			isa = PBXGroup;
 			children = (
+				OBJ_28 /* swift_qrcodejsTests.swift */,
+			);
+			name = swift_qrcodejsTests;
+			path = Tests/swift_qrcodejsTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_30 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				"swift_qrcodejs::swift_qrcodejs-cli::Product" /* swift_qrcodejs-cli */,
 				"swift_qrcodejs::swift_qrcodejsTests::Product" /* swift_qrcodejsTests.xctest */,
 				"swift_qrcodejs::swift_qrcodejs::Product" /* swift_qrcodejs.framework */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 = {
+		OBJ_5 /*  */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
-				OBJ_23 /* Tests */,
-				OBJ_26 /* Products */,
-				52034E6E1F85DD0F00AC36BB /* Frameworks */,
+				OBJ_26 /* Tests */,
+				OBJ_29 /* Example */,
+				OBJ_30 /* Products */,
 			);
+			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_8 /* BCHUtil.swift */,
-				OBJ_9 /* Error.swift */,
-				OBJ_10 /* QR8bitByte.swift */,
-				OBJ_11 /* QRBitBuffer.swift */,
-				OBJ_12 /* QRCode.swift */,
-				OBJ_13 /* QRCodeModel.swift */,
-				OBJ_14 /* QRCodeRenderer.swift */,
-				OBJ_15 /* QRCodeType.swift */,
-				OBJ_16 /* QRErrorCorrectLevel.swift */,
-				OBJ_17 /* QRMaskPattern.swift */,
-				OBJ_18 /* QRMath.swift */,
-				OBJ_19 /* QRMode.swift */,
-				OBJ_20 /* QRPatternLocator.swift */,
-				OBJ_21 /* QRPolynomial.swift */,
-				OBJ_22 /* QRRSBlock.swift */,
-				52DF76941F85EA2E00462436 /* swift_qrcodejs.h */,
-				52034E6B1F85DB9700AC36BB /* Info.plist */,
+				OBJ_8 /* swift_qrcodejs */,
+				OBJ_24 /* swift_qrcodejs-cli */,
 			);
+			name = Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_8 /* swift_qrcodejs */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_9 /* BCHUtil.swift */,
+				OBJ_10 /* Error.swift */,
+				OBJ_11 /* QR8bitByte.swift */,
+				OBJ_12 /* QRBitBuffer.swift */,
+				OBJ_13 /* QRCode.swift */,
+				OBJ_14 /* QRCodeModel.swift */,
+				OBJ_15 /* QRCodeRenderer.swift */,
+				OBJ_16 /* QRCodeType.swift */,
+				OBJ_17 /* QRErrorCorrectLevel.swift */,
+				OBJ_18 /* QRMaskPattern.swift */,
+				OBJ_19 /* QRMath.swift */,
+				OBJ_20 /* QRMode.swift */,
+				OBJ_21 /* QRPatternLocator.swift */,
+				OBJ_22 /* QRPolynomial.swift */,
+				OBJ_23 /* QRRSBlock.swift */,
+			);
+			name = swift_qrcodejs;
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		52034E6C1F85DBBA00AC36BB /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
 		"swift_qrcodejs::SwiftPMPackageDescription" /* swift_qrcodejsPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_30 /* Build configuration list for PBXNativeTarget "swift_qrcodejsPackageDescription" */;
+			buildConfigurationList = OBJ_35 /* Build configuration list for PBXNativeTarget "swift_qrcodejsPackageDescription" */;
 			buildPhases = (
-				OBJ_33 /* Sources */,
+				OBJ_38 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -205,11 +218,10 @@
 		};
 		"swift_qrcodejs::swift_qrcodejs" /* swift_qrcodejs */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_45 /* Build configuration list for PBXNativeTarget "swift_qrcodejs" */;
+			buildConfigurationList = OBJ_59 /* Build configuration list for PBXNativeTarget "swift_qrcodejs" */;
 			buildPhases = (
-				OBJ_48 /* Sources */,
-				OBJ_64 /* Frameworks */,
-				52034E6C1F85DBBA00AC36BB /* Headers */,
+				OBJ_62 /* Sources */,
+				OBJ_78 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -220,17 +232,34 @@
 			productReference = "swift_qrcodejs::swift_qrcodejs::Product" /* swift_qrcodejs.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		"swift_qrcodejs::swift_qrcodejsTests" /* swift_qrcodejsTests */ = {
+		"swift_qrcodejs::swift_qrcodejs-cli" /* swift_qrcodejs-cli */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_36 /* Build configuration list for PBXNativeTarget "swift_qrcodejsTests" */;
+			buildConfigurationList = OBJ_41 /* Build configuration list for PBXNativeTarget "swift_qrcodejs-cli" */;
 			buildPhases = (
-				OBJ_39 /* Sources */,
-				OBJ_41 /* Frameworks */,
+				OBJ_44 /* Sources */,
+				OBJ_46 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_43 /* PBXTargetDependency */,
+				OBJ_48 /* PBXTargetDependency */,
+			);
+			name = "swift_qrcodejs-cli";
+			productName = swift_qrcodejs_cli;
+			productReference = "swift_qrcodejs::swift_qrcodejs-cli::Product" /* swift_qrcodejs-cli */;
+			productType = "com.apple.product-type.tool";
+		};
+		"swift_qrcodejs::swift_qrcodejsTests" /* swift_qrcodejsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_51 /* Build configuration list for PBXNativeTarget "swift_qrcodejsTests" */;
+			buildPhases = (
+				OBJ_54 /* Sources */,
+				OBJ_56 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_58 /* PBXTargetDependency */,
 			);
 			name = swift_qrcodejsTests;
 			productName = swift_qrcodejsTests;
@@ -252,70 +281,84 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5;
-			productRefGroup = OBJ_26 /* Products */;
+			mainGroup = OBJ_5 /*  */;
+			productRefGroup = OBJ_30 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				"swift_qrcodejs::swift_qrcodejs" /* swift_qrcodejs */,
-				"swift_qrcodejs::swift_qrcodejsTests" /* swift_qrcodejsTests */,
 				"swift_qrcodejs::SwiftPMPackageDescription" /* swift_qrcodejsPackageDescription */,
+				"swift_qrcodejs::swift_qrcodejs-cli" /* swift_qrcodejs-cli */,
+				"swift_qrcodejs::swift_qrcodejsTests" /* swift_qrcodejsTests */,
+				"swift_qrcodejs::swift_qrcodejs" /* swift_qrcodejs */,
 				"swift_qrcodejs::swift_qrcodejsPackageTests::ProductTarget" /* swift_qrcodejsPackageTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		OBJ_33 /* Sources */ = {
+		OBJ_38 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_34 /* Package.swift in Sources */,
+				OBJ_39 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_39 /* Sources */ = {
+		OBJ_44 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_40 /* swift_qrcodejsTests.swift in Sources */,
+				OBJ_45 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_48 /* Sources */ = {
+		OBJ_54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_49 /* BCHUtil.swift in Sources */,
-				OBJ_50 /* Error.swift in Sources */,
-				OBJ_51 /* QR8bitByte.swift in Sources */,
-				OBJ_52 /* QRBitBuffer.swift in Sources */,
-				OBJ_53 /* QRCode.swift in Sources */,
-				OBJ_54 /* QRCodeModel.swift in Sources */,
-				OBJ_55 /* QRCodeRenderer.swift in Sources */,
-				OBJ_56 /* QRCodeType.swift in Sources */,
-				OBJ_57 /* QRErrorCorrectLevel.swift in Sources */,
-				OBJ_58 /* QRMaskPattern.swift in Sources */,
-				OBJ_59 /* QRMath.swift in Sources */,
-				OBJ_60 /* QRMode.swift in Sources */,
-				OBJ_61 /* QRPatternLocator.swift in Sources */,
-				OBJ_62 /* QRPolynomial.swift in Sources */,
-				OBJ_63 /* QRRSBlock.swift in Sources */,
+				OBJ_55 /* swift_qrcodejsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_63 /* BCHUtil.swift in Sources */,
+				OBJ_64 /* Error.swift in Sources */,
+				OBJ_65 /* QR8bitByte.swift in Sources */,
+				OBJ_66 /* QRBitBuffer.swift in Sources */,
+				OBJ_67 /* QRCode.swift in Sources */,
+				OBJ_68 /* QRCodeModel.swift in Sources */,
+				OBJ_69 /* QRCodeRenderer.swift in Sources */,
+				OBJ_70 /* QRCodeType.swift in Sources */,
+				OBJ_71 /* QRErrorCorrectLevel.swift in Sources */,
+				OBJ_72 /* QRMaskPattern.swift in Sources */,
+				OBJ_73 /* QRMath.swift in Sources */,
+				OBJ_74 /* QRMode.swift in Sources */,
+				OBJ_75 /* QRPatternLocator.swift in Sources */,
+				OBJ_76 /* QRPolynomial.swift in Sources */,
+				OBJ_77 /* QRRSBlock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		OBJ_43 /* PBXTargetDependency */ = {
+		OBJ_48 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "swift_qrcodejs::swift_qrcodejs" /* swift_qrcodejs */;
-			targetProxy = 52034E681F85D76100AC36BB /* PBXContainerItemProxy */;
+			targetProxy = 52D2754A1FE0730A009F82DC /* PBXContainerItemProxy */;
 		};
-		OBJ_69 /* PBXTargetDependency */ = {
+		OBJ_58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "swift_qrcodejs::swift_qrcodejs" /* swift_qrcodejs */;
+			targetProxy = 52D2754B1FE0730A009F82DC /* PBXContainerItemProxy */;
+		};
+		OBJ_83 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "swift_qrcodejs::swift_qrcodejsTests" /* swift_qrcodejsTests */;
-			targetProxy = 52034E691F85D76200AC36BB /* PBXContainerItemProxy */;
+			targetProxy = 52D2754C1FE0730B009F82DC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -342,57 +385,21 @@
 			};
 			name = Debug;
 		};
-		OBJ_31 /* Debug */ = {
+		OBJ_36 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
-		OBJ_32 /* Release */ = {
+		OBJ_37 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
 				SWIFT_VERSION = 4.0;
-			};
-			name = Release;
-		};
-		OBJ_37 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Tests/swift_qrcodejsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_VERSION = 4.0;
-				TARGET_NAME = swift_qrcodejsTests;
-			};
-			name = Debug;
-		};
-		OBJ_38 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Tests/swift_qrcodejsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_VERSION = 4.0;
-				TARGET_NAME = swift_qrcodejsTests;
 			};
 			name = Release;
 		};
@@ -416,17 +423,94 @@
 			};
 			name = Release;
 		};
-		OBJ_46 /* Debug */ = {
+		OBJ_42 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEFINES_MODULE = YES;
-				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Sources/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/Frameworks @executable_path/Frameworks";
+				INFOPLIST_FILE = swift_qrcodejs.xcodeproj/swift_qrcodejs_cli_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "io.github.apollozhu.swift-qrcodejs";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = "swift_qrcodejs-cli";
+			};
+			name = Debug;
+		};
+		OBJ_43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = swift_qrcodejs.xcodeproj/swift_qrcodejs_cli_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = "swift_qrcodejs-cli";
+			};
+			name = Release;
+		};
+		OBJ_52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = swift_qrcodejs.xcodeproj/swift_qrcodejsTests_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = swift_qrcodejsTests;
+			};
+			name = Debug;
+		};
+		OBJ_53 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = swift_qrcodejs.xcodeproj/swift_qrcodejsTests_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = swift_qrcodejsTests;
+			};
+			name = Release;
+		};
+		OBJ_60 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = swift_qrcodejs.xcodeproj/swift_qrcodejs_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "swift-qrcodejs";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -435,17 +519,20 @@
 			};
 			name = Debug;
 		};
-		OBJ_47 /* Release */ = {
+		OBJ_61 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEFINES_MODULE = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Sources/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/Frameworks @executable_path/Frameworks";
+				INFOPLIST_FILE = swift_qrcodejs.xcodeproj/swift_qrcodejs_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "io.github.apollozhu.swift-qrcodejs";
+				PRODUCT_BUNDLE_IDENTIFIER = "swift-qrcodejs";
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -454,13 +541,13 @@
 			};
 			name = Release;
 		};
-		OBJ_67 /* Debug */ = {
+		OBJ_81 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
 			name = Debug;
 		};
-		OBJ_68 /* Release */ = {
+		OBJ_82 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
@@ -478,38 +565,47 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_30 /* Build configuration list for PBXNativeTarget "swift_qrcodejsPackageDescription" */ = {
+		OBJ_35 /* Build configuration list for PBXNativeTarget "swift_qrcodejsPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_31 /* Debug */,
-				OBJ_32 /* Release */,
+				OBJ_36 /* Debug */,
+				OBJ_37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_36 /* Build configuration list for PBXNativeTarget "swift_qrcodejsTests" */ = {
+		OBJ_41 /* Build configuration list for PBXNativeTarget "swift_qrcodejs-cli" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_37 /* Debug */,
-				OBJ_38 /* Release */,
+				OBJ_42 /* Debug */,
+				OBJ_43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_45 /* Build configuration list for PBXNativeTarget "swift_qrcodejs" */ = {
+		OBJ_51 /* Build configuration list for PBXNativeTarget "swift_qrcodejsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_46 /* Debug */,
-				OBJ_47 /* Release */,
+				OBJ_52 /* Debug */,
+				OBJ_53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_66 /* Build configuration list for PBXAggregateTarget "swift_qrcodejsPackageTests" */ = {
+		OBJ_59 /* Build configuration list for PBXNativeTarget "swift_qrcodejs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_67 /* Debug */,
-				OBJ_68 /* Release */,
+				OBJ_60 /* Debug */,
+				OBJ_61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		OBJ_80 /* Build configuration list for PBXAggregateTarget "swift_qrcodejsPackageTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_81 /* Debug */,
+				OBJ_82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

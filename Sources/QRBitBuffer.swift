@@ -15,11 +15,11 @@ struct QRBitBuffer {
     
     mutating func put(_ num: UInt8, length: Int) {
         for i in 0..<length {
-            putBit(((num >> (length - i - 1)) & 1) == 1)
+            put(((num >> (length - i - 1)) & 1) == 1)
         }
     }
     
-    mutating func putBit(_ bit: Bool) {
+    mutating func put(_ bit: Bool) {
         let bufIndex = bitCount / 8
         if buffer.count <= bufIndex {
             buffer.append(0)

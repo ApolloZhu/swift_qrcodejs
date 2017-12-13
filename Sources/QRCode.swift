@@ -59,9 +59,18 @@ public class QRCode {
     }()
     #elseif os(macOS)
     public private(set) lazy var image: NSImage! = {
-    guard let cgImage = cgImage else { return nil }
-    return NSImage(cgImage: cgImage,
-    size: NSSize(width: width, height: height))
+        guard let cgImage = cgImage else { return nil }
+        return NSImage(cgImage: cgImage,
+                       size: NSSize(width: size.width, height: size.height))
     }()
     #endif
+
+    public func toString(filledWith black: Any,
+                         patchedWith white: Any) -> String {
+        guard let code = imageCodes else { return "" }
+        let base = (0..<code.count+2).reduce("") { (built,_) in "\(built)\(white)" }
+        return code.reduce("\(base)\n") { $0 +
+            "\($1.reduce("\(white)") { "\($0)\($1 ? black : white)" })\(white)\n"
+        } + base
+    }
 }
