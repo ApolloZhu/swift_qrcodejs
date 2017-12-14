@@ -87,6 +87,8 @@
 #if os(watchOS)
     import WatchKit
 #endif
+
+#if os(iOS) || os(tvOS) || os(watchOS) || os(macOS)
 extension CGColor {
     static func fromRGB(_ rgb: Int) -> CGColor! {
         #if os(iOS) || os(tvOS) || os(watchOS)
@@ -96,6 +98,7 @@ extension CGColor {
         #endif
     }
 }
+#endif
 
 struct QRCodeRenderer {
     private static func inContext(size: CGSize, _ action: (CGContext!) -> Void) -> CGImage! {

@@ -1,11 +1,28 @@
+#if os(watchOS)
+    import WatchKit
+#endif
+
 #if os(iOS) || os(tvOS) || os(watchOS)
     import UIKit
 #elseif os(macOS)
     import AppKit
-#endif
+#else
+    public struct CGSize: Equatable {
 
-#if os(watchOS)
-    import WatchKit
+        public var width, height: Int
+
+        public static var zero: CGSize { return CGSize()  }
+
+        public init(width: Int = 0, height: Int = 0) {
+            self.width = width
+            self.height = height
+        }
+
+        public static func ==(lhs: CGSize, rhs: CGSize) -> Bool {
+            return lhs.width == rhs.width
+                && lhs.height == rhs.height
+        }
+    }
 #endif
 
 public class QRCode {
@@ -44,6 +61,7 @@ public class QRCode {
         }
     }()
 
+    #if os(iOS) || os(tvOS) || os(watchOS) || os(macOS)
     public private(set) lazy var cgImage: CGImage! = {
         guard let codes = imageCodes else { return nil }
         return QRCodeRenderer.generate(model: codes,
@@ -51,6 +69,7 @@ public class QRCode {
                                        colorDark: colorDark, colorLight: colorLight,
                                        errorCorrectLevel: correctLevel)
     }()
+    #endif
 
     #if os(iOS) || os(tvOS) || os(watchOS)
     public private(set) lazy var image: UIImage! = {
