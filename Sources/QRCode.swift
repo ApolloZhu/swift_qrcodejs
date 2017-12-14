@@ -61,29 +61,6 @@ public class QRCode {
         }
     }()
 
-    #if os(iOS) || os(tvOS) || os(watchOS) || os(macOS)
-    public private(set) lazy var cgImage: CGImage! = {
-        guard let codes = imageCodes else { return nil }
-        return QRCodeRenderer.generate(model: codes,
-                                       size: size,
-                                       colorDark: colorDark, colorLight: colorLight,
-                                       errorCorrectLevel: correctLevel)
-    }()
-    #endif
-
-    #if os(iOS) || os(tvOS) || os(watchOS)
-    public private(set) lazy var image: UIImage! = {
-        guard let cgImage = cgImage else { return nil }
-        return UIImage(cgImage: cgImage)
-    }()
-    #elseif os(macOS)
-    public private(set) lazy var image: NSImage! = {
-        guard let cgImage = cgImage else { return nil }
-        return NSImage(cgImage: cgImage,
-                       size: NSSize(width: size.width, height: size.height))
-    }()
-    #endif
-
     public func toString(filledWith black: Any,
                          patchedWith white: Any) -> String {
         guard let code = imageCodes else { return "" }

@@ -44,21 +44,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		52D2754A1FE0730A009F82DC /* PBXContainerItemProxy */ = {
+		52B3EE241FE21B2F004F4E23 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "swift_qrcodejs::swift_qrcodejs";
 			remoteInfo = swift_qrcodejs;
 		};
-		52D2754B1FE0730A009F82DC /* PBXContainerItemProxy */ = {
+		52B3EE251FE21B2F004F4E23 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "swift_qrcodejs::swift_qrcodejs";
 			remoteInfo = swift_qrcodejs;
 		};
-		52D2754C1FE0730B009F82DC /* PBXContainerItemProxy */ = {
+		52B3EE261FE21B2F004F4E23 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
@@ -348,17 +348,17 @@
 		OBJ_48 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "swift_qrcodejs::swift_qrcodejs" /* swift_qrcodejs */;
-			targetProxy = 52D2754A1FE0730A009F82DC /* PBXContainerItemProxy */;
+			targetProxy = 52B3EE241FE21B2F004F4E23 /* PBXContainerItemProxy */;
 		};
 		OBJ_58 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "swift_qrcodejs::swift_qrcodejs" /* swift_qrcodejs */;
-			targetProxy = 52D2754B1FE0730A009F82DC /* PBXContainerItemProxy */;
+			targetProxy = 52B3EE251FE21B2F004F4E23 /* PBXContainerItemProxy */;
 		};
 		OBJ_83 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "swift_qrcodejs::swift_qrcodejsTests" /* swift_qrcodejsTests */;
-			targetProxy = 52D2754C1FE0730B009F82DC /* PBXContainerItemProxy */;
+			targetProxy = 52B3EE261FE21B2F004F4E23 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
