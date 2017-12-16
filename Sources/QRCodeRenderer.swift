@@ -25,6 +25,12 @@
                 return nil
             #endif
         }
+
+        #if os(iOS) || os(tvOS) || os(watchOS)
+        static let clear: CGColor = UIColor.clear.cgColor
+        #elseif os(macOS)
+        static let clear: CGColor = NSColor.clear.cgColor
+        #endif
     }
 
     struct QRCodeRenderer {
@@ -55,6 +61,8 @@
             let light = CGColor.fromRGB(colorLight)!
 
             return inContext(size: size) { context in
+                context.setStrokeColor(.clear)
+                context.setLineWidth(0)
                 for x in 0..<count {
                     for y in 0..<count {
                         context.setFillColor(model[x][y] ? dark : light)
