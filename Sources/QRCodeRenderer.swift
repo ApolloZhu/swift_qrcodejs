@@ -28,11 +28,12 @@
     }
 
     struct QRCodeRenderer {
-        private static func inContext(size: CGSize, _ action: (CGContext!) -> Void) -> CGImage! {
+        private static func inContext(size: CGSize, _ action: (CGContext) -> Void) -> CGImage? {
             #if os(iOS) || os(tvOS) || os(watchOS)
                 UIGraphicsBeginImageContext(size)
                 defer { UIGraphicsEndImageContext() }
-                action(UIGraphicsGetCurrentContext())
+                if let ctx = UIGraphicsGetCurrentContext()
+                { action(ctx) } else { return nil }
                 return UIGraphicsGetImageFromCurrentImageContext()?.cgImage
             #else
                 return nil
@@ -43,7 +44,7 @@
                              size: CGSize = CGSize(width: 256, height: 256),
                              colorDark: Int = 0x000000,
                              colorLight: Int = 0xFFFFFF,
-                             errorCorrectLevel: QRErrorCorrectLevel = .H) -> CGImage! {
+                             errorCorrectLevel: QRErrorCorrectLevel = .H) -> CGImage? {
             let count = model.count
             guard count > 0 else { return nil }
             let total = min(size.width, size.height)
@@ -57,8 +58,8 @@
                 for x in 0..<count {
                     for y in 0..<count {
                         context.setFillColor(model[x][y] ? dark : light)
-                        context.fill(CGRect(x: xOffset + CGFloat(x),
-                                            y: yOffset + CGFloat(y),
+                        context.fill(CGRect(x: xOffset + CGFloat(x) * side,
+                                            y: yOffset + CGFloat(y) * side,
                                             width: side,
                                             height: side))
                     }
@@ -77,12 +78,12 @@
         }
 
         #if os(iOS) || os(tvOS) || os(watchOS)
-        public var image: UIImage! {
+        public var image: UIImage? {
             guard let cgImage = cgImage else { return nil }
             return UIImage(cgImage: cgImage)
         }
         #elseif os(macOS)
-        public var image: NSImage! {
+        public var image: NSImage? {
             guard let cgImage = cgImage else { return nil }
             return NSImage(cgImage: cgImage,
                            size: NSSize(width: size.width, height: size.height))
