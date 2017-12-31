@@ -27,7 +27,7 @@
 		OBJ_55 /* swift_qrcodejsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* swift_qrcodejsTests.swift */; };
 		OBJ_57 /* swift_qrcodejs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift_qrcodejs::swift_qrcodejs::Product" /* swift_qrcodejs.framework */; };
 		OBJ_63 /* BCHUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* BCHUtil.swift */; };
-		OBJ_64 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Error.swift */; };
+		OBJ_64 /* Failed.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Failed.swift */; };
 		OBJ_65 /* QR8bitByte.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* QR8bitByte.swift */; };
 		OBJ_66 /* QRBitBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* QRBitBuffer.swift */; };
 		OBJ_67 /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* QRCode.swift */; };
@@ -44,21 +44,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		52B3EE241FE21B2F004F4E23 /* PBXContainerItemProxy */ = {
+		520C57F21FF8A3CC00B5F4BB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "swift_qrcodejs::swift_qrcodejs";
 			remoteInfo = swift_qrcodejs;
 		};
-		52B3EE251FE21B2F004F4E23 /* PBXContainerItemProxy */ = {
+		520C57F31FF8A3CC00B5F4BB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "swift_qrcodejs::swift_qrcodejs";
 			remoteInfo = swift_qrcodejs;
 		};
-		52B3EE261FE21B2F004F4E23 /* PBXContainerItemProxy */ = {
+		520C57F41FF8A3CD00B5F4BB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
@@ -68,7 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		OBJ_10 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		OBJ_10 /* Failed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Failed.swift; sourceTree = "<group>"; };
 		OBJ_11 /* QR8bitByte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR8bitByte.swift; sourceTree = "<group>"; };
 		OBJ_12 /* QRBitBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRBitBuffer.swift; sourceTree = "<group>"; };
 		OBJ_13 /* QRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_9 /* BCHUtil.swift */,
-				OBJ_10 /* Error.swift */,
+				OBJ_10 /* Failed.swift */,
 				OBJ_11 /* QR8bitByte.swift */,
 				OBJ_12 /* QRBitBuffer.swift */,
 				OBJ_13 /* QRCode.swift */,
@@ -325,7 +325,7 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_63 /* BCHUtil.swift in Sources */,
-				OBJ_64 /* Error.swift in Sources */,
+				OBJ_64 /* Failed.swift in Sources */,
 				OBJ_65 /* QR8bitByte.swift in Sources */,
 				OBJ_66 /* QRBitBuffer.swift in Sources */,
 				OBJ_67 /* QRCode.swift in Sources */,
@@ -348,17 +348,17 @@
 		OBJ_48 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "swift_qrcodejs::swift_qrcodejs" /* swift_qrcodejs */;
-			targetProxy = 52B3EE241FE21B2F004F4E23 /* PBXContainerItemProxy */;
+			targetProxy = 520C57F21FF8A3CC00B5F4BB /* PBXContainerItemProxy */;
 		};
 		OBJ_58 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "swift_qrcodejs::swift_qrcodejs" /* swift_qrcodejs */;
-			targetProxy = 52B3EE251FE21B2F004F4E23 /* PBXContainerItemProxy */;
+			targetProxy = 520C57F31FF8A3CC00B5F4BB /* PBXContainerItemProxy */;
 		};
 		OBJ_83 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "swift_qrcodejs::swift_qrcodejsTests" /* swift_qrcodejsTests */;
-			targetProxy = 52B3EE261FE21B2F004F4E23 /* PBXContainerItemProxy */;
+			targetProxy = 520C57F41FF8A3CD00B5F4BB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
