@@ -36,7 +36,8 @@ struct QRCodeModel {
         self.errorCorrectLevel = errorCorrectLevel
         guard let dataCache = try? QRCodeModel.createData(typeNumber: typeNumber,
                                                           errorCorrectLevel: errorCorrectLevel,
-                                                          data: encodedText) else { return nil }
+                                                          data: encodedText)
+            else { return nil }
         self.dataCache = dataCache
         makeImpl(isTest: false, maskPattern: getBestMaskPattern())
     }
@@ -247,8 +248,8 @@ struct QRCodeModel {
                 dcdata[r][i] = Int(0xff & buffer.buffer[i + offset])
             }
             offset += dcCount
-            guard let rsPoly = QRPolynomial.errorCorrectPolynomial(ofLength: ecCount),
-                let rawPoly = QRPolynomial(dcdata[r]!, shift: rsPoly.count - 1)
+            guard let rsPoly = QRPolynomial.errorCorrectPolynomial(ofLength: ecCount)
+                , let rawPoly = QRPolynomial(dcdata[r]!, shift: rsPoly.count - 1)
                 else { return nil }
             let modPoly = rawPoly.moded(by: rsPoly)
             ecdata[r] = [Int](repeating: 0, count: rsPoly.count - 1)

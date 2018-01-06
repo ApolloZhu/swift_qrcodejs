@@ -62,8 +62,8 @@ public class QRCode {
                  colorLight: Int = 0xFFFFFF,
                  errorCorrectLevel: QRErrorCorrectLevel = .H) {
         guard let typeNumber = try? QRCodeType
-            .typeNumber(of: text, errorCorrectLevel: errorCorrectLevel),
-            let model = QRCodeModel(text: text,
+            .typeNumber(of: text, errorCorrectLevel: errorCorrectLevel)
+            , let model = QRCodeModel(text: text,
                                     typeNumber: typeNumber,
                                     errorCorrectLevel: errorCorrectLevel)
             else { return nil }
