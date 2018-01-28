@@ -11,4 +11,4 @@ else {
 }
 guard let qr = QRCode(link) else { fatalError("Failed to generate for \(link)") }
 let inverse = "\u{1B}[7m  ", normal = "\u{1B}[0m  "
-print(qr.toString(filledWith: inverse, patchedWith: normal))
+print(qr.toString(filledWith: inverse, patchedWith: normal), terminator: "")

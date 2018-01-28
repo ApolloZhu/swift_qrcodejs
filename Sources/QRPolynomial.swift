@@ -64,7 +64,7 @@ struct QRPolynomial {
     }
     
     func moded(by e: QRPolynomial) -> QRPolynomial {
-        if (count - e.count < 0) {
+        if count - e.count < 0 {
             return self
         }
         let ratio = QRMath.glog(self[0]) - QRMath.glog(e[0])
