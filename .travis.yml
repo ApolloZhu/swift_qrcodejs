@@ -1,0 +1,33 @@
+os:
+  - osx
+  - linux
+language: generic
+osx_image: xcode10
+# blog.travis-ci.com/2017-07-11-trusty-as-default-linux-is-coming
+# sudo: required
+dist: trusty
+
+before_script:
+  - eval "$(curl -sL https://raw.githubusercontent.com/ApolloZhu/script/master/swift/install/4)"
+script:
+  - eval "$(curl -sL https://raw.githubusercontent.com/ApolloZhu/script/master/swift/ci)"
+  - if [ $TRAVIS_OS_NAME == "osx" ]; then
+      pod lib lint;
+    fi
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+  - if [ -z "$TRAVIS_TAG" ]; then
+      pod trunk push swift_qrcodejs.podspec;
+    fi
+
+before_deploy:
+  - swift package generate-xcodeproj
+  - sh jazzy.sh
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: docs
+  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  on:
+    branch: master
+    condition: $TRAVIS_OS_NAME = osx
