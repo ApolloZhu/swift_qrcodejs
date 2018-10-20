@@ -12,6 +12,9 @@ before_script:
 script:
   - eval "$(curl -sL https://raw.githubusercontent.com/ApolloZhu/script/master/swift/ci)"
   - if [ $TRAVIS_OS_NAME == "osx" ]; then
+      carthage build --no-skip-current;
+    fi
+  - if [ $TRAVIS_OS_NAME == "osx" ]; then
       pod lib lint;
     fi
 after_success:
@@ -21,7 +24,6 @@ after_success:
     fi
 
 before_deploy:
-  - swift package generate-xcodeproj
   - sh jazzy.sh
 deploy:
   provider: pages
