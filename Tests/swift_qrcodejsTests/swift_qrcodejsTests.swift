@@ -1,12 +1,17 @@
 import XCTest
 @testable import swift_qrcodejs
 
+private func expect(_ qrCode: QRCode?, withFill fill: String, andPatch patch: String, toMatch expected: String) {
+    XCTAssertNotNil(qrCode)
+    let generated = qrCode!.toString(filledWith: fill, patchedWith: patch)
+    XCTAssertEqual(generated, expected)
+}
+
 class swift_qrcodejsTests: XCTestCase {
     func testSimple() {
-        let qrCode = QRCode("https://gist.github.com/agentgt/1700331")
-        XCTAssertNotNil(qrCode)
-        let generated = qrCode!.toString(filledWith: "##", patchedWith: "  ")
-        let expected = """
+        expect(QRCode("https://gist.github.com/agentgt/1700331"),
+               withFill: "##", andPatch: "  ",
+               toMatch: """
                                                                               
   ##############    ####      ##    ######          ####      ##############  
   ##          ##        ##  ####    ####      ####  ##    ##  ##          ##  
@@ -46,15 +51,14 @@ class swift_qrcodejsTests: XCTestCase {
   ##          ##      ##      ##        ############          ##############  
   ##############      ####    ######  ##  ##    ####  ##  ######    ##    ##  
                                                                               
-"""
-        XCTAssertEqual(generated, expected)
+""")
     }
 
     func testLowErrorCorrectLevel() {
-        let qrCode = QRCode("https://passport.bilibili.com/qrcode/h5/login?oauthKey=2f3ab118e214e7ad69683df50918a481", errorCorrectLevel: .L)
-        XCTAssertNotNil(qrCode)
-        let generated = qrCode!.toString(filledWith: "@@", patchedWith: "  ")
-        let expected = """
+        expect(QRCode("https://passport.bilibili.com/qrcode/h5/login?oauthKey=2f3ab118e214e7ad69683df50918a481",
+                      errorCorrectLevel: .L),
+               withFill: "@@", andPatch: "  ",
+               toMatch: """
                                                                               
   @@@@@@@@@@@@@@  @@        @@  @@        @@@@  @@  @@@@@@@@  @@@@@@@@@@@@@@  
   @@          @@  @@    @@@@@@@@    @@  @@        @@  @@      @@          @@  
@@ -94,15 +98,13 @@ class swift_qrcodejsTests: XCTestCase {
   @@          @@  @@  @@  @@  @@    @@  @@  @@    @@    @@    @@      @@@@    
   @@@@@@@@@@@@@@  @@@@@@@@  @@@@    @@  @@@@@@@@@@@@    @@    @@@@@@@@@@@@@@  
                                                                               
-"""
-        XCTAssertEqual(generated, expected)
+""")
     }
     
     func testBorderless() {
-        let qrCode = QRCode("https://github.com/ApolloZhu", hasBorder: false)
-        XCTAssertNotNil(qrCode)
-        let generated = qrCode!.toString(filledWith: "MM", patchedWith: "  ")
-        let expected = """
+        expect(QRCode("https://github.com/ApolloZhu", withBorder: false),
+               withFill: "MM", andPatch: "  ",
+               toMatch: """
 MMMMMMMMMMMMMM  MM    MMMM  MM  MM  MMMMMM  MM  MM  MMMMMMMMMMMMMM
 MM          MM    MM  MMMM        MM  MM  MMMM  MM  MM          MM
 MM  MMMMMM  MM  MMMMMMMM    MMMM    MM  MMMM  MMMM  MM  MMMMMM  MM
@@ -136,8 +138,7 @@ MM  MMMMMM  MM      MMMMMMMM    MM  MMMM  MMMMMM  MM  MMMMMMMMMM
 MM  MMMMMM  MM    MM  MM  MMMMMM  MM  MM    MM          MM  MMMMMM
 MM          MM    MMMM    MMMM      MMMMMM  MM    MM        MM    
 MMMMMMMMMMMMMM    MMMMMMMMMMMMMM    MM      MMMMMMMM        MMMM  
-"""
-        XCTAssertEqual(generated, expected)
+""")
     }
 
     static var allTests = [

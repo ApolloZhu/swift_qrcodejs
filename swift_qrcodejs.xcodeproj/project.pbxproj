@@ -16,7 +16,7 @@
             "en"
          );
          mainGroup = "OBJ_5";
-         productRefGroup = "OBJ_31";
+         productRefGroup = "OBJ_29";
          projectDirPath = ".";
          targets = (
             "swift_qrcodejs::swift_qrcodejs",
@@ -156,9 +156,15 @@
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_29" = {
-         isa = "PBXFileReference";
-         path = "docs";
-         sourceTree = "SOURCE_ROOT";
+         isa = "PBXGroup";
+         children = (
+            "swift_qrcodejs::swift_qrcodejs-cli::Product",
+            "swift_qrcodejs::swift_qrcodejsTests::Product",
+            "swift_qrcodejs::swift_qrcodejs::Product"
+         );
+         name = "Products";
+         path = "";
+         sourceTree = "BUILT_PRODUCTS_DIR";
       };
       "OBJ_3" = {
          isa = "XCBuildConfiguration";
@@ -199,32 +205,16 @@
          };
          name = "Debug";
       };
-      "OBJ_30" = {
-         isa = "PBXFileReference";
-         path = "build";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_31" = {
-         isa = "PBXGroup";
-         children = (
-            "swift_qrcodejs::swift_qrcodejsTests::Product",
-            "swift_qrcodejs::swift_qrcodejs-cli::Product",
-            "swift_qrcodejs::swift_qrcodejs::Product"
-         );
-         name = "Products";
-         path = "";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-      "OBJ_36" = {
+      "OBJ_34" = {
          isa = "XCConfigurationList";
          buildConfigurations = (
-            "OBJ_37",
-            "OBJ_38"
+            "OBJ_35",
+            "OBJ_36"
          );
          defaultConfigurationIsVisible = "0";
          defaultConfigurationName = "Release";
       };
-      "OBJ_37" = {
+      "OBJ_35" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
             ENABLE_TESTABILITY = "YES";
@@ -256,12 +246,12 @@
             SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
                "$(inherited)"
             );
-            SWIFT_VERSION = "4.0";
+            SWIFT_VERSION = "4.2";
             TARGET_NAME = "swift_qrcodejs";
          };
          name = "Debug";
       };
-      "OBJ_38" = {
+      "OBJ_36" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
             ENABLE_TESTABILITY = "YES";
@@ -293,14 +283,16 @@
             SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
                "$(inherited)"
             );
-            SWIFT_VERSION = "4.0";
+            SWIFT_VERSION = "4.2";
             TARGET_NAME = "swift_qrcodejs";
          };
          name = "Release";
       };
-      "OBJ_39" = {
+      "OBJ_37" = {
          isa = "PBXSourcesBuildPhase";
          files = (
+            "OBJ_38",
+            "OBJ_39",
             "OBJ_40",
             "OBJ_41",
             "OBJ_42",
@@ -312,10 +304,16 @@
             "OBJ_48",
             "OBJ_49",
             "OBJ_50",
-            "OBJ_51",
-            "OBJ_52",
-            "OBJ_53"
+            "OBJ_51"
          );
+      };
+      "OBJ_38" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_11";
+      };
+      "OBJ_39" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_12";
       };
       "OBJ_4" = {
          isa = "XCBuildConfiguration";
@@ -351,43 +349,43 @@
       };
       "OBJ_40" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_11";
+         fileRef = "OBJ_13";
       };
       "OBJ_41" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_12";
+         fileRef = "OBJ_14";
       };
       "OBJ_42" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_13";
+         fileRef = "OBJ_15";
       };
       "OBJ_43" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_14";
+         fileRef = "OBJ_16";
       };
       "OBJ_44" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_15";
+         fileRef = "OBJ_17";
       };
       "OBJ_45" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_16";
+         fileRef = "OBJ_18";
       };
       "OBJ_46" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_17";
+         fileRef = "OBJ_19";
       };
       "OBJ_47" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_18";
+         fileRef = "OBJ_20";
       };
       "OBJ_48" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_19";
+         fileRef = "OBJ_21";
       };
       "OBJ_49" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_20";
+         fileRef = "OBJ_22";
       };
       "OBJ_5" = {
          isa = "PBXGroup";
@@ -396,44 +394,34 @@
             "OBJ_7",
             "OBJ_25",
             "OBJ_28",
-            "OBJ_29",
-            "OBJ_30",
-            "OBJ_31"
+            "OBJ_29"
          );
          path = "";
          sourceTree = "<group>";
       };
       "OBJ_50" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_21";
+         fileRef = "OBJ_23";
       };
       "OBJ_51" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_22";
-      };
-      "OBJ_52" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_23";
-      };
-      "OBJ_53" = {
-         isa = "PBXBuildFile";
          fileRef = "OBJ_24";
       };
-      "OBJ_54" = {
+      "OBJ_52" = {
          isa = "PBXFrameworksBuildPhase";
          files = (
          );
       };
-      "OBJ_56" = {
+      "OBJ_54" = {
          isa = "XCConfigurationList";
          buildConfigurations = (
-            "OBJ_57",
-            "OBJ_58"
+            "OBJ_55",
+            "OBJ_56"
          );
          defaultConfigurationIsVisible = "0";
          defaultConfigurationName = "Release";
       };
-      "OBJ_57" = {
+      "OBJ_55" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
             FRAMEWORK_SEARCH_PATHS = (
@@ -463,12 +451,12 @@
             );
             SWIFT_FORCE_DYNAMIC_LINK_STDLIB = "YES";
             SWIFT_FORCE_STATIC_LINK_STDLIB = "NO";
-            SWIFT_VERSION = "4.0";
+            SWIFT_VERSION = "4.2";
             TARGET_NAME = "swift_qrcodejs-cli";
          };
          name = "Debug";
       };
-      "OBJ_58" = {
+      "OBJ_56" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
             FRAMEWORK_SEARCH_PATHS = (
@@ -498,13 +486,23 @@
             );
             SWIFT_FORCE_DYNAMIC_LINK_STDLIB = "YES";
             SWIFT_FORCE_STATIC_LINK_STDLIB = "NO";
-            SWIFT_VERSION = "4.0";
+            SWIFT_VERSION = "4.2";
             TARGET_NAME = "swift_qrcodejs-cli";
          };
          name = "Release";
       };
-      "OBJ_59" = {
+      "OBJ_57" = {
          isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_58"
+         );
+      };
+      "OBJ_58" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_9";
+      };
+      "OBJ_59" = {
+         isa = "PBXFrameworksBuildPhase";
          files = (
             "OBJ_60"
          );
@@ -517,76 +515,75 @@
       };
       "OBJ_60" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_9";
-      };
-      "OBJ_61" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_62"
-         );
-      };
-      "OBJ_62" = {
-         isa = "PBXBuildFile";
          fileRef = "swift_qrcodejs::swift_qrcodejs::Product";
       };
-      "OBJ_63" = {
+      "OBJ_61" = {
          isa = "PBXTargetDependency";
          target = "swift_qrcodejs::swift_qrcodejs";
       };
-      "OBJ_65" = {
+      "OBJ_63" = {
          isa = "XCConfigurationList";
          buildConfigurations = (
-            "OBJ_66",
-            "OBJ_67"
+            "OBJ_64",
+            "OBJ_65"
          );
          defaultConfigurationIsVisible = "0";
          defaultConfigurationName = "Release";
       };
-      "OBJ_66" = {
+      "OBJ_64" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
             LD = "/usr/bin/true";
             OTHER_SWIFT_FLAGS = (
                "-swift-version",
-               "4",
+               "4.2",
                "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
                "-target",
                "x86_64-apple-macosx10.10",
                "-sdk",
                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
             );
-            SWIFT_VERSION = "4.0";
+            SWIFT_VERSION = "4.2";
          };
          name = "Debug";
       };
-      "OBJ_67" = {
+      "OBJ_65" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
             LD = "/usr/bin/true";
             OTHER_SWIFT_FLAGS = (
                "-swift-version",
-               "4",
+               "4.2",
                "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
                "-target",
                "x86_64-apple-macosx10.10",
                "-sdk",
                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
             );
-            SWIFT_VERSION = "4.0";
+            SWIFT_VERSION = "4.2";
          };
          name = "Release";
       };
-      "OBJ_68" = {
+      "OBJ_66" = {
          isa = "PBXSourcesBuildPhase";
          files = (
-            "OBJ_69"
+            "OBJ_67"
          );
       };
-      "OBJ_69" = {
+      "OBJ_67" = {
          isa = "PBXBuildFile";
          fileRef = "OBJ_6";
+      };
+      "OBJ_69" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_70",
+            "OBJ_71"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
       };
       "OBJ_7" = {
          isa = "PBXGroup";
@@ -598,41 +595,32 @@
          path = "";
          sourceTree = "SOURCE_ROOT";
       };
-      "OBJ_71" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_72",
-            "OBJ_73"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_72" = {
+      "OBJ_70" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
          };
          name = "Debug";
       };
-      "OBJ_73" = {
+      "OBJ_71" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
          };
          name = "Release";
       };
-      "OBJ_74" = {
+      "OBJ_72" = {
          isa = "PBXTargetDependency";
          target = "swift_qrcodejs::swift_qrcodejsTests";
       };
-      "OBJ_76" = {
+      "OBJ_74" = {
          isa = "XCConfigurationList";
          buildConfigurations = (
-            "OBJ_77",
-            "OBJ_78"
+            "OBJ_75",
+            "OBJ_76"
          );
          defaultConfigurationIsVisible = "0";
          defaultConfigurationName = "Release";
       };
-      "OBJ_77" = {
+      "OBJ_75" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
             CLANG_ENABLE_MODULES = "YES";
@@ -662,12 +650,12 @@
             SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
                "$(inherited)"
             );
-            SWIFT_VERSION = "4.0";
+            SWIFT_VERSION = "4.2";
             TARGET_NAME = "swift_qrcodejsTests";
          };
          name = "Debug";
       };
-      "OBJ_78" = {
+      "OBJ_76" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
             CLANG_ENABLE_MODULES = "YES";
@@ -697,13 +685,23 @@
             SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
                "$(inherited)"
             );
-            SWIFT_VERSION = "4.0";
+            SWIFT_VERSION = "4.2";
             TARGET_NAME = "swift_qrcodejsTests";
          };
          name = "Release";
       };
-      "OBJ_79" = {
+      "OBJ_77" = {
          isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_78"
+         );
+      };
+      "OBJ_78" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_27";
+      };
+      "OBJ_79" = {
+         isa = "PBXFrameworksBuildPhase";
          files = (
             "OBJ_80"
          );
@@ -719,19 +717,9 @@
       };
       "OBJ_80" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_27";
-      };
-      "OBJ_81" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_82"
-         );
-      };
-      "OBJ_82" = {
-         isa = "PBXBuildFile";
          fileRef = "swift_qrcodejs::swift_qrcodejs::Product";
       };
-      "OBJ_83" = {
+      "OBJ_81" = {
          isa = "PBXTargetDependency";
          target = "swift_qrcodejs::swift_qrcodejs";
       };
@@ -742,9 +730,9 @@
       };
       "swift_qrcodejs::SwiftPMPackageDescription" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_65";
+         buildConfigurationList = "OBJ_63";
          buildPhases = (
-            "OBJ_68"
+            "OBJ_66"
          );
          dependencies = (
          );
@@ -754,10 +742,10 @@
       };
       "swift_qrcodejs::swift_qrcodejs" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_36";
+         buildConfigurationList = "OBJ_34";
          buildPhases = (
-            "OBJ_39",
-            "OBJ_54"
+            "OBJ_37",
+            "OBJ_52"
          );
          dependencies = (
          );
@@ -768,13 +756,13 @@
       };
       "swift_qrcodejs::swift_qrcodejs-cli" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_56";
+         buildConfigurationList = "OBJ_54";
          buildPhases = (
-            "OBJ_59",
-            "OBJ_61"
+            "OBJ_57",
+            "OBJ_59"
          );
          dependencies = (
-            "OBJ_63"
+            "OBJ_61"
          );
          name = "swift_qrcodejs-cli";
          productName = "swift_qrcodejs_cli";
@@ -793,24 +781,24 @@
       };
       "swift_qrcodejs::swift_qrcodejsPackageTests::ProductTarget" = {
          isa = "PBXAggregateTarget";
-         buildConfigurationList = "OBJ_71";
+         buildConfigurationList = "OBJ_69";
          buildPhases = (
          );
          dependencies = (
-            "OBJ_74"
+            "OBJ_72"
          );
          name = "swift_qrcodejsPackageTests";
          productName = "swift_qrcodejsPackageTests";
       };
       "swift_qrcodejs::swift_qrcodejsTests" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_76";
+         buildConfigurationList = "OBJ_74";
          buildPhases = (
-            "OBJ_79",
-            "OBJ_81"
+            "OBJ_77",
+            "OBJ_79"
          );
          dependencies = (
-            "OBJ_83"
+            "OBJ_81"
          );
          name = "swift_qrcodejsTests";
          productName = "swift_qrcodejsTests";

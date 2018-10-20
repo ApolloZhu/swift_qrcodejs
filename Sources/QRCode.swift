@@ -42,7 +42,7 @@ open class QRCode {
     /// - Warning: Is computationally intensive.
     public init?(_ text: String,
                  errorCorrectLevel: QRErrorCorrectLevel = .H,
-                 hasBorder: Bool = true) {
+                 withBorder hasBorder: Bool = true) {
         guard let typeNumber = try? QRCodeType.typeNumber(of: text, errorCorrectLevel: errorCorrectLevel)
             , let model = QRCodeModel(text: text, typeNumber: typeNumber, errorCorrectLevel: errorCorrectLevel)
             else { return nil }
