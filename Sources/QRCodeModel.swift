@@ -247,18 +247,19 @@ struct QRCodeModel {
         var maxDcCount = 0
         var maxEcCount = 0
         // Actual contents will be assigned later
-        var dcdata = [[Int]](repeating: [], count: rsBlocks.count)
-        var ecdata = [[Int]](repeating: [], count: rsBlocks.count)
+        var dcdata = [[Int]]()
+        dcdata.reserveCapacity(rsBlocks.count)
+        var ecdata = [[Int]]()
+        ecdata.reserveCapacity(rsBlocks.count)
         for r in rsBlocks.indices {
             let dcCount = rsBlocks[r].dataCount
             let ecCount = rsBlocks[r].totalCount - dcCount
             maxDcCount = max(maxDcCount, dcCount)
             maxEcCount = max(maxEcCount, ecCount)
             // Here for `dcdata`
-            dcdata[r] = [Int](repeating: 0, count: dcCount)
-            for i in dcdata[r].indices {
-                dcdata[r][i] = Int(0xff & buffer.buffer[i + offset])
-            }
+            dcdata.append((0..<dcCount).map {
+                Int(0xff & buffer.buffer[$0 + offset])
+            })
             offset += dcCount
             guard let rsPoly = QRPolynomial.errorCorrectPolynomial(ofLength: ecCount), 
                 let rawPoly = QRPolynomial(dcdata[r], shift: rsPoly.count - 1) else {
@@ -266,11 +267,11 @@ struct QRCodeModel {
             }
             let modPoly = rawPoly.moded(by: rsPoly)
             // And here for `ecdata`
-            ecdata[r] = [Int](repeating: 0, count: rsPoly.count - 1)
-            for i in ecdata[r].indices {
-                let modIndex = i + modPoly.count - ecdata[r].count
-                ecdata[r][i] = (modIndex >= 0) ? modPoly[modIndex] : 0
-            }
+            let ecdataCount = rsPoly.count - 1
+            ecdata.append((0..<ecdataCount).map {
+                let modIndex = $0 + modPoly.count - ecdataCount
+                return (modIndex >= 0) ? modPoly[modIndex] : 0
+            })
         }
         var totalCodeCount = 0
         for i in rsBlocks.indices {
