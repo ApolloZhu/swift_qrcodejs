@@ -38,7 +38,6 @@ public enum QRErrorCorrectLevel: Int {
 }
 
 #if canImport(CoreImage)
-#warning("Please consider using CIFilter instead of swift_qrcodejs.")
 extension QRErrorCorrectLevel {
     /// Input value for CIFilter.
     public var ciQRCodeGeneratorInputCorrectionLevel: String {
