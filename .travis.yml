@@ -15,12 +15,12 @@ script:
       carthage build --no-skip-current --verbose;
     fi
   - if [ $TRAVIS_OS_NAME == "osx" ]; then
-      pod lib lint --verbose;
+      pod lib lint --verbose --allow-warnings;
     fi
 after_success:
   - bash <(curl -s https://codecov.io/bash)
   - if [ -z "$TRAVIS_TAG" ]; then
-      pod trunk push swift_qrcodejs.podspec;
+      pod trunk push swift_qrcodejs.podspec --allow-warnings;
     fi
 
 before_deploy:
