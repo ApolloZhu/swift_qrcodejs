@@ -12,10 +12,10 @@ before_script:
 script:
   - eval "$(curl -sL https://raw.githubusercontent.com/ApolloZhu/script/master/swift/ci)"
   - if [ $TRAVIS_OS_NAME == "osx" ]; then
-      carthage build --no-skip-current;
+      carthage build --no-skip-current --verbose;
     fi
   - if [ $TRAVIS_OS_NAME == "osx" ]; then
-      pod lib lint;
+      pod lib lint --verbose;
     fi
 after_success:
   - bash <(curl -s https://codecov.io/bash)
