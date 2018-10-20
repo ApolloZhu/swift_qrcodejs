@@ -20,73 +20,48 @@
  SOFTWARE.
  */
 
-#if os(watchOS)
-import WatchKit
-#endif
 
-#if os(iOS) || os(tvOS) || os(watchOS)
-import UIKit
-#elseif os(macOS)
-import AppKit
-#else
-public struct CGSize: Equatable {
-
-    public var width, height: Int
-
-    public static var zero: CGSize { return CGSize()  }
-
-    public init(width: Int = 0, height: Int = 0) {
-        self.width = width
-        self.height = height
-    }
-
-    public static func ==(lhs: CGSize, rhs: CGSize) -> Bool {
-        return lhs.width == rhs.width
-            && lhs.height == rhs.height
-    }
-}
-#endif
-
+/// QRCode abstraction and generator.
 open class QRCode {
+    /// Content.
     public let text: String
-    public let size: CGSize
-    public let colorDark: Int
-    public let colorLight: Int
+    /// Error correct level.
     public let correctLevel: QRErrorCorrectLevel
+    /// If the image codes has a border around its content.
     public let hasBorder: Bool
     private let typeNumber: Int
     private let model: QRCodeModel
 
+    /// Construct a QRCode instance.
+    ///
+    /// - Parameters:
+    ///   - text: content of the QRCode.
+    ///   - errorCorrectLevel: error correct level, defaults to high.
+    ///   - hasBorder: if the image codes has a border around, defaults and suggests to be true.
+    ///
+    /// - Warning: Is computationally intensive.
     public init?(_ text: String,
-                 size: CGSize = CGSize(width: 256, height: 256),
-                 colorDark: Int = 0x000000,
-                 colorLight: Int = 0xFFFFFF,
                  errorCorrectLevel: QRErrorCorrectLevel = .H,
                  hasBorder: Bool = true) {
-        guard let typeNumber = try? QRCodeType
-            .typeNumber(of: text, errorCorrectLevel: errorCorrectLevel)
-            , let model = QRCodeModel(text: text,
-                                      typeNumber: typeNumber,
-                                      errorCorrectLevel: errorCorrectLevel)
+        guard let typeNumber = try? QRCodeType.typeNumber(of: text, errorCorrectLevel: errorCorrectLevel)
+            , let model = QRCodeModel(text: text, typeNumber: typeNumber, errorCorrectLevel: errorCorrectLevel)
             else { return nil }
         self.typeNumber = typeNumber
         self.model = model
         self.text = text
-        self.size = size
-        self.colorDark = colorDark
-        self.colorLight = colorLight
         self.correctLevel = errorCorrectLevel
         self.hasBorder = hasBorder
     }
 
-    open private(set) lazy var imageCodes: [[Bool]]! = {
+    /// QRCode in binary form.
+    open private(set) lazy var imageCodes: [[Bool]] = {
         if hasBorder {
             let line = [[Bool](repeating: false, count: model.moduleCount + 2)]
             return line + (0..<model.moduleCount).map { r in
                 return [false] + (0..<model.moduleCount).map { c in
                     return model.isDark(r, c)
-                    } + [false]
-                } + line
+                } + [false]
+            } + line
         } else {
             return (0..<model.moduleCount).map { r in
                 (0..<model.moduleCount).map { c in
@@ -96,11 +71,16 @@ open class QRCode {
         }
     }()
 
+    /// Convert QRCode to String.
+    ///
+    /// - Parameters:
+    ///   - black: recommend to be "\u{1B}[7m  " or "##".
+    ///   - white: recommend to be "\u{1B}[0m  " or "  ".
+    /// - Returns: a matrix of characters that is scannable.
     open func toString(filledWith black: Any,
                        patchedWith white: Any) -> String {
-        guard let code = imageCodes else { return "" }
-        return code.reduce("") { $0 +
+        return String(imageCodes.reduce("") { $0 +
             "\($1.reduce("") { "\($0)\($1 ? black : white)" })\n"
-        }
+        }.dropLast())
     }
 }

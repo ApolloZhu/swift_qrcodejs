@@ -1,6 +1,7 @@
 /*
  Copyright (c) 2012 davidshimjs
  Copyright (c) 2017 Zhiyu Zhu/朱智语
+ Copyright (c) 2017 EyreFree <eyrefree@eyrefree.org>
  
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -30,34 +31,34 @@ struct QRCodeModel {
     private var dataCache: [Int]
     
     init?(text: String, typeNumber: Int, errorCorrectLevel: QRErrorCorrectLevel) {
-        guard let encoded = QR8bitByte(text) else { return nil }
+        guard let encoded = QR8bitByte(text) else {
+            return nil
+        }
         self.encodedText = encoded
         self.typeNumber = typeNumber
         self.errorCorrectLevel = errorCorrectLevel
         guard let dataCache = try? QRCodeModel.createData(
             typeNumber: typeNumber,
             errorCorrectLevel: errorCorrectLevel,
-            data: encodedText
-            ) else { return nil }
+            data: encodedText) else {
+                return nil
+        }
         self.dataCache = dataCache
         makeImpl(isTest: false, maskPattern: getBestMaskPattern())
     }
-    
+
     /// Please be aware of index out of bounds error yourself.
     public func isDark(_ row: Int, _ col: Int) -> Bool {
         return modules?[row][col] == true
     }
-    
+
     public func isLight(_ row: Int, _ col: Int) -> Bool {
         return !isDark(row, col)
     }
-    
+
     private mutating func makeImpl(isTest test: Bool, maskPattern: QRMaskPattern) {
         moduleCount = typeNumber * 4 + 17
-        modules = [[Bool?]](repeating:
-            [Bool?](repeating: nil, count: moduleCount),
-                            count: moduleCount)
-        
+        modules = [[Bool?]](repeating:[Bool?](repeating: nil, count: moduleCount), count: moduleCount)
         setupPositionProbePattern(0, 0)
         setupPositionProbePattern(moduleCount - 7, 0)
         setupPositionProbePattern(0, moduleCount - 7)
@@ -69,7 +70,7 @@ struct QRCodeModel {
         }
         mapData(dataCache, maskPattern: maskPattern)
     }
-    
+
     private mutating func setupPositionProbePattern(_ row: Int, _ col: Int) {
         for r in -1...7 {
             if row + r <= -1 || moduleCount <= row + r {
@@ -89,7 +90,7 @@ struct QRCodeModel {
             }
         }
     }
-    
+
     private mutating func setupTimingPattern() {
         for i in 8..<moduleCount - 8 {
             if modules[i][6] == nil {
@@ -100,7 +101,7 @@ struct QRCodeModel {
             }
         }
     }
-    
+
     private mutating func setupPositionAdjustPattern() {
         let pos = QRPatternLocator.getPatternPositionOfType(typeNumber)
         for i in pos.indices {
@@ -122,7 +123,7 @@ struct QRCodeModel {
             }
         }
     }
-    
+
     private mutating func setupTypeNumber(isTest test: Bool) {
         let bits: Int = BCHUtil.bchTypeNumber(of: typeNumber)
         for i in 0..<18 {
@@ -131,13 +132,13 @@ struct QRCodeModel {
             modules[i % 3 + moduleCount - 8 - 3][i / 3] = mod
         }
     }
-    
+
     private mutating func setupTypeInfo(isTest test: Bool, maskPattern: Int) {
         let data = (errorCorrectLevel.rawValue << 3) | maskPattern
         let bits: Int = BCHUtil.bchTypeInfo(of: data) // To enforce signed shift
         for i in 0..<15 {
             let mod = !test && ((bits >> i) & 1) == 1
-            
+
             if i < 6 {
                 modules[i][8] = mod
             } else if i < 8 {
@@ -145,7 +146,7 @@ struct QRCodeModel {
             } else {
                 modules[moduleCount - 15 + i][8] = mod
             }
-            
+
             if i < 8 {
                 modules[8][moduleCount - i - 1] = mod
             } else if i < 9 {
@@ -156,15 +157,17 @@ struct QRCodeModel {
         }
         modules[moduleCount - 8][8] = !test
     }
-    
+
     private mutating func mapData(_ data: [Int], maskPattern: QRMaskPattern) {
         var inc = -1
         var row = moduleCount - 1
         var bitIndex = 7
         var byteIndex = 0
-        
+
         for var col in stride(from: moduleCount - 1, to: 0, by: -2) {
-            if col == 6 { col -= 1 }
+            if col == 6 {
+                col -= 1
+            }
             while true {
                 for c in 0..<2 {
                     if modules[row][col - c] == nil {
@@ -193,26 +196,29 @@ struct QRCodeModel {
             }
         }
     }
-    
+
     private static let PAD0: UInt = 0xEC
     private static let PAD1: UInt = 0x11
-    
-    private static func createData(typeNumber: Int, errorCorrectLevel: QRErrorCorrectLevel, data: QR8bitByte) throws -> [Int] {
+
+    private static func createData(
+        typeNumber: Int, errorCorrectLevel: QRErrorCorrectLevel, data: QR8bitByte
+    ) throws -> [Int] {
         var rsBlocks = errorCorrectLevel.getRSBlocksOfType(typeNumber)
         var buffer = QRBitBuffer()
-        
+
         buffer.put(data.mode.rawValue, length: 4)
-        guard let length = data.mode.bitCount(ofType: typeNumber)
-            else { throw Failed("Can't determine length") }
+        guard let length = data.mode.bitCount(ofType: typeNumber) else {
+            throw AnError("Can't determine length")
+        }
         buffer.put(UInt(data.count), length: length)
         data.write(to: &buffer)
-        
+
         var totalDataCount = 0
         for i in rsBlocks.indices {
             totalDataCount += rsBlocks[i].dataCount
         }
         if buffer.bitCount > totalDataCount * 8 {
-            throw Failed("code length overflow. (\(buffer.bitCount)>\(totalDataCount * 8))")
+            throw AnError("code length overflow. (\(buffer.bitCount)>\(totalDataCount * 8))")
         }
         if buffer.bitCount + 4 <= totalDataCount * 8 {
             buffer.put(0, length: 4)
@@ -230,11 +236,12 @@ struct QRCodeModel {
             }
             buffer.put(QRCodeModel.PAD1, length: 8)
         }
-        guard let bytes = QRCodeModel.createBytes(fromBuffer: buffer, rsBlocks: rsBlocks)
-            else { throw Failed("Unable to construct QRPolynomial") }
+        guard let bytes = QRCodeModel.createBytes(fromBuffer: buffer, rsBlocks: rsBlocks) else {
+            throw AnError("Unable to construct QRPolynomial")
+        }
         return bytes
     }
-    
+
     private static func createBytes(fromBuffer buffer: QRBitBuffer, rsBlocks: [QRRSBlock]) -> [Int]? {
         var offset = 0
         var maxDcCount = 0
@@ -253,9 +260,10 @@ struct QRCodeModel {
                 dcdata[r][i] = Int(0xff & buffer.buffer[i + offset])
             }
             offset += dcCount
-            guard let rsPoly = QRPolynomial.errorCorrectPolynomial(ofLength: ecCount)
-                , let rawPoly = QRPolynomial(dcdata[r], shift: rsPoly.count - 1)
-                else { return nil }
+            guard let rsPoly = QRPolynomial.errorCorrectPolynomial(ofLength: ecCount), 
+                let rawPoly = QRPolynomial(dcdata[r], shift: rsPoly.count - 1) else {
+                    return nil
+            }
             let modPoly = rawPoly.moded(by: rsPoly)
             // And here for `ecdata`
             ecdata[r] = [Int](repeating: 0, count: rsPoly.count - 1)
@@ -304,7 +312,7 @@ extension QRCodeModel {
         }
         return QRMaskPattern(rawValue: pattern)
     }
-    
+
     var lostPoint: Int {
         // TODO: Remove if needed
         // let moduleCount = self.moduleCount

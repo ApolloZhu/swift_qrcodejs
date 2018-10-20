@@ -1,6 +1,7 @@
 /*
  Copyright (c) 2012 davidshimjs
  Copyright (c) 2017 Zhiyu Zhu/朱智语
+ Copyright (c) 2017 EyreFree <eyrefree@eyrefree.org>
  
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -30,7 +31,9 @@ struct QRPolynomial {
     }
     
     init?(_ nums: [Int], shift: Int = 0) {
-        guard nums.count != 0 else { return nil }
+        guard nums.count != 0 else {
+            return nil
+        }
         var offset = 0
         while offset < nums.count && nums[offset] == 0 {
             offset += 1
@@ -44,7 +47,7 @@ struct QRPolynomial {
     func get(index: Int) -> Int {
         return numbers[index]
     }
-    
+
     subscript(index: Int) -> Int {
         return get(index: index)
     }
@@ -62,7 +65,7 @@ struct QRPolynomial {
         }
         return QRPolynomial(nums)!
     }
-    
+
     func moded(by e: QRPolynomial) -> QRPolynomial {
         if count - e.count < 0 {
             return self
@@ -77,7 +80,7 @@ struct QRPolynomial {
         }
         return QRPolynomial(num)!.moded(by: e)
     }
-    
+
     static func errorCorrectPolynomial(ofLength errorCorrectLength: Int) -> QRPolynomial? {
         guard var a = QRPolynomial(1) else { return nil }
         for i in 0..<errorCorrectLength {

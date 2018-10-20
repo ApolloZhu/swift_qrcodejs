@@ -94,7 +94,7 @@ extension QRCodeType {
         }
         
         if (nType > QRCodeLimitLength.count) {
-            throw Failed("Too long data")
+            throw AnError("Too long data")
         }
         
         return nType

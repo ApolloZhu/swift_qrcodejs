@@ -20,20 +20,6 @@
                ReferencedContainer = "container:swift_qrcodejs.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "swift_qrcodejs::swift_qrcodejs"
-               BuildableName = "swift_qrcodejs.framework"
-               BlueprintName = "swift_qrcodejs"
-               ReferencedContainer = "container:swift_qrcodejs.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -66,7 +52,8 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "swift_qrcodejs::swift_qrcodejs-cli"
@@ -74,7 +61,7 @@
             BlueprintName = "swift_qrcodejs-cli"
             ReferencedContainer = "container:swift_qrcodejs.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

@@ -1,6 +1,7 @@
 /*
  Copyright (c) 2012 davidshimjs
  Copyright (c) 2017 Zhiyu Zhu/朱智语
+ Copyright (c) 2017 EyreFree <eyrefree@eyrefree.org>
  
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +23,7 @@
  */
 
 struct QRMath {
-    
+
     /// glog
     ///
     /// - Parameter n: n | n >= 1.
@@ -31,17 +32,21 @@ struct QRMath {
         precondition(n > 0, "glog only works with n > 0, not \(n)")
         return QRMath.instance.LOG_TABLE[n]
     }
-    
+
     static func gexp(_ n: Int) -> Int {
         var n = n
-        while n < 0 { n += 255 }
-        while (n >= 256) { n -= 255 }
+        while n < 0 {
+            n += 255
+        }
+        while (n >= 256) {
+            n -= 255
+        }
         return QRMath.instance.EXP_TABLE[n]
     }
-    
+
     private var EXP_TABLE: [Int]
     private var LOG_TABLE: [Int]
-    
+
     private static let instance = QRMath()
     private init() {
         EXP_TABLE = [Int](repeating: 0, count: 256)

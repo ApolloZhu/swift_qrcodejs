@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "swift_qrcodejs"
-  s.version      = "0.0.1"
+  s.version      = "1.0.0"
   s.summary      = "Cross-appleOS SIMPLE QRCode generator for swift, modified based on qrcodejs."
 
   # This description is used to generate tags and improve search results.
@@ -54,10 +54,10 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "Apollo Zhu" => "public-apollonian@outlook.com" }
+  # s.author             = { "Apollo Zhu" => "public-apollonian@outlook.com" }
   # Or just: s.author    = "ApolloZhu"
-  # s.authors            = { "ApolloZhu" => "public-apollonian@outlook.com" }
-  # s.social_media_url   = "http://github.com/ApolloZhu"
+  s.authors            = { "ApolloZhu" => "public-apollonian@outlook.com" }
+  s.social_media_url   = "http://github.com/ApolloZhu"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -81,9 +81,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/ApolloZhu/swift_qrcodejs.git" }
-  # s.source       = { :git => "https://github.com/ApolloZhu/swift_qrcodejs.git", :tag => s.version }
-
+  s.source       = { :git => "https://github.com/ApolloZhu/swift_qrcodejs.git", :tag => s.version }
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -93,7 +91,8 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Sources/"
+  s.source_files  = "Sources/*.swift"
+  s.swift_version = '4.0'
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
@@ -120,7 +119,7 @@ Pod::Spec.new do |s|
   #
 
   # s.framework  = "SomeFramework"
-  s.frameworks = "Foundation", "Accelerate"
+  s.frameworks = "Foundation"
 
   # s.library   = "iconv"
   # s.libraries = "iconv", "xml2"

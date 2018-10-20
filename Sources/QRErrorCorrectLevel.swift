@@ -21,19 +21,25 @@
  SOFTWARE.
  */
 
-/// This has weird rawValue
+/// Error resilience level.
+///
+/// - Note: higher the level, larger the size.
+///
+/// - Warning: has weird `rawValue`.
 public enum QRErrorCorrectLevel: Int {
-    /// Error resilience level: 7%
+    /// Error resilience level:  7%.
     case L = 1
-    /// Error resilience level: 15%
+    /// Error resilience level: 15%.
     case M = 0
-    /// Error resilience level: 25%
+    /// Error resilience level: 25%.
     case Q = 3
-    /// Error resilience level: 30%
+    /// Error resilience level: 30%.
     case H = 2
 }
 
+#if canImport(CoreImage)
 extension QRErrorCorrectLevel {
+    /// Input value for CIFilter.
     public var ciQRCodeGeneratorInputCorrectionLevel: String {
         switch self {
         case .L: return "l"
@@ -43,3 +49,4 @@ extension QRErrorCorrectLevel {
         }
     }
 }
+#endif
