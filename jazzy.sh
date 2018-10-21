@@ -1,6 +1,7 @@
 #!/bin/sh
 # sudo gem install jazzy
 version=1.0.0
+sudo gem install jazzy
 jazzy \
       --clean \
       --author ApolloZhu \
