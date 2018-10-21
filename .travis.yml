@@ -16,18 +16,16 @@ before_install:
 script:
   - eval "$(curl -sL https://raw.githubusercontent.com/ApolloZhu/script/master/swift/ci)"
   - if [ $TRAVIS_OS_NAME == "osx" ]; then
-      carthage build --no-skip-current --verbose;
+      carthage build --no-skip-current;
     fi
   - if [ $TRAVIS_OS_NAME == "osx" ]; then
-      pod lib lint --verbose;
+      pod lib lint;
     fi
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-  - if [ -z "$TRAVIS_TAG" ]; then
-      pod trunk push swift_qrcodejs.podspec;
-    fi
 
 before_deploy:
+  - swift package generate-xcodeproj # Intensionaly overwrite xcodeproj
   - sh jazzy.sh
 deploy:
   provider: pages
