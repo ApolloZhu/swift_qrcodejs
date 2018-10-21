@@ -2,7 +2,7 @@ import swift_qrcodejs
 import Foundation
 let args = ProcessInfo.processInfo.arguments
 let link: String
-if args.count > 2 {
+if args.count > 1 {
     link = args.last!
 } else {
     var input: String?

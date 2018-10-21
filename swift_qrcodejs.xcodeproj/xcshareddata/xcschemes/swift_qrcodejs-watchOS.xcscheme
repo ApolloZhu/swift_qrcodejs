@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "swift_qrcodejs::swift_qrcodejs"
+               BlueprintIdentifier = "52A9959D217C0DF600314AF8"
                BuildableName = "swift_qrcodejs.framework"
-               BlueprintName = "swift_qrcodejs"
+               BlueprintName = "swift_qrcodejs-watchOS"
                ReferencedContainer = "container:swift_qrcodejs.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "swift_qrcodejs::swift_qrcodejs"
+            BlueprintIdentifier = "52A9959D217C0DF600314AF8"
             BuildableName = "swift_qrcodejs.framework"
-            BlueprintName = "swift_qrcodejs"
+            BlueprintName = "swift_qrcodejs-watchOS"
             ReferencedContainer = "container:swift_qrcodejs.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "swift_qrcodejs::swift_qrcodejs"
+            BlueprintIdentifier = "52A9959D217C0DF600314AF8"
             BuildableName = "swift_qrcodejs.framework"
-            BlueprintName = "swift_qrcodejs"
+            BlueprintName = "swift_qrcodejs-watchOS"
             ReferencedContainer = "container:swift_qrcodejs.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
