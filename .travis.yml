@@ -10,7 +10,7 @@ dist: trusty
 before_install:
   - if [ $TRAVIS_OS_NAME == "osx" ]; then
       gem install cocoapods --pre --no-rdoc --no-ri --no-document --quiet &&
-      brew install carthage --HEAD;
+      brew unlink carthage && brew install carthage --HEAD;
     else
       eval "$(curl -sL https://raw.githubusercontent.com/ApolloZhu/script/master/swift/install/4)";
     fi
