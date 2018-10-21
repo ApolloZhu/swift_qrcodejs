@@ -7,6 +7,22 @@ private func expect(_ qrCode: QRCode?, withFill fill: String, andPatch patch: St
     XCTAssertEqual(generated, expected)
 }
 
+let unicodeScalarValues = Array([0...0xD7FF, 0xE000...0x10FFFF].joined())
+
+private func randomUnicodeScalar(ignoredParameter: Int = 0) -> String {
+    return "\(UnicodeScalar(unicodeScalarValues.randomElement()!)!)"
+}
+
+private func randomStringOfLength(_ length: Int) -> String {
+    var str = ""
+    var diff = length
+    while diff != 0 {
+        str += (0..<diff).map(randomUnicodeScalar).joined()
+        diff = length - str.count
+    }
+    return str
+}
+
 class swift_qrcodejsTests: XCTestCase {
     func testSimple() {
         expect(QRCode("https://gist.github.com/agentgt/1700331"),
@@ -348,10 +364,33 @@ MMMMMMMMMMMMMM    MMMMMMMMMMMMMM    MM      MMMMMMMM        MMMM
                                                                                                                                                                                                                                                       
 """)
     }
+    
+    func testTooLarge() {
+        for (level, max) in zip(QRErrorCorrectLevel.allCases, [2953, 2331, 1663, 1273]) {
+            let length = max + 1
+            print("Try overflow error correct level \(level) with length of \(length)")
+            let content = randomStringOfLength(length)
+            print("Generated random string of length \(content.count)")
+            XCTAssertNil(QRCode(content, errorCorrectLevel: level))
+        }
+    }
+    
+    func testAllCases() {
+        for (level, max) in zip(QRErrorCorrectLevel.allCases, [2953, 2331, 1663, 1273]) {
+            for length in 0...max {
+                print("Try error correct level \(level) with length of \(length)")
+                let content = randomStringOfLength(length)
+                print("Generated a random string with length of \(content.count)")
+                XCTAssertNotNil(QRCode(content, errorCorrectLevel: level))
+            }
+        }
+    }
 
     static var allTests = [
         ("testSimple", testSimple),
         ("testLowErrorCorrectLevel", testLowErrorCorrectLevel),
         ("testBorderless", testBorderless),
+        ("testTooLarge", testTooLarge),
+        ("testAllCases", testAllCases),
     ]
 }

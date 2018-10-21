@@ -14,12 +14,12 @@ before_install:
       eval "$(curl -sL https://raw.githubusercontent.com/ApolloZhu/script/master/swift/install/4)";
     fi
 script:
-  - eval "$(curl -sL https://raw.githubusercontent.com/ApolloZhu/script/master/swift/ci)"
   - if [ $TRAVIS_OS_NAME == "osx" ]; then
-      carthage build --no-skip-current;
-    fi
-  - if [ $TRAVIS_OS_NAME == "osx" ]; then
+      xcodebuild test -scheme swift_qrcodejs-macOS -enableCodeCoverage YES &&
+      carthage build --no-skip-current &&
       pod lib lint;
+    else
+      eval "$(curl -sL https://raw.githubusercontent.com/ApolloZhu/script/master/swift/ci)";
     fi
 after_success:
   - bash <(curl -s https://codecov.io/bash)

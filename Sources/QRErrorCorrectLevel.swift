@@ -26,7 +26,7 @@
 /// - Note: higher the level, larger the size.
 ///
 /// - Warning: has weird `rawValue`.
-public enum QRErrorCorrectLevel: Int {
+public enum QRErrorCorrectLevel: Int, CaseIterable {
     /// Error resilience level:  7%.
     case L = 1
     /// Error resilience level: 15%.

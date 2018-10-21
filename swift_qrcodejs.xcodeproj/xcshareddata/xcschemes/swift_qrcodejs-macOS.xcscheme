@@ -28,7 +28,27 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "52A995CE217C0F6500314AF8"
+               BuildableName = "swift_qrcodejsTests-macOS.xctest"
+               BlueprintName = "swift_qrcodejsTests-macOS"
+               ReferencedContainer = "container:swift_qrcodejs.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "52A995C6217C0F6500314AF8"
+            BuildableName = "swift_qrcodejs.framework"
+            BlueprintName = "swift_qrcodejs-macOS"
+            ReferencedContainer = "container:swift_qrcodejs.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

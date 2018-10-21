@@ -68,35 +68,31 @@ struct QRCodeType {
 
 extension QRCodeType {
     /// Get the type by string length
-    static func typeNumber(of sText: String, errorCorrectLevel nCorrectLevel: QRErrorCorrectLevel) throws -> Int {
-        var nType = 1
-        let length = sText.utf8.count
-        let len = QRCodeLimitLength.count
-        for i in 0...len {
-            var nLimit = 0
+    static func typeNumber(of text: String, errorCorrectLevel: QRErrorCorrectLevel) throws -> Int {
+        let textLength = text.utf8.count
+        let maxTypeNumber = QRCodeLimitLength.count
+
+        var type = 1
+        for i in 0..<maxTypeNumber {
+            let limit: Int
             
-            switch (nCorrectLevel) {
-            case QRErrorCorrectLevel.L:
-                nLimit = QRCodeLimitLength[i][0]
-            case QRErrorCorrectLevel.M:
-                nLimit = QRCodeLimitLength[i][1]
-            case QRErrorCorrectLevel.Q:
-                nLimit = QRCodeLimitLength[i][2]
-            case QRErrorCorrectLevel.H:
-                nLimit = QRCodeLimitLength[i][3]
+            switch errorCorrectLevel {
+            case .L:
+                limit = QRCodeLimitLength[i][0]
+            case .M:
+                limit = QRCodeLimitLength[i][1]
+            case .Q:
+                limit = QRCodeLimitLength[i][2]
+            case .H:
+                limit = QRCodeLimitLength[i][3]
             }
             
-            if (length <= nLimit) {
-                break
+            if textLength <= limit {
+                return type
             } else {
-                nType += 1
+                type += 1
             }
         }
-        
-        if (nType > QRCodeLimitLength.count) {
-            throw AnError("Too long data")
-        }
-        
-        return nType
+        throw AnError("Data length exceeds maximum.")
     }
 }

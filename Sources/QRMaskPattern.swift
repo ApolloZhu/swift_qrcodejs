@@ -28,7 +28,7 @@ enum QRMaskPattern: Int {
 
 extension QRMaskPattern {
     func getMask(_ i: Int, _ j: Int) -> Bool {
-        switch (self) {
+        switch self {
         case ._000:
             return (i + j) % 2 == 0
         case ._001:

@@ -87,7 +87,7 @@ extension QRRSBlock {
         [5, 109, 87, 1, 110, 88],
         [5, 65, 41, 5, 66, 42],
         [5, 54, 24, 7, 55, 25],
-        [11, 36, 12],
+        [11, 36, 12, 7, 37, 13],
         [5, 122, 98, 1, 123, 99],
         [7, 73, 45, 3, 74, 46],
         [15, 43, 19, 2, 44, 20],
@@ -195,20 +195,18 @@ extension QRErrorCorrectLevel {
     func getRSBlocksOfType(_ typeNumber: Int) -> [QRRSBlock] {
         let rsBlock = getRsBlockTableOfType(typeNumber)
         let length = rsBlock.count / 3
-        var list = [QRRSBlock]()
-        for i in 0..<length {
+        
+        return (0..<length).flatMap { i -> [QRRSBlock] in
             let count = rsBlock[i * 3 + 0]
             let totalCount = rsBlock[i * 3 + 1]
             let dataCount = rsBlock[i * 3 + 2]
-            for _ in 0..<count {
-                list.append(QRRSBlock(totalCount: totalCount, dataCount: dataCount))
-            }
+            let block = QRRSBlock(totalCount: totalCount, dataCount: dataCount)
+            return [QRRSBlock](repeating: block, count: count)
         }
-        return list
     }
     
     private func getRsBlockTableOfType(_ typeNumber: Int) -> [Int] {
-        switch (self) {
+        switch self {
         case .L:
             return QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 0]
         case .M:
