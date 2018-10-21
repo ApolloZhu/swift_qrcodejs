@@ -7,18 +7,20 @@ private func expect(_ qrCode: QRCode?, withFill fill: String, andPatch patch: St
     XCTAssertEqual(generated, expected)
 }
 
-let unicodeScalarValues = Array([0...0xD7FF, 0xE000...0x10FFFF].joined())
-
-private func randomUnicodeScalar(ignoredParameter: Int = 0) -> String {
-    return "\(UnicodeScalar(unicodeScalarValues.randomElement()!)!)"
+private extension UnicodeScalar {
+    static let values = Array([0...0xD7FF, 0xE000...0x10FFFF].joined())
+    static func randomElement(ignoredParameter: Int = 0) -> String {
+        return "\(UnicodeScalar(values.randomElement()!)!)"
+    }
 }
 
-private func randomStringOfLength(_ length: Int) -> String {
+private func randomStringOfUTF8Length(_ length: Int) -> String {
     var str = ""
-    var diff = length
-    while diff != 0 {
-        str += (0..<diff).map(randomUnicodeScalar).joined()
-        diff = length - str.count
+    while str.utf8.count < length {
+        str += UnicodeScalar.randomElement()
+        if str.utf8.count > length {
+            str = String(str.dropLast())
+        }
     }
     return str
 }
@@ -369,19 +371,20 @@ MMMMMMMMMMMMMM    MMMMMMMMMMMMMM    MM      MMMMMMMM        MMMM
         for (level, max) in zip(QRErrorCorrectLevel.allCases, [2953, 2331, 1663, 1273]) {
             let length = max + 1
             print("Try overflow error correct level \(level) with length of \(length)")
-            let content = randomStringOfLength(length)
-            print("Generated random string of length \(content.count)")
+            let content = randomStringOfUTF8Length(length)
+            print("Generated random string of length \(content.count), utf8 count \(content.utf8.count)")
             XCTAssertNil(QRCode(content, errorCorrectLevel: level))
         }
     }
     
-    func testAllCases() {
-        for (level, max) in zip(QRErrorCorrectLevel.allCases, [2953, 2331, 1663, 1273]) {
-            for length in 0...max {
-                print("Try error correct level \(level) with length of \(length)")
-                let content = randomStringOfLength(length)
-                print("Generated a random string with length of \(content.count)")
-                XCTAssertNotNil(QRCode(content, errorCorrectLevel: level))
+    func testAllLevelMax() {
+        for limits in ([[0, 0, 0, 0]] + QRCodeType.QRCodeLimitLength).lazy.reversed() {
+            for (level, length) in zip(QRErrorCorrectLevel.allCases, limits) {
+                print("Try error correct level \(level), utf8 count: \(length)")
+                let content = randomStringOfUTF8Length(length)
+                print("Generated a random string, str length: \(content.count)")
+                let qrCode = QRCode(content, errorCorrectLevel: level)
+                XCTAssertNotNil(qrCode!)
             }
         }
     }
@@ -391,6 +394,6 @@ MMMMMMMMMMMMMM    MMMMMMMMMMMMMM    MM      MMMMMMMM        MMMM
         ("testLowErrorCorrectLevel", testLowErrorCorrectLevel),
         ("testBorderless", testBorderless),
         ("testTooLarge", testTooLarge),
-        ("testAllCases", testAllCases),
+        ("testAllLevelMax", testAllLevelMax),
     ]
 }

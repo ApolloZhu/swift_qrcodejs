@@ -22,7 +22,7 @@
  */
 
 struct QRCodeType {
-    private static let QRCodeLimitLength: [[Int]] = [
+    static let QRCodeLimitLength: [[Int]] = [
         [17, 14, 11, 7],
         [32, 26, 20, 14],
         [53, 42, 32, 24],
