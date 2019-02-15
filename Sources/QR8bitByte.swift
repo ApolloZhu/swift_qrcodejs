@@ -29,9 +29,9 @@ struct QR8bitByte {
     let data: String
     let parsedData: Data
     
-    init?(_ data: String, encodingMode: String.Encoding = .utf8) {
+    init?(_ data: String, encoding: String.Encoding = .utf8) {
         self.data = data
-        guard let parsed = data.data(using: encodingMode) else {
+        guard let parsed = data.data(using: encoding) else {
             return nil
         }
         self.parsedData = parsed
