@@ -41,10 +41,11 @@ open class QRCode {
     ///
     /// - Warning: Is computationally intensive.
     public init?(_ text: String,
+                 encoding: String.Encoding = .utf8,
                  errorCorrectLevel: QRErrorCorrectLevel = .H,
                  withBorder hasBorder: Bool = true) {
         guard let typeNumber = try? QRCodeType.typeNumber(of: text, errorCorrectLevel: errorCorrectLevel)
-            , let model = QRCodeModel(text: text, typeNumber: typeNumber, errorCorrectLevel: errorCorrectLevel)
+            , let model = QRCodeModel(text: text, encoding: encoding, typeNumber: typeNumber, errorCorrectLevel: errorCorrectLevel)
             else { return nil }
         self.typeNumber = typeNumber
         self.model = model
