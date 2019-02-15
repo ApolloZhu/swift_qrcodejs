@@ -30,9 +30,9 @@ struct QRCodeModel {
     private let encodedText: QR8bitByte
     private var dataCache: [Int]
     
-    init?(text: String, textEncoding: String.Encoding = .utf8, typeNumber: Int, errorCorrectLevel: QRErrorCorrectLevel) {
+    init?(text: String, encoding: String.Encoding = .utf8, typeNumber: Int, errorCorrectLevel: QRErrorCorrectLevel) {
         
-        guard let encoded = QR8bitByte(text, encoding: textEncoding) else {
+        guard let encoded = QR8bitByte(text, encoding: encoding) else {
             return nil
         }
         
