@@ -1,7 +1,7 @@
 /*
  Copyright (c) 2012 davidshimjs
- Copyright (c) 2017 Zhiyu Zhu/朱智语
-
+ Copyright (c) 2017-2019 ApolloZhu <public-apollonian@outlook.com>
+ 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights

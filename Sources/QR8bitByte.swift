@@ -1,6 +1,6 @@
 /*
  Copyright (c) 2012 davidshimjs
- Copyright (c) 2017 Zhiyu Zhu/朱智语
+ Copyright (c) 2017-2019 ApolloZhu <public-apollonian@outlook.com>
  Copyright (c) 2017 EyreFree <eyrefree@eyrefree.org>
  
  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,11 +26,9 @@ import Foundation
 
 struct QR8bitByte {
     let mode: QRMode = .bitByte8
-    let data: String
     let parsedData: Data
     
     init?(_ data: String, encoding: String.Encoding = .utf8) {
-        self.data = data
         guard let parsed = data.data(using: encoding) else {
             return nil
         }

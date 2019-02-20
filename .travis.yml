@@ -1,11 +1,12 @@
-os:
-  - osx
-  - linux
 language: generic
-osx_image: xcode10
-# blog.travis-ci.com/2017-07-11-trusty-as-default-linux-is-coming
-# sudo: required
-dist: trusty
+matrix:
+  include:
+    - os: linux
+      dist: trusty
+    - os: linux
+      dist: xenial
+    - os: osx
+      osx_image: xcode10.1
 
 before_install:
   - if [ $TRAVIS_OS_NAME == "osx" ]; then

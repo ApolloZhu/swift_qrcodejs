@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "swift_qrcodejs"
-  s.version      = "1.0.1"
+  s.version      = "1.1.0"
   s.summary      = "Cross-appleOS SIMPLE QRCode generator for swift, modified based on qrcodejs."
 
   # This description is used to generate tags and improve search results.
@@ -25,9 +25,9 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-  No CIFilter on watchOS? Then we generate QRCode without it ourselves!
-  swift_qrcodejs is a cross-appleOS simple QRCode generator for swift, modified based on qrcodejs.
-                   DESC
+    No CIFilter on watchOS? Then we generate QRCode without it ourselves!
+    swift_qrcodejs is a cross-appleOS simple QRCode generator for swift, modified based on qrcodejs.
+  DESC
 
   s.homepage     = "https://github.com/ApolloZhu/swift_qrcodejs"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
