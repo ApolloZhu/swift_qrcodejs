@@ -6,13 +6,13 @@ matrix:
     - os: linux
       dist: xenial
     - os: osx
-      osx_image: xcode10.1
+      osx_image: xcode10.2
 
 before_install:
   - if [ $TRAVIS_OS_NAME == "osx" ]; then
       gem install cocoapods --pre --no-rdoc --no-ri --no-document --quiet;
     else
-      eval "$(curl -sL https://raw.githubusercontent.com/ApolloZhu/script/master/swift/install/4)";
+      eval "$(curl -sL https://raw.githubusercontent.com/ApolloZhu/script/master/swift/install/5)";
     fi
 script:
   - if [ $TRAVIS_OS_NAME == "osx" ]; then
