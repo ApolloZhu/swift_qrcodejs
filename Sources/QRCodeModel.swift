@@ -205,7 +205,7 @@ struct QRCodeModel {
     private static func createData(
         typeNumber: Int, errorCorrectLevel: QRErrorCorrectLevel, data: QR8bitByte
     ) throws -> [Int] {
-        var rsBlocks = errorCorrectLevel.getRSBlocksOfType(typeNumber)
+        let rsBlocks = errorCorrectLevel.getRSBlocksOfType(typeNumber)
         var buffer = QRBitBuffer()
 
         buffer.put(data.mode.rawValue, length: 4)
