@@ -92,7 +92,7 @@ Pod::Spec.new do |s|
   #
 
   s.source_files  = "Sources/**/*.{h,swift}"
-  s.swift_version = '4.2'
+  s.swift_versions = ['4.2', '5.0]
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
