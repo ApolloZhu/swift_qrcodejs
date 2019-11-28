@@ -46,7 +46,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Accelerate/Accelerate.h>
 
 //! Project version number for swift_qrcodejs.
 FOUNDATION_EXPORT double swift_qrcodejs_VersionNumber;
