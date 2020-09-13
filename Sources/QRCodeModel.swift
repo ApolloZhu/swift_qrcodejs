@@ -166,7 +166,8 @@ struct QRCodeModel {
         var bitIndex = 7
         var byteIndex = 0
 
-        for var col in stride(from: moduleCount - 1, to: 0, by: -2) {
+        var col: Int = moduleCount - 1
+        while (col > 0) {
             if col == 6 {
                 col -= 1
             }
@@ -196,6 +197,7 @@ struct QRCodeModel {
                     break
                 }
             }
+            col -= 2
         }
     }
 
