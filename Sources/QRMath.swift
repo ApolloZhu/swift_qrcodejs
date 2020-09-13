@@ -38,7 +38,7 @@ struct QRMath {
         while n < 0 {
             n += 255
         }
-        while (n >= 256) {
+        while n >= 256 {
             n -= 255
         }
         return QRMath.instance.EXP_TABLE[n]
