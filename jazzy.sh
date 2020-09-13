@@ -1,6 +1,6 @@
 #!/bin/sh
 # sudo gem install jazzy
-version=1.1.2
+version=1.1.4
 sudo gem install jazzy
 jazzy \
       --clean \
