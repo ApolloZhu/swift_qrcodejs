@@ -45,7 +45,7 @@ open class QRCode {
                  encoding: String.Encoding = .utf8,
                  errorCorrectLevel: QRErrorCorrectLevel = .H,
                  withBorder hasBorder: Bool = true) {
-        guard let typeNumber = try? QRCodeType.typeNumber(of: text, errorCorrectLevel: errorCorrectLevel)
+        guard let typeNumber = try? QRCodeType.typeNumber(of: text, errorCorrectLevel: errorCorrectLevel, encoding: encoding)
             , let model = QRCodeModel(text: text, encoding: encoding, typeNumber: typeNumber, errorCorrectLevel: errorCorrectLevel)
             else { return nil }
         self.typeNumber = typeNumber

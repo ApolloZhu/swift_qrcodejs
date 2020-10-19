@@ -68,8 +68,19 @@ struct QRCodeType {
 
 extension QRCodeType {
     /// Get the type by string length
-    static func typeNumber(of text: String, errorCorrectLevel: QRErrorCorrectLevel) throws -> Int {
-        let textLength = text.utf8.count
+    static func typeNumber(of text: String, errorCorrectLevel: QRErrorCorrectLevel, encoding: String.Encoding = .utf8) throws -> Int {
+        
+        let textLength: Int
+        
+        switch encoding {
+            case .utf8:
+                textLength = text.utf8.count
+            case .utf16:
+                textLength = text.utf16.count
+            default:
+                textLength = text.count
+        }
+        
         let maxTypeNumber = QRCodeLimitLength.count
 
         var type = 1
