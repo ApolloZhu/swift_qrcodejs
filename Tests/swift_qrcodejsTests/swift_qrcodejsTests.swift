@@ -23,9 +23,10 @@
 import XCTest
 @testable import swift_qrcodejs
 
-private func expect(_ qrCode: QRCode?, withFill fill: String, andPatch patch: String, toMatch expected: String) {
+private func expect(_ generator: @autoclosure () throws -> QRCode, withFill fill: String, andPatch patch: String, toMatch expected: String) {
+    let qrCode = try? generator()
     XCTAssertNotNil(qrCode)
-    let generated = qrCode!.toString(filledWith: fill, patchedWith: patch)
+    let generated = qrCode.toString(filledWith: fill, patchedWith: patch)
     XCTAssertEqual(generated, expected)
 }
 

@@ -26,15 +26,35 @@
 /// - Note: higher the level, larger the size.
 ///
 /// - Warning: has weird `rawValue`.
-public enum QRErrorCorrectLevel: Int, CaseIterable {
+public enum QRErrorCorrectLevel: CaseIterable {
     /// Error resilience level:  7%.
-    case L = 1
+    case L
     /// Error resilience level: 15%.
-    case M = 0
+    case M
     /// Error resilience level: 25%.
-    case Q = 3
+    case Q
     /// Error resilience level: 30%.
-    case H = 2
+    case H
+}
+
+extension QRErrorCorrectLevel {
+    var pattern: Int {
+        switch self {
+        case .L: return 1
+        case .M: return 0
+        case .Q: return 3
+        case .H: return 2
+        }
+    }
+
+    var offset: Int {
+        switch self {
+        case .L: return 0
+        case .M: return 1
+        case .Q: return 2
+        case .H: return 3
+        }
+    }
 }
 
 #if canImport(CoreImage)

@@ -133,8 +133,8 @@ struct QRCodeModel {
     }
 
     private mutating func setupTypeInfo(isTest test: Bool, maskPattern: Int) {
-        let data = (errorCorrectLevel.rawValue << 3) | maskPattern
-        let bits: Int = BCHUtil.bchTypeInfo(of: data) // To enforce signed shift
+        let data = (errorCorrectLevel.pattern << 3) | maskPattern
+        let bits: Int = BCHUtil.bchTypeInfo(of: data) // to enforce signed shift
         for i in 0..<15 {
             let mod = !test && ((bits >> i) & 1) == 1
 
@@ -204,7 +204,7 @@ struct QRCodeModel {
     private static func createData(
         typeNumber: Int, errorCorrectLevel: QRErrorCorrectLevel, data: QR8bitByte
     ) throws -> [Int] {
-        let rsBlocks = errorCorrectLevel.getRSBlocksOfType(typeNumber)
+        let rsBlocks = errorCorrectLevel.getRSBlocks(ofType: typeNumber)
         var buffer = QRBitBuffer()
 
         buffer.put(data.mode.rawValue, length: 4)
@@ -296,7 +296,7 @@ struct QRCodeModel {
 }
 
 extension QRCodeModel {
-    private mutating func getBestMaskPattern() -> QRMaskPattern! {
+    private mutating func getBestMaskPattern() -> QRMaskPattern {
         var minLostPoint = 0
         var pattern = 0
         for i in 0..<8 {
@@ -307,7 +307,7 @@ extension QRCodeModel {
                 pattern = i
             }
         }
-        return QRMaskPattern(rawValue: pattern)
+        return QRMaskPattern(rawValue: pattern)!
     }
 
     var lostPoint: Int {

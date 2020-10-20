@@ -72,20 +72,13 @@ extension QRCodeType {
                            errorCorrectLevel: QRErrorCorrectLevel
     ) throws -> Int {
         let textLength = text.lengthOfBytes(using: encoding)
-        let errorCorrectLevelIndex: Int = {
-            switch errorCorrectLevel {
-            case .L: return 0
-            case .M: return 1
-            case .Q: return 2
-            case .H: return 3
-            }
-        }()
 
         for i in QRCodeLimitLength.indices {
-            if textLength <= QRCodeLimitLength[i][errorCorrectLevelIndex] {
+            if textLength <= QRCodeLimitLength[i][errorCorrectLevel.offset] {
                 return i + 1
             }
         }
+
         throw QRCodeError.dataLengthExceedsCapacityLimit
     }
 }
