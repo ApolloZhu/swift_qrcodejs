@@ -21,32 +21,32 @@
  SOFTWARE.
  */
 
-struct BCHUtil {
-    private static let g15     =     0b10100110111
-    private static let g18     =   0b1111100100101
-    private static let g15Mask = 0b101010000010010
-    private static let g15BCHDigit = bchDigit(of: g15)
-    private static let g18BCHDigit = bchDigit(of: g18)
+enum BCH {
+    private static let g15      =     0b10100110111
+    private static let g18      =   0b1111100100101
+    private static let g15Mask  = 0b101010000010010
+    private static let g15Digit = digit(of: g15)
+    private static let g18Digit = digit(of: g18)
 
-    static func bchTypeInfo(of data: Int) -> Int {
+    static func typeInfo(of data: Int) -> Int {
         var d = data << 10
-        while bchDigit(of: d) - g15BCHDigit >= 0 {
-            d ^= (g15 << (bchDigit(of: d) - g15BCHDigit))
+        while digit(of: d) - g15Digit >= 0 {
+            d ^= (g15 << (digit(of: d) - g15Digit))
         }
         return ((data << 10) | d) ^ g15Mask
     }
 
-    static func bchTypeNumber(of data: Int) -> Int {
+    static func typeNumber(of data: Int) -> Int {
         var d = data << 12
-        while bchDigit(of: d) - g18BCHDigit >= 0 {
-            d ^= (g18 << (bchDigit(of: d) - g18BCHDigit))
+        while digit(of: d) - g18Digit >= 0 {
+            d ^= (g18 << (digit(of: d) - g18Digit))
         }
         return (data << 12) | d
     }
 
-    private static func bchDigit(of data: Int) -> Int {
+    private static func digit(of data: Int) -> Int {
         var digit = 0
-        var data = UInt(data)
+        var data = UInt(data) // unsigned shift
         while data != 0 {
             digit += 1
             data >>= 1

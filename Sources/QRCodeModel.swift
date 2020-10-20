@@ -102,7 +102,7 @@ struct QRCodeModel {
     }
 
     private mutating func setupPositionAdjustPattern() {
-        let pos = QRPatternLocator.getPatternPositionOfType(typeNumber)
+        let pos = QRPatternLocator[typeNumber]
         for i in pos.indices {
             for j in pos.indices {
                 let row = pos[i]
@@ -124,7 +124,7 @@ struct QRCodeModel {
     }
 
     private mutating func setupTypeNumber(isTest test: Bool) {
-        let bits: Int = BCHUtil.bchTypeNumber(of: typeNumber)
+        let bits: Int = BCH.typeNumber(of: typeNumber)
         for i in 0..<18 {
             let mod = (!test && ((bits >> i) & 1) == 1)
             modules[i / 3][i % 3 + moduleCount - 8 - 3] = mod
@@ -134,7 +134,7 @@ struct QRCodeModel {
 
     private mutating func setupTypeInfo(isTest test: Bool, maskPattern: Int) {
         let data = (errorCorrectLevel.pattern << 3) | maskPattern
-        let bits: Int = BCHUtil.bchTypeInfo(of: data) // to enforce signed shift
+        let bits: Int = BCH.typeInfo(of: data) // to enforce signed shift
         for i in 0..<15 {
             let mod = !test && ((bits >> i) & 1) == 1
 
