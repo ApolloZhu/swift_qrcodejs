@@ -23,9 +23,8 @@
 import XCTest
 @testable import swift_qrcodejs
 
-private func expect(_ generator: @autoclosure () throws -> QRCode, withFill fill: String, andPatch patch: String, toMatch expected: String) {
-    let qrCode = try? generator()
-    XCTAssertNotNil(qrCode)
+private func expect(_ generator: @autoclosure () throws -> QRCode, withFill fill: String, andPatch patch: String, toMatch expected: String) throws {
+    let qrCode = try generator()
     let generated = qrCode.toString(filledWith: fill, patchedWith: patch)
     XCTAssertEqual(generated, expected)
 }
@@ -49,8 +48,8 @@ private func randomStringOfUTF8Length(_ length: Int) -> String {
 }
 
 class swift_qrcodejsTests: XCTestCase {
-    func testSimple() {
-        expect(QRCode("https://gist.github.com/agentgt/1700331"),
+    func testSimple() throws {
+        try expect(QRCode("https://gist.github.com/agentgt/1700331"),
                withFill: "##", andPatch: "  ",
                toMatch: """
                                                                               
@@ -95,8 +94,8 @@ class swift_qrcodejsTests: XCTestCase {
 """)
     }
 
-    func testLowErrorCorrectLevel() {
-        expect(QRCode("https://passport.bilibili.com/qrcode/h5/login?oauthKey=2f3ab118e214e7ad69683df50918a481",
+    func testLowErrorCorrectLevel() throws {
+        try expect( QRCode("https://passport.bilibili.com/qrcode/h5/login?oauthKey=2f3ab118e214e7ad69683df50918a481",
                       errorCorrectLevel: .L),
                withFill: "@@", andPatch: "  ",
                toMatch: """
@@ -142,8 +141,8 @@ class swift_qrcodejsTests: XCTestCase {
 """)
     }
     
-    func testBorderless() {
-        expect(QRCode("https://github.com/ApolloZhu", withBorder: false),
+    func testBorderless() throws {
+        try expect(QRCode("https://github.com/ApolloZhu", withBorder: false),
                withFill: "MM", andPatch: "  ",
                toMatch: """
 MMMMMMMMMMMMMM        MMMM  MM  MM  MMMMMM  MM  MM  MMMMMMMMMMMMMM
@@ -183,8 +182,8 @@ MMMMMMMMMMMMMM    MM  MMMM  MMMMMM  MMMM      MMMM      MM  MM
     }
 
 
-    func testEFQRCode() {
-        expect(QRCode("https://github.com/EyreFree/EFQRCode"),
+    func testEFQRCode() throws {
+        try expect(QRCode("https://github.com/EyreFree/EFQRCode"),
              withFill: "WW", andPatch: "  ",
              toMatch: """
                                                                               
@@ -229,8 +228,8 @@ MMMMMMMMMMMMMM    MM  MMMM  MMMMMM  MMMM      MMMM      MM  MM
 """)
     }
 
-    func testEmpty() {
-        expect(QRCode("", errorCorrectLevel: .L),
+    func testEmpty() throws {
+        try expect(QRCode("", errorCorrectLevel: .L),
              withFill: "XX", andPatch: "  ",
              toMatch: """
                                               
@@ -259,9 +258,9 @@ MMMMMMMMMMMMMM    MM  MMMM  MMMMMM  MMMM      MMMM      MM  MM
 """)
     }
 
-    func testStressWithPI() {
+    func testStressWithPi() throws {
         let content = "3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679821480865132823066470938446095505822317253594081284811174502841027019385211055596446229489549303819644288109756659334461284756482337867831652712019091456485669234603486104543266482133936072602491412737245870066063155881748815209209628292540917153643678925903600113305305488204665213841469519415116094330572703657595919530921861173819326117931051185480744623799627495673518857527248912279381830119491298336733624406566430860213949463952247371907021798609437027705392171762931767523846748184676694051320005681271452635608277857713427577896091736371787214684409012249534301465495853710507922796892589235420199561121290219608640344181598136297747713099605187072113499999983729780499510597317328160963185950244594553469083026425223082533446850352619311881710100031378387528865875332083814206171776691473035982534904287554687311595628638823537875937519577818577805321712268066130019278766111959092164201989"
-        expect(QRCode(content, errorCorrectLevel: .M),
+        try expect(QRCode(content, errorCorrectLevel: .M),
                withFill: "%%", andPatch: "  ",
                toMatch: """
                                                                                                                                                                                                                                                       
@@ -396,18 +395,17 @@ MMMMMMMMMMMMMM    MM  MMMM  MMMMMM  MMMM      MMMM      MM  MM
             print("Try overflow error correct level \(level) with length of \(length)")
             let content = randomStringOfUTF8Length(length)
             print("Generated random string of length \(content.count), utf8 count \(content.utf8.count)")
-            XCTAssertNil(QRCode(content, errorCorrectLevel: level))
+            XCTAssertThrowsError(try QRCode(content, errorCorrectLevel: level))
         }
     }
     
-    func testAllLevelMax() {
+    func testAllLevelMax() throws {
         for limits in ([[0, 0, 0, 0]] + QRCodeType.QRCodeLimitLength).lazy.reversed() {
             for (level, length) in zip(QRErrorCorrectLevel.allCases, limits) {
                 print("Try error correct level \(level), utf8 count: \(length)")
                 let content = randomStringOfUTF8Length(length)
                 print("Generated a random string, str length: \(content.count)")
-                let qrCode = QRCode(content, errorCorrectLevel: level)
-                XCTAssertNotNil(qrCode!)
+                XCTAssertNoThrow(try QRCode(content, errorCorrectLevel: level))
             }
         }
     }
