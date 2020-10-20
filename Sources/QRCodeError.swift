@@ -20,9 +20,22 @@
  SOFTWARE.
  */
 
-struct AnError: Error {
-    let localizedDescription: String
-    init(_ description: String) {
-        localizedDescription = description
+/// All possible errors that could occur when constructing `QRCode`.
+public enum QRCodeError: Error {
+    /// The thing you want to save is too large for `QRCode`.
+    case dataLengthExceedsCapacityLimit
+    /// Can not encode the given string using the specified encoding.
+    case text(String, incompatibleWithEncoding: String.Encoding)
+    /// Fill a new issue on GitHub with swift_qrcodejs, or submit a pull request.
+    case internalError(ImplmentationError)
+
+    /// Should probably contact developer is you ever see any of these.
+    public enum ImplmentationError {
+        /// swift_qrcodejs fail to determine how large is the data.
+        case dataLengthIndeterminable
+        /// swift_qrcodejs fail to find appropriate container for your data.
+        case dataLength(Int, exceedsCapacityLimit: Int)
+        /// swift_qrcodejs fail to use some internal class correctly.
+        case constructingEmptyPolynomial
     }
 }

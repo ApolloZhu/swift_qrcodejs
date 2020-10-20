@@ -32,23 +32,19 @@ open class QRCode {
     private let model: QRCodeModel
 
     /// Construct a QRCode instance.
-    ///
     /// - Parameters:
     ///   - text: content of the QRCode.
     ///   - encoding: encoding used for generating data from text.
     ///   - errorCorrectLevel: error correct level, defaults to high.
     ///   - hasBorder: if the image codes has a border around, defaults and suggests to be true.
-    ///
+    /// - Throws: see `QRCodeError`
     /// - Warning: Is computationally intensive.
-    public init?(_ text: String,
-                 encoding: String.Encoding = .utf8,
-                 errorCorrectLevel: QRErrorCorrectLevel = .H,
-                 withBorder hasBorder: Bool = true) {
-        
-        guard let model = QRCodeModel(text: text, encoding: encoding, errorCorrectLevel: errorCorrectLevel)
-            else { return nil }
-
-        self.model = model
+    public init(_ text: String,
+                encoding: String.Encoding = .utf8,
+                errorCorrectLevel: QRErrorCorrectLevel = .H,
+                withBorder hasBorder: Bool = true) throws {
+        self.model = try QRCodeModel(text: text, encoding: encoding,
+                                     errorCorrectLevel: errorCorrectLevel)
         self.text = text
         self.correctLevel = errorCorrectLevel
         self.hasBorder = hasBorder

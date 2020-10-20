@@ -30,25 +30,19 @@ struct QRCodeModel {
     private let encodedText: QR8bitByte
     private var dataCache: [Int]
     
-    init?(text: String, encoding: String.Encoding = .utf8, errorCorrectLevel: QRErrorCorrectLevel) {
-        
-        guard let encoded = QR8bitByte(text, encoding: encoding) else {
-            return nil
-        }
-        
-        self.encodedText = encoded
-        
-        guard let newTypeNumber = try? QRCodeType.typeNumber(of: text, encoding: encoding, errorCorrectLevel: errorCorrectLevel) else { return nil }
-        
-        self.typeNumber = newTypeNumber
+    init(text: String, encoding: String.Encoding = .utf8,
+         errorCorrectLevel: QRErrorCorrectLevel) throws {
+        self.encodedText = try QR8bitByte(text, encoding: encoding)
+
+        self.typeNumber = try QRCodeType
+            .typeNumber(of: text, encoding: encoding,
+                        errorCorrectLevel: errorCorrectLevel)
         self.errorCorrectLevel = errorCorrectLevel
-        guard let dataCache = try? QRCodeModel.createData(
+        self.dataCache = try QRCodeModel.createData(
             typeNumber: typeNumber,
             errorCorrectLevel: errorCorrectLevel,
-            data: encodedText) else {
-                return nil
-        }
-        self.dataCache = dataCache
+            data: encodedText
+        )
         makeImpl(isTest: false, maskPattern: getBestMaskPattern())
     }
 
@@ -215,41 +209,38 @@ struct QRCodeModel {
 
         buffer.put(data.mode.rawValue, length: 4)
         guard let length = data.mode.bitCount(ofType: typeNumber) else {
-            throw AnError("Can't determine length")
+            throw QRCodeError.internalError(.dataLengthIndeterminable)
         }
         buffer.put(UInt(data.count), length: length)
         data.write(to: &buffer)
 
-        var totalDataCount = 0
-        for i in rsBlocks.indices {
-            totalDataCount += rsBlocks[i].dataCount
+        let totalBitCount = 8 * rsBlocks.reduce(0) { $0 + $1.dataCount }
+        if buffer.bitCount > totalBitCount {
+            throw QRCodeError.internalError(
+                .dataLength(buffer.bitCount,
+                            exceedsCapacityLimit: totalBitCount)
+            )
         }
-        if buffer.bitCount > totalDataCount * 8 {
-            throw AnError("code length overflow. (\(buffer.bitCount)>\(totalDataCount * 8))")
-        }
-        if buffer.bitCount + 4 <= totalDataCount * 8 {
+        if buffer.bitCount + 4 <= totalBitCount {
             buffer.put(0, length: 4)
         }
         while buffer.bitCount % 8 != 0 {
             buffer.put(false)
         }
         while true {
-            if buffer.bitCount >= totalDataCount * 8 {
+            if buffer.bitCount >= totalBitCount {
                 break
             }
             buffer.put(QRCodeModel.PAD0, length: 8)
-            if buffer.bitCount >= totalDataCount * 8 {
+            if buffer.bitCount >= totalBitCount {
                 break
             }
             buffer.put(QRCodeModel.PAD1, length: 8)
         }
-        guard let bytes = QRCodeModel.createBytes(fromBuffer: buffer, rsBlocks: rsBlocks) else {
-            throw AnError("Unable to construct QRPolynomial")
-        }
-        return bytes
+        return try QRCodeModel.createBytes(fromBuffer: buffer, rsBlocks: rsBlocks)
     }
 
-    private static func createBytes(fromBuffer buffer: QRBitBuffer, rsBlocks: [QRRSBlock]) -> [Int]? {
+    private static func createBytes(fromBuffer buffer: QRBitBuffer, rsBlocks: [QRRSBlock]) throws -> [Int] {
         var offset = 0
         var maxDcCount = 0
         var maxEcCount = 0
@@ -268,11 +259,9 @@ struct QRCodeModel {
                 Int(0xff & buffer.buffer[$0 + offset])
             })
             offset += dcCount
-            guard let rsPoly = QRPolynomial.errorCorrectPolynomial(ofLength: ecCount), 
-                let rawPoly = QRPolynomial(dcdata[r], shift: rsPoly.count - 1) else {
-                    return nil
-            }
-            let modPoly = rawPoly.moded(by: rsPoly)
+            let rsPoly = try QRPolynomial.errorCorrectPolynomial(ofLength: ecCount)
+            let rawPoly = try QRPolynomial(dcdata[r], shift: rsPoly.count - 1)
+            let modPoly = try rawPoly.moded(by: rsPoly)
             // And here for `ecdata`
             let ecdataCount = rsPoly.count - 1
             ecdata.append((0..<ecdataCount).map {

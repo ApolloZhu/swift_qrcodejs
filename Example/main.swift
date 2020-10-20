@@ -32,6 +32,6 @@ if args.count > 1 {
     repeat { input = readLine() } while (input == nil)
     link = input!
 }
-guard let qr = QRCode(link) else { fatalError("Failed to generate for \(link)") }
+let qr = try QRCode(link)
 let inverse = "\u{1B}[7m  ", normal = "\u{1B}[0m  "
 print(qr.toString(filledWith: inverse, patchedWith: normal))
