@@ -14,7 +14,13 @@ jobs:
     - name: Build
       run: swift build -v
     - name: Run tests
-      run: swift test -v
+      run: xcodebuild test -scheme swift_qrcodejs-Package
+    - name: Carthage
+      run: carthage build --no-skip-current
+    - name: CocoaPods
+      run: pod lib lint
+    - name: Codecov
+      uses: codecov/codecov-action@v1.0.14
 
   linux:
     runs-on: ubuntu-latest
