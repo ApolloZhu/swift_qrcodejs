@@ -38,7 +38,7 @@ struct QRCodeModel {
         
         self.encodedText = encoded
         
-        guard let newTypeNumber = try? QRCodeType.typeNumber(of: text, errorCorrectLevel: errorCorrectLevel, encoding: encoding) else { return nil }
+        guard let newTypeNumber = try? QRCodeType.typeNumber(of: text, encoding: encoding, errorCorrectLevel: errorCorrectLevel) else { return nil }
         
         self.typeNumber = newTypeNumber
         self.errorCorrectLevel = errorCorrectLevel

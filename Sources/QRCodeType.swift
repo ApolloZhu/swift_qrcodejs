@@ -68,7 +68,7 @@ struct QRCodeType {
 
 extension QRCodeType {
     /// Get the type by string length
-    static func typeNumber(of text: String, errorCorrectLevel: QRErrorCorrectLevel, encoding: String.Encoding = .utf8) throws -> Int {
+    static func typeNumber(of text: String, encoding: String.Encoding = .utf8, errorCorrectLevel: QRErrorCorrectLevel) throws -> Int {
         
         let textLength = text.lengthOfBytes(using: encoding)
         
