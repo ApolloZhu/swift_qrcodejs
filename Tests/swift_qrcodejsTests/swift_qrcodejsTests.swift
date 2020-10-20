@@ -414,6 +414,9 @@ MMMMMMMMMMMMMM    MM  MMMM  MMMMMM  MMMM      MMMM      MM  MM
         ("testSimple", testSimple),
         ("testLowErrorCorrectLevel", testLowErrorCorrectLevel),
         ("testBorderless", testBorderless),
+        ("testEFQRCode", testEFQRCode),
+        ("testEmpty", testEmpty),
+        ("testStressWithPi", testStressWithPi),
         ("testTooLarge", testTooLarge),
         ("testAllLevelMax", testAllLevelMax),
     ]

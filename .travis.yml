@@ -16,7 +16,7 @@ before_install:
     fi
 script:
   - if [ $TRAVIS_OS_NAME == "osx" ]; then
-      xcodebuild test -scheme swift_qrcodejs-macOS &&
+      xcodebuild test -scheme swift_qrcodejs-Package &&
       carthage build --no-skip-current &&
       pod lib lint;
     else
