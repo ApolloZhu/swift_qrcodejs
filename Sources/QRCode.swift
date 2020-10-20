@@ -29,7 +29,6 @@ open class QRCode {
     public let correctLevel: QRErrorCorrectLevel
     /// If the image codes has a border around its content.
     public let hasBorder: Bool
-    private let typeNumber: Int
     private let model: QRCodeModel
 
     /// Construct a QRCode instance.
@@ -45,10 +44,10 @@ open class QRCode {
                  encoding: String.Encoding = .utf8,
                  errorCorrectLevel: QRErrorCorrectLevel = .H,
                  withBorder hasBorder: Bool = true) {
-        guard let typeNumber = try? QRCodeType.typeNumber(of: text, errorCorrectLevel: errorCorrectLevel)
-            , let model = QRCodeModel(text: text, encoding: encoding, typeNumber: typeNumber, errorCorrectLevel: errorCorrectLevel)
+        
+        guard let model = QRCodeModel(text: text, encoding: encoding, errorCorrectLevel: errorCorrectLevel)
             else { return nil }
-        self.typeNumber = typeNumber
+
         self.model = model
         self.text = text
         self.correctLevel = errorCorrectLevel
