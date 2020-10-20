@@ -30,7 +30,7 @@ struct QRPolynomial {
     }
     
     init(_ nums: [Int], shift: Int = 0) throws {
-        guard nums.isEmpty else {
+        guard !nums.isEmpty else {
             throw QRCodeError.internalError(.constructingEmptyPolynomial)
         }
         var offset = 0
