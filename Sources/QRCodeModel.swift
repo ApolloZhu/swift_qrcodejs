@@ -102,7 +102,11 @@ struct QRCodeModel {
     }
 
     private mutating func setupPositionAdjustPattern() {
+        #if swift(<5.1)
+        let pos = QRPatternLocator.getPatternPosition(ofType: typeNumber)
+        #else
         let pos = QRPatternLocator[typeNumber]
+        #endif
         for i in pos.indices {
             for j in pos.indices {
                 let row = pos[i]

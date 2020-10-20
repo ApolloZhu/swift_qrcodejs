@@ -65,7 +65,13 @@ struct QRPatternLocator {
         [6, 30, 58, 86, 114, 142, 170]
     ]
 
+    #if swift(<5.1)
+    static func getPatternPosition(ofType typeNumber: Int) -> [Int] {
+        return PATTERN_POSITION_TABLE[typeNumber - 1]
+    }
+    #else
     static subscript(typeNumber: Int) -> [Int] {
         return PATTERN_POSITION_TABLE[typeNumber - 1]
     }
+    #endif
 }
