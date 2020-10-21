@@ -20,11 +20,10 @@
  SOFTWARE.
  */
 
+import Foundation
 
 /// QRCode abstraction and generator.
 open class QRCode {
-    /// Content.
-    public let text: String
     /// Error correct level.
     public let correctLevel: QRErrorCorrectLevel
     /// If the image codes has a border around its content.
@@ -39,13 +38,32 @@ open class QRCode {
     ///   - hasBorder: if the image codes has a border around, defaults and suggests to be true.
     /// - Throws: see `QRCodeError`
     /// - Warning: Is computationally intensive.
-    public init(_ text: String,
-                encoding: String.Encoding = .utf8,
-                errorCorrectLevel: QRErrorCorrectLevel = .H,
-                withBorder hasBorder: Bool = true) throws {
-        self.model = try QRCodeModel(text: text, encoding: encoding,
+    public convenience init(
+        _ text: String,
+        encoding: String.Encoding = .utf8,
+        errorCorrectLevel: QRErrorCorrectLevel = .H,
+        withBorder hasBorder: Bool = true
+    ) throws {
+        guard let data = text.data(using: encoding) else {
+            throw QRCodeError.text(text, incompatibleWithEncoding: encoding)
+        }
+        try self.init(data, errorCorrectLevel: errorCorrectLevel,
+                      withBorder: hasBorder)
+    }
+
+    /// Construct a QRCode instance.
+    /// - Parameters:
+    ///   - data: raw content of the QRCode.
+    ///   - errorCorrectLevel: error correct level, defaults to high.
+    ///   - hasBorder: if the image codes has a border around, defaults and suggests to be true.
+    /// - Throws: see `QRCodeError`
+    public init(
+        _ data: Data,
+        errorCorrectLevel: QRErrorCorrectLevel = .H,
+        withBorder hasBorder: Bool = true
+    ) throws {
+        self.model = try QRCodeModel(data: data,
                                      errorCorrectLevel: errorCorrectLevel)
-        self.text = text
         self.correctLevel = errorCorrectLevel
         self.hasBorder = hasBorder
     }

@@ -22,6 +22,8 @@
  SOFTWARE.
  */
 
+import Foundation
+
 struct QRCodeModel {
     let typeNumber: Int
     let errorCorrectLevel: QRErrorCorrectLevel
@@ -30,12 +32,12 @@ struct QRCodeModel {
     private let encodedText: QR8bitByte
     private var dataCache: [Int]
     
-    init(text: String, encoding: String.Encoding = .utf8,
+    init(data: Data,
          errorCorrectLevel: QRErrorCorrectLevel) throws {
-        self.encodedText = try QR8bitByte(text, encoding: encoding)
+        self.encodedText = QR8bitByte(parsedData: data)
 
         self.typeNumber = try QRCodeType
-            .typeNumber(of: text, encoding: encoding,
+            .typeNumber(forLength: encodedText.count,
                         errorCorrectLevel: errorCorrectLevel)
         self.errorCorrectLevel = errorCorrectLevel
         self.dataCache = try QRCodeModel.createData(

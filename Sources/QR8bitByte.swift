@@ -28,13 +28,6 @@ struct QR8bitByte {
     let mode: QRMode = .bitByte8
     let parsedData: Data
     
-    init(_ data: String, encoding: String.Encoding = .utf8) throws {
-        guard let parsed = data.data(using: encoding) else {
-            throw QRCodeError.text(data, incompatibleWithEncoding: encoding)
-        }
-        self.parsedData = parsed
-    }
-    
     var count: Int {
         return parsedData.count
     }
