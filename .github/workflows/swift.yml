@@ -1,10 +1,6 @@
 name: Swift
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: [push, pull_request]
 
 jobs:
   macos:
@@ -16,7 +12,7 @@ jobs:
     - name: Run tests
       run: xcodebuild test -scheme swift_qrcodejs-Package
     - name: Carthage
-      run: carthage build --no-skip-current
+      run: carthage build --no-skip-current --verbose --platform macOS
     - name: CocoaPods
       run: pod lib lint
     - name: Codecov
@@ -24,8 +20,11 @@ jobs:
 
   linux:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        swift-version: [latest, 5.3, 5.2, 5.1, 5.0]
     container:
-      image: swift
+      image: swift:${{ matrix.swift-version }}
     steps:
       - uses: actions/checkout@v2
       - name: Build
