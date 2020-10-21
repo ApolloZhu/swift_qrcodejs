@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        swift-version: [latest, 5.3, 5.2, 5.1, 5.0]
+        swift-version: [latest, 5.3, 5.2, 5.1, '5.0']
     container:
       image: swift:${{ matrix.swift-version }}
     steps:
