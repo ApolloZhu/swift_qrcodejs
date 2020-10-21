@@ -57,7 +57,7 @@ Copy all the `.swift` files from the `Sources` folder into your project.
 ```swift
 import swift_qrcodejs
 
-guard let qrCode = QRCode("Hello World!") else {
+guard let qrCode = try? QRCode("Hello World!") else {
     fatalError("Failed to generate QRCode")
 }
 print(qrCode.toString(filledWith: "##", patchedWith: "  "))
