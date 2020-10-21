@@ -5,6 +5,17 @@ on:
     types: [ published ]
 
 jobs:
+  pod:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2      
+      - name: Deploy to Cocoapods
+        run: |
+          set -eo pipefail
+          pod spec lint
+          pod trunk push
+        env:
+          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
   docs:
     runs-on: macos-latest
     steps:
@@ -25,6 +36,7 @@ jobs:
               --dash_url https://${{ github.repository_owner }}.github.io/swift_qrcodejs/docsets/swift_qrcodejs.xml
       - name: Publish
         run: |
+          set -eo pipefail
           cd docs
           git init
           git config user.name ${{ github.actor }}
