@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "swift_qrcodejs"
-  s.version      = "2.0.0"
+  s.version      = "2.1.0"
   s.summary      = "Cross-appleOS SIMPLE QRCode generator for swift, modified based on qrcodejs."
 
   # This description is used to generate tags and improve search results.

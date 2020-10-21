@@ -21,7 +21,7 @@ Cross-platform QRCode generator written in pure Swift, aiming to solve the awkwa
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/ApolloZhu/swift_qrcodejs.git", from: "2.0.0"),
+    .package(url: "https://github.com/ApolloZhu/swift_qrcodejs.git", from: "2.1.0"),
 ]
 ```
 
@@ -40,7 +40,7 @@ pod 'swift_qrcodejs'
 <summary><strong>Carthage</strong></summary>
 
 ```ruby
-github "ApolloZhu/swift_qrcodejs" ~> 2.0.0
+github "ApolloZhu/swift_qrcodejs" ~> 2.1.0
 ```
 
 </details>
