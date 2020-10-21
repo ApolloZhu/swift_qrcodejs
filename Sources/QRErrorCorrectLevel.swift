@@ -24,8 +24,6 @@
 /// Error resilience level.
 ///
 /// - Note: higher the level, larger the size.
-///
-/// - Warning: has weird `rawValue`.
 public enum QRErrorCorrectLevel: CaseIterable {
     /// Error resilience level:  7%.
     case L

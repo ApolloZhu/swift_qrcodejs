@@ -263,9 +263,9 @@ struct QRCodeModel {
                 Int(0xff & buffer.buffer[$0 + offset])
             })
             offset += dcCount
-            let rsPoly = try QRPolynomial.errorCorrectPolynomial(ofLength: ecCount)
-            let rawPoly = try QRPolynomial(dcdata[r], shift: rsPoly.count - 1)
-            let modPoly = try rawPoly.moded(by: rsPoly)
+            let rsPoly = QRPolynomial.errorCorrectPolynomial(ofLength: ecCount)
+            let rawPoly = QRPolynomial(dcdata[r], shift: rsPoly.count - 1)
+            let modPoly = rawPoly.moded(by: rsPoly)
             // And here for `ecdata`
             let ecdataCount = rsPoly.count - 1
             ecdata.append((0..<ecdataCount).map {

@@ -25,14 +25,12 @@
 struct QRPolynomial {
     private var numbers: [Int]
     
-    init(_ nums: Int..., shift: Int = 0) throws {
-        try self.init(nums, shift: shift)
+    init(_ nums: Int..., shift: Int = 0) {
+        self.init(nums, shift: shift)
     }
     
-    init(_ nums: [Int], shift: Int = 0) throws {
-        guard !nums.isEmpty else {
-            throw QRCodeError.internalError(.constructingEmptyPolynomial)
-        }
+    init(_ nums: [Int], shift: Int = 0) {
+        precondition(!nums.isEmpty, "polynomial should have at least 1 term")
         var offset = 0
         while offset < nums.count && nums[offset] == 0 {
             offset += 1
@@ -42,30 +40,26 @@ struct QRPolynomial {
             self.numbers[i] = nums[i + offset]
         }
     }
-    
-    func get(index: Int) -> Int {
-        return numbers[index]
-    }
-    
+
     subscript(index: Int) -> Int {
-        return get(index: index)
+        return numbers[index]
     }
     
     var count: Int {
         return numbers.count
     }
     
-    func multiplying(_ e: QRPolynomial) throws -> QRPolynomial {
+    func multiplying(_ e: QRPolynomial) -> QRPolynomial {
         var nums = [Int](repeating: 0, count: count + e.count - 1)
         for i in 0..<count {
             for j in 0..<e.count {
                 nums[i + j] ^= QRMath.gexp(QRMath.glog(self[i]) + QRMath.glog(e[j]))
             }
         }
-        return try QRPolynomial(nums)
+        return QRPolynomial(nums)
     }
     
-    func moded(by e: QRPolynomial) throws -> QRPolynomial {
+    func moded(by e: QRPolynomial) -> QRPolynomial {
         if count - e.count < 0 {
             return self
         }
@@ -77,13 +71,13 @@ struct QRPolynomial {
         for i in 0..<e.count {
             num[i] ^= QRMath.gexp(QRMath.glog(e[i]) + ratio)
         }
-        return try QRPolynomial(num).moded(by: e)
+        return QRPolynomial(num).moded(by: e)
     }
     
-    static func errorCorrectPolynomial(ofLength errorCorrectLength: Int) throws -> QRPolynomial {
-        var a = try QRPolynomial(1)
+    static func errorCorrectPolynomial(ofLength errorCorrectLength: Int) -> QRPolynomial {
+        var a = QRPolynomial(1)
         for i in 0..<errorCorrectLength {
-            a = try a.multiplying(QRPolynomial(1, QRMath.gexp(i)))
+            a = a.multiplying(QRPolynomial(1, QRMath.gexp(i)))
         }
         return a
     }

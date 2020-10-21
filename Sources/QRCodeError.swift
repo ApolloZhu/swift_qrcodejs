@@ -35,7 +35,5 @@ public enum QRCodeError: Error {
         case dataLengthIndeterminable
         /// swift_qrcodejs fail to find appropriate container for your data.
         case dataLength(Int, exceedsCapacityLimit: Int)
-        /// swift_qrcodejs fail to use some internal class correctly.
-        case constructingEmptyPolynomial
     }
 }

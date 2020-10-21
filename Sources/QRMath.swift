@@ -23,7 +23,6 @@
  */
 
 struct QRMath {
-
     /// glog
     ///
     /// - Parameter n: n | n >= 1.
