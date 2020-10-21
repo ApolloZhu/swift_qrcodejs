@@ -12,7 +12,7 @@ jobs:
     - name: Run tests
       run: xcodebuild test -scheme swift_qrcodejs-Package
     - name: Carthage
-      run: carthage build --no-skip-current --verbose --platform macOS
+      run: carthage build --no-skip-current --verbose --platform macOS # fix?
     - name: CocoaPods
       run: pod lib lint
     - name: Codecov
@@ -30,4 +30,4 @@ jobs:
       - name: Build
         run: swift build -v
       - name: Run tests
-        run: swift test -v --enable-test-discovery
+        run: swift test -v --enable-test-discovery || swift test -v
