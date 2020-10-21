@@ -7,7 +7,7 @@
 
 [![Swift 5.0](https://img.shields.io/badge/Swift-5.0-ffac45.svg)](https://swift.org)
 [![MIT License](https://img.shields.io/github/license/ApolloZhu/swift_qrcodejs.svg)](./LICENSE)
-[![Build Status](https://travis-ci.org/ApolloZhu/swift_qrcodejs.svg?branch=master)](https://travis-ci.org/ApolloZhu/swift_qrcodejs)
+[![Build Status](https://github.com/ApolloZhu/swift_qrcodejs/workflows/Swift/badge.svg)](https://github.com/ApolloZhu/swift_qrcodejs/actions)
 [![Code Coverage](https://codecov.io/gh/ApolloZhu/swift_qrcodejs/branch/master/graphs/badge.svg)](https://codecov.io/gh/ApolloZhu/swift_qrcodejs/branch/master)
 [![Documentation](https://apollozhu.github.io/swift_qrcodejs/badge.svg)](https://apollozhu.github.io/swift_qrcodejs)
 
