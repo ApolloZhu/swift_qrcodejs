@@ -8,12 +8,11 @@ jobs:
   pod:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2      
-      - name: Deploy to Cocoapods
-        run: |
-          set -eo pipefail
-          pod spec lint
-          pod trunk push
+      - uses: actions/checkout@v2
+      - name: Lint Pod CocoaPods Spec
+        run: pod spec lint
+      - name: Publish to CocoaPods Trunk
+        run: pod trunk push
         env:
           COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
   docs:
