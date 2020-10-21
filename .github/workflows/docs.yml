@@ -2,9 +2,7 @@ name: Documentation
 
 on:
   release:
-    types: [ published, edited ]
-  push:
-    branches: [ github-action-release ]
+    types: [ published ]
 
 jobs:
   docs:
