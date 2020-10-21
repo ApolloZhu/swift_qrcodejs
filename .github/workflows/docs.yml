@@ -2,7 +2,7 @@ name: Documentation
 
 on:
   release:
-    types: [published]
+    types: [ published, edited ]
   push:
     branches: [ github-action-release ]
 
@@ -16,22 +16,22 @@ jobs:
       - name: Generate Documentation
         run: jazzy \
               --clean \
-              --author ApolloZhu \
-              --author_url https://apollozhu.github.io \
-              --github_url https://github.com/${{ GITHUB_REPOSITORY }} \
-              --github-file-prefix https://github.com/${{ GITHUB_REPOSITORY }}/tree/${{ github.event.release.tag_name }} \
+              --author ${{ github.repository_owner }} \
+              --author_url https://${{ github.repository_owner }}.github.io \
+              --github_url https://github.com/${{ github.repository }} \
+              --github-file-prefix https://github.com/${{ github.repository }}/tree/${{ github.event.release.tag_name }} \
               --module-version ${{ github.event.release.tag_name }} \
               --swift-build-tool spm \
               --module swift_qrcodejs \
-              --root-url https://apollozhu.github.io/swift_qrcodejs/ \
-              --dash_url https://apollozhu.github.io/swift_qrcodejs/docsets/swift_qrcodejs.xml
+              --root-url https://${{ github.repository_owner }}.github.io/swift_qrcodejs/ \
+              --dash_url https://${{ github.repository_owner }}.github.io/swift_qrcodejs/docsets/swift_qrcodejs.xml
       - name: Publish
         run: |
           cd docs
           git init
-          git config user.name ${{ GITHUB_ACTOR }}
-          git config user.email ${{ GITHUB_ACTOR }}@users.noreply.github.com
-          git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ GITHUB_REPOSITORY }}.git
+          git config user.name ${{ github.actor }}
+          git config user.email ${{ github.actor }}@users.noreply.github.com
+          git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           git checkout --orphan gh-pages
           git add --all
           git commit --allow-empty -m "Document ${{ github.event.release.tag_name }}"
