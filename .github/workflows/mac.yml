@@ -1,0 +1,19 @@
+name: macOS
+
+on: [push, pull_request]
+
+jobs:
+  pod:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: CocoaPods
+      run: pod lib lint
+  codecov:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run tests
+      run: xcodebuild test -scheme swift_qrcodejs-Package
+    - name: Codecov
+      uses: codecov/codecov-action@v1.0.14

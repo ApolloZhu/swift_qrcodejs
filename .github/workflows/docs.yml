@@ -9,8 +9,6 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Lint CocoaPods Spec
-        run: pod spec lint
       - name: Publish to CocoaPods Trunk
         run: pod trunk push
         env:
