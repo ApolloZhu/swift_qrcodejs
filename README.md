@@ -18,6 +18,22 @@ Cross-platform QRCode generator written in pure Swift, aiming to solve the awkwa
 <details>
 <summary><strong>Swift Package Manager</strong></summary>
 
+<details>
+<summary>with Xcode</summary>
+
+More details in the [Official Guide](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app),
+but in general:
+
+1. Select in the menu bar of Xcode: `File` > `Swift Packages` > `Add Package Dependency`. 
+2. Enter https://github.com/ApolloZhu/swift_qrcodejs.git
+2. Next, specify the version resolving rule as "Up to Next Major"
+3. Finish with choosing `QRCodeSwift` library and add it to your app target.
+
+</details>
+
+<details>
+<summary>with <code>Package.swift</code></summary>
+
 ```swift
 dependencies: [
     .package(url: "https://github.com/ApolloZhu/swift_qrcodejs.git", from: "2.2.2"),
@@ -28,17 +44,21 @@ dependencies: [
 
 </details>
 
+</details>
+
 <details>
 <summary><strong>CocoaPods</strong></summary>
 
 ```ruby
-pod 'swift_qrcodejs'
+pod 'swift_qrcodejs', '~> 2.2.2'
 ```
 
 </details>
 
 <details>
 <summary><strong>Carthage</strong></summary>
+
+I assume you know what you are doing because I don't, but you probably need something like this:
 
 ```ruby
 github "ApolloZhu/swift_qrcodejs" ~> 2.2.2
