@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>QRErrorCorrectLevel Enumeration Reference</title>
+    <title>QRCodeError Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,13 +13,13 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Enum/QRErrorCorrectLevel" class="dashAnchor"></a>
-    <a title="QRErrorCorrectLevel Enumeration Reference"></a>
+    <a name="//apple_ref/swift/Enum/QRCodeError" class="dashAnchor"></a>
+    <a title="QRCodeError Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">swift_qrcodejs 2.1.0 Docs</a> (100% documented)</p>
+        <p><a href="../index.html">QRCodeSwift 2.2.1 Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/ApolloZhu/swift_qrcodejs"><img src="../img/gh.png"/>View on GitHub</a></p>
-        <p class="header-right"><a href="dash-feed://https%3A%2F%2FApolloZhu.github.io%2Fswift_qrcodejs%2Fdocsets%2Fswift_qrcodejs.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2FApolloZhu.github.io%2Fswift_qrcodejs%2Fdocsets%2FQRCodeSwift.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
           <form role="search" action="../search.json">
             <input type="text" placeholder="Search documentation" data-typeahead>
@@ -29,9 +29,9 @@
     </header>
     <div class="content-wrapper">
       <p id="breadcrumbs">
-        <a href="../index.html">swift_qrcodejs Reference</a>
+        <a href="../index.html">QRCodeSwift Reference</a>
         <img id="carat" src="../img/carat.png" />
-        QRErrorCorrectLevel Enumeration Reference
+        QRCodeError Enumeration Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -64,23 +64,18 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>QRErrorCorrectLevel</h1>
+            <h1>QRCodeError</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">QRErrorCorrectLevel</span> <span class="p">:</span> <span class="kt">CaseIterable</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">QRCodeError</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
 
                 </div>
               </div>
-            <p>Error resilience level.</p>
-<div class="aside aside-note">
-    <p class="aside-title">Note</p>
-    higher the level, larger the size.
-
-</div>
+            <p>All possible errors that could occur when constructing <code><a href="../Classes/QRCode.html">QRCode</a></code>.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/ApolloZhu/swift_qrcodejs/tree/2.1.0/Sources/QRErrorCorrectLevel.swift#L27-L36">Show on GitHub</a>
+                <a href="https://github.com/ApolloZhu/swift_qrcodejs/tree/2.2.1/Sources/QRCodeError.swift#L24-L39">Show on GitHub</a>
               </div>
           </section>
           <section class="section task-group-section">
@@ -89,9 +84,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14swift_qrcodejs19QRErrorCorrectLevelO1LyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/L" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14swift_qrcodejs19QRErrorCorrectLevelO1LyA2CmF">L</a>
+                    <a name="/s:11QRCodeSwift0A5ErrorO30dataLengthExceedsCapacityLimityA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/dataLengthExceedsCapacityLimit" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11QRCodeSwift0A5ErrorO30dataLengthExceedsCapacityLimityA2CmF">dataLengthExceedsCapacityLimit</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -99,19 +94,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Error resilience level:  7%.</p>
+                        <p>The thing you want to save is too large for <code><a href="../Classes/QRCode.html">QRCode</a></code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">L</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">dataLengthExceedsCapacityLimit</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ApolloZhu/swift_qrcodejs/tree/2.1.0/Sources/QRErrorCorrectLevel.swift#L29">Show on GitHub</a>
+                        <a href="https://github.com/ApolloZhu/swift_qrcodejs/tree/2.2.1/Sources/QRCodeError.swift#L26">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -119,9 +114,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14swift_qrcodejs19QRErrorCorrectLevelO1MyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/M" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14swift_qrcodejs19QRErrorCorrectLevelO1MyA2CmF">M</a>
+                    <a name="/s:11QRCodeSwift0A5ErrorO4textyACSS_SS10FoundationE8EncodingVtcACmF"></a>
+                    <a name="//apple_ref/swift/Element/text(_:incompatibleWithEncoding:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11QRCodeSwift0A5ErrorO4textyACSS_SS10FoundationE8EncodingVtcACmF">text(_:<wbr>incompatibleWithEncoding:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -129,19 +124,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Error resilience level: 15%.</p>
+                        <p>Can not encode the given string using the specified encoding.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">M</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">text</span><span class="p">(</span><span class="kt">String</span><span class="p">,</span> <span class="nv">incompatibleWithEncoding</span><span class="p">:</span> <span class="kt">String</span><span class="o">.</span><span class="kt">Encoding</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ApolloZhu/swift_qrcodejs/tree/2.1.0/Sources/QRErrorCorrectLevel.swift#L31">Show on GitHub</a>
+                        <a href="https://github.com/ApolloZhu/swift_qrcodejs/tree/2.2.1/Sources/QRCodeError.swift#L28">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -149,9 +144,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14swift_qrcodejs19QRErrorCorrectLevelO1QyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/Q" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14swift_qrcodejs19QRErrorCorrectLevelO1QyA2CmF">Q</a>
+                    <a name="/s:11QRCodeSwift0A5ErrorO08internalC0yA2C013ImplmentationC0OcACmF"></a>
+                    <a name="//apple_ref/swift/Element/internalError(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11QRCodeSwift0A5ErrorO08internalC0yA2C013ImplmentationC0OcACmF">internalError(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -159,19 +154,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Error resilience level: 25%.</p>
+                        <p>Fill a new issue on GitHub, or submit a pull request.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">Q</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">internalError</span><span class="p">(</span><span class="kt"><a href="../Enums/QRCodeError/ImplmentationError.html">ImplmentationError</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ApolloZhu/swift_qrcodejs/tree/2.1.0/Sources/QRErrorCorrectLevel.swift#L33">Show on GitHub</a>
+                        <a href="https://github.com/ApolloZhu/swift_qrcodejs/tree/2.2.1/Sources/QRCodeError.swift#L30">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -179,9 +174,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14swift_qrcodejs19QRErrorCorrectLevelO1HyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/H" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14swift_qrcodejs19QRErrorCorrectLevelO1HyA2CmF">H</a>
+                    <a name="/s:11QRCodeSwift0A5ErrorO013ImplmentationC0O"></a>
+                    <a name="//apple_ref/swift/Enum/ImplmentationError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11QRCodeSwift0A5ErrorO013ImplmentationC0O">ImplmentationError</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -189,49 +184,20 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Error resilience level: 30%.</p>
+                        <p>Should probably contact developer is you ever see any of these.</p>
 
+                        <a href="../Enums/QRCodeError/ImplmentationError.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">H</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ImplmentationError</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ApolloZhu/swift_qrcodejs/tree/2.1.0/Sources/QRErrorCorrectLevel.swift#L35">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:14swift_qrcodejs19QRErrorCorrectLevelO032ciQRCodeGeneratorInputCorrectionE0SSvp"></a>
-                    <a name="//apple_ref/swift/Property/ciQRCodeGeneratorInputCorrectionLevel" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14swift_qrcodejs19QRErrorCorrectLevelO032ciQRCodeGeneratorInputCorrectionE0SSvp">ciQRCodeGeneratorInputCorrectionLevel</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Input value for CIFilter.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">ciQRCodeGeneratorInputCorrectionLevel</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/ApolloZhu/swift_qrcodejs/tree/2.1.0/Sources/QRErrorCorrectLevel.swift#L61-L68">Show on GitHub</a>
+                        <a href="https://github.com/ApolloZhu/swift_qrcodejs/tree/2.2.1/Sources/QRCodeError.swift#L33-L38">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -241,7 +207,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://ApolloZhu.github.io" target="_blank" rel="external">ApolloZhu</a>. All rights reserved. (Last updated: 2020-10-21)</p>
+          <p>&copy; 2020 <a class="link" href="https://ApolloZhu.github.io" target="_blank" rel="external">ApolloZhu</a>. All rights reserved. (Last updated: 2020-11-05)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

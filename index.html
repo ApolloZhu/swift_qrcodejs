@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>swift_qrcodejs  Reference</title>
+    <title>QRCodeSwift  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,12 +13,12 @@
     <script src="js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a title="swift_qrcodejs  Reference"></a>
+    <a title="QRCodeSwift  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">swift_qrcodejs 2.1.0 Docs</a> (100% documented)</p>
+        <p><a href="index.html">QRCodeSwift 2.2.1 Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/ApolloZhu/swift_qrcodejs"><img src="img/gh.png"/>View on GitHub</a></p>
-        <p class="header-right"><a href="dash-feed://https%3A%2F%2FApolloZhu.github.io%2Fswift_qrcodejs%2Fdocsets%2Fswift_qrcodejs.xml"><img src="img/dash.png"/>Install in Dash</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2FApolloZhu.github.io%2Fswift_qrcodejs%2Fdocsets%2FQRCodeSwift.xml"><img src="img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
           <form role="search" action="search.json">
             <input type="text" placeholder="Search documentation" data-typeahead>
@@ -28,9 +28,9 @@
     </header>
     <div class="content-wrapper">
       <p id="breadcrumbs">
-        <a href="index.html">swift_qrcodejs Reference</a>
+        <a href="index.html">QRCodeSwift Reference</a>
         <img id="carat" src="img/carat.png" />
-        swift_qrcodejs  Reference
+        QRCodeSwift  Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -64,18 +64,18 @@
         <section>
           <section class="section">
             
-            <h1 id='swift_qrcodejs' class='heading'>swift_qrcodejs</h1>
+            <h1 id='qrcodeswift-swift_qrcodejs' class='heading'>QRCodeSwift (swift_qrcodejs)</h1>
 
-<p><a href="http://cocoapods.org/pods/swift_qrcodejs"><img src="https://img.shields.io/cocoapods/v/swift_qrcodejs.svg?style=flat" alt="CocoaPods Version"></a>
-<a href="http://cocoapods.org/pods/swift_qrcodejs"><img src="https://img.shields.io/cocoapods/p/swift_qrcodejs.svg?style=flat" alt="CocoaPods Compatible Platforms"></a>
-<a href="https://swift.org/package-manager/"><img src="https://img.shields.io/badge/SPM-compatible-brightgreen.svg" alt="Swift Package Manager Compatible"></a>
-<a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage Compatible"></a></p>
-
-<p><a href="https://swift.org"><img src="https://img.shields.io/badge/Swift-5.0-ffac45.svg" alt="Swift 5.0"></a>
+<p><a href="https://github.com/ApolloZhu/swift_qrcodejs/releases"><img src="https://img.shields.io/github/v/release/ApolloZhu/swift_qrcodejs?sort=semver" alt="Latest Release"></a>
 <a href="./LICENSE"><img src="https://img.shields.io/github/license/ApolloZhu/swift_qrcodejs.svg" alt="MIT License"></a>
-<a href="https://github.com/ApolloZhu/swift_qrcodejs/actions"><img src="https://github.com/ApolloZhu/swift_qrcodejs/workflows/Swift/badge.svg" alt="Build Status"></a>
+<a href="https://swiftpackageindex.com/ApolloZhu/swift_qrcodejs"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FApolloZhu%2Fswift_qrcodejs%2Fbadge%3Ftype%3Dswift-versions" alt="Swift 5.0+"></a>
+<a href="https://swiftpackageindex.com/ApolloZhu/swift_qrcodejs"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FApolloZhu%2Fswift_qrcodejs%2Fbadge%3Ftype%3Dplatforms" alt="Compatible with All Platforms"></a></p>
+
+<p><a href="https://apollozhu.github.io/swift_qrcodejs"><img src="https://apollozhu.github.io/swift_qrcodejs/badge.svg" alt="Documentation"></a>
 <a href="https://codecov.io/gh/ApolloZhu/swift_qrcodejs/branch/master"><img src="https://codecov.io/gh/ApolloZhu/swift_qrcodejs/branch/master/graphs/badge.svg" alt="Code Coverage"></a>
-<a href="https://apollozhu.github.io/swift_qrcodejs"><img src="https://apollozhu.github.io/swift_qrcodejs/badge.svg" alt="Documentation"></a></p>
+<a href="https://swiftpackageindex.com/ApolloZhu/swift_qrcodejs"><img src="https://github.com/ApolloZhu/swift_qrcodejs/workflows/CocoaPods/badge.svg" alt="CocoaPods Compatible"></a>
+<a href="https://swiftpackageindex.com/ApolloZhu/swift_qrcodejs"><img src="https://github.com/ApolloZhu/swift_qrcodejs/workflows/Swift%20Package%20Manager/badge.svg" alt="Swift Package Manager Compatible"></a>
+<a href="https://github.com/Carthage/Carthage"><img src="https://github.com/ApolloZhu/swift_qrcodejs/workflows/Carthage/badge.svg" alt="Carthage Compatible"></a></p>
 
 <p>Cross-platform QRCode generator written in pure Swift, aiming to solve the awkward situation that there&rsquo;s no CIFilter for QRCode generation on Apple Watches.</p>
 <h2 id='installation' class='heading'>Installation</h2>
@@ -85,9 +85,11 @@
 
 &ldquo;`swift
 dependencies: [
-    .package(url: &quot;https://github.com/ApolloZhu/swift_qrcodejs.git&rdquo;, from: &ldquo;2.1.0&rdquo;),
+    .package(url: &quot;https://github.com/ApolloZhu/swift_qrcodejs.git&rdquo;, from: &ldquo;2.2.0&rdquo;),
 ]
 &ldquo;`
+
+&hellip; then add `QRCodeSwift` module/target from package `swift_qrcodejs` as your dependency.
 
 </details>
 
@@ -104,7 +106,7 @@ pod &lsquo;swift_qrcodejs&rsquo;
 <summary><strong>Carthage</strong></summary>
 
 &rdquo;`ruby
-github &ldquo;ApolloZhu/swift_qrcodejs&rdquo; ~> 2.1.0
+github &ldquo;ApolloZhu/swift_qrcodejs&rdquo; ~> 2.2.0
 &ldquo;`
 
 </details>
@@ -112,11 +114,11 @@ github &ldquo;ApolloZhu/swift_qrcodejs&rdquo; ~> 2.1.0
 <details>
 <summary><strong>Manually</strong></summary>
 
-Copy all the `.swift` files from the `Sources` folder into your project.
+Add all the `.swift` files from the `Sources` folder into your project.
 
 </details>
 <h2 id='usage' class='heading'>Usage</h2>
-<pre class="highlight swift"><code><span class="kd">import</span> <span class="n">swift_qrcodejs</span>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">QRCodeSwift</span>
 
 <span class="k">guard</span> <span class="k">let</span> <span class="nv">qrCode</span> <span class="o">=</span> <span class="k">try</span><span class="p">?</span> <span class="kt">QRCode</span><span class="p">(</span><span class="s">"Hello World!"</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span>
     <span class="nf">fatalError</span><span class="p">(</span><span class="s">"Failed to generate QRCode"</span><span class="p">)</span>
@@ -128,19 +130,19 @@ Copy all the `.swift` files from the `Sources` folder into your project.
 <h2 id='example-projects' class='heading'>Example Projects</h2>
 
 <ul>
-<li><a href="./Example/main.swift">swift_qrcodejs-cli</a>: lightweight command line tool to generate QRCodes.</li>
+<li><a href="./Example/main.swift">QRCodeSwiftCLI</a>: lightweight command line tool to generate QRCodes.</li>
 <li><a href="https://github.com/EyreFree/EFQRCode">EFQRCode</a>: popular Swift framework that generates stylized QRCode images.</li>
 <li><a href="https://github.com/ApolloZhu/Apple-Watch-Bilibili">Apple Watch Bilibili</a>: login onto bilibili with QRCode.</li>
 </ul>
 <h2 id='license' class='heading'>License</h2>
 
 <p>MIT License. Modified based on <a href="https://github.com/davidshimjs/qrcodejs">qrcodejs</a>.
- See <a href="./LICENSE">LICENSE</a> and each individual file header for more information.</p>
+See <a href="./LICENSE">LICENSE</a> and each individual file header for more information.</p>
 
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://ApolloZhu.github.io" target="_blank" rel="external">ApolloZhu</a>. All rights reserved. (Last updated: 2020-10-21)</p>
+          <p>&copy; 2020 <a class="link" href="https://ApolloZhu.github.io" target="_blank" rel="external">ApolloZhu</a>. All rights reserved. (Last updated: 2020-11-05)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

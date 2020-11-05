@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Enumerations  Reference</title>
+    <title>Classes  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,13 +13,13 @@
     <script src="js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Section/Enumerations" class="dashAnchor"></a>
-    <a title="Enumerations  Reference"></a>
+    <a name="//apple_ref/swift/Section/Classes" class="dashAnchor"></a>
+    <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">swift_qrcodejs 2.1.0 Docs</a> (100% documented)</p>
+        <p><a href="index.html">QRCodeSwift 2.2.1 Docs</a> (100% documented)</p>
         <p class="header-right"><a href="https://github.com/ApolloZhu/swift_qrcodejs"><img src="img/gh.png"/>View on GitHub</a></p>
-        <p class="header-right"><a href="dash-feed://https%3A%2F%2FApolloZhu.github.io%2Fswift_qrcodejs%2Fdocsets%2Fswift_qrcodejs.xml"><img src="img/dash.png"/>Install in Dash</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2FApolloZhu.github.io%2Fswift_qrcodejs%2Fdocsets%2FQRCodeSwift.xml"><img src="img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
           <form role="search" action="search.json">
             <input type="text" placeholder="Search documentation" data-typeahead>
@@ -29,9 +29,9 @@
     </header>
     <div class="content-wrapper">
       <p id="breadcrumbs">
-        <a href="index.html">swift_qrcodejs Reference</a>
+        <a href="index.html">QRCodeSwift Reference</a>
         <img id="carat" src="img/carat.png" />
-        Enumerations  Reference
+        Classes  Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -64,8 +64,8 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Enumerations</h1>
-            <p>The following enumerations are available globally.</p>
+            <h1>Classes</h1>
+            <p>The following classes are available globally.</p>
 
           </section>
           <section class="section task-group-section">
@@ -74,9 +74,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:14swift_qrcodejs11QRCodeErrorO"></a>
-                    <a name="//apple_ref/swift/Enum/QRCodeError" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14swift_qrcodejs11QRCodeErrorO">QRCodeError</a>
+                    <a name="/s:11QRCodeSwift0A0C"></a>
+                    <a name="//apple_ref/swift/Class/QRCode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11QRCodeSwift0A0C">QRCode</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -84,56 +84,20 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>All possible errors that could occur when constructing <code><a href="Classes/QRCode.html">QRCode</a></code>.</p>
+                        <p>QRCode abstraction and generator.</p>
 
-                        <a href="Enums/QRCodeError.html" class="slightly-smaller">See more</a>
+                        <a href="Classes/QRCode.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">QRCodeError</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">QRCode</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/ApolloZhu/swift_qrcodejs/tree/2.1.0/Sources/QRCodeError.swift#L24-L39">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:14swift_qrcodejs19QRErrorCorrectLevelO"></a>
-                    <a name="//apple_ref/swift/Enum/QRErrorCorrectLevel" class="dashAnchor"></a>
-                    <a class="token" href="#/s:14swift_qrcodejs19QRErrorCorrectLevelO">QRErrorCorrectLevel</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Error resilience level.</p>
-<div class="aside aside-note">
-    <p class="aside-title">Note</p>
-    higher the level, larger the size.
-
-</div>
-
-                        <a href="Enums/QRErrorCorrectLevel.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">QRErrorCorrectLevel</span> <span class="p">:</span> <span class="kt">CaseIterable</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/ApolloZhu/swift_qrcodejs/tree/2.1.0/Sources/QRErrorCorrectLevel.swift#L27-L36">Show on GitHub</a>
+                        <a href="https://github.com/ApolloZhu/swift_qrcodejs/tree/2.2.1/Sources/QRCode.swift#L26-L101">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -143,7 +107,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://ApolloZhu.github.io" target="_blank" rel="external">ApolloZhu</a>. All rights reserved. (Last updated: 2020-10-21)</p>
+          <p>&copy; 2020 <a class="link" href="https://ApolloZhu.github.io" target="_blank" rel="external">ApolloZhu</a>. All rights reserved. (Last updated: 2020-11-05)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
