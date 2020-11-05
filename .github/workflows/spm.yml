@@ -10,7 +10,7 @@ jobs:
     - name: Build
       run: swift build -v
     - name: Run tests
-        run: swift test -v
+      run: swift test -v
 
   linux:
     runs-on: ubuntu-latest
