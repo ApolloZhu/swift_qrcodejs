@@ -1,0 +1,11 @@
+name: Carthage
+
+on: [push, pull_request]
+
+jobs:
+  all:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: carthage build --no-skip-current --verbose

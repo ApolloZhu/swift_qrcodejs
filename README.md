@@ -2,8 +2,8 @@
 
 [![CocoaPods Version](https://img.shields.io/cocoapods/v/swift_qrcodejs.svg?style=flat)](http://cocoapods.org/pods/swift_qrcodejs)
 [![CocoaPods Compatible Platforms](https://img.shields.io/cocoapods/p/swift_qrcodejs.svg?style=flat)](http://cocoapods.org/pods/swift_qrcodejs)
-[![Swift Package Manager Compatible](https://img.shields.io/badge/SPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
-[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Swift Package Manager Compatible](https://img.shields.io/badge/SPM-compatible-brightgreen.svg)](https://swiftpackageindex.com/ApolloZhu/swift_qrcodejs)
+[![Carthage Compatible](https://github.com/ApolloZhu/swift_qrcodejs/workflows/Carthage/badge.svg)](https://github.com/Carthage/Carthage)
 
 [![Swift 5.0](https://img.shields.io/badge/Swift-5.0-ffac45.svg)](https://swift.org)
 [![MIT License](https://img.shields.io/github/license/ApolloZhu/swift_qrcodejs.svg)](./LICENSE)
