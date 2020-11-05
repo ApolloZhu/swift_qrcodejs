@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1200"
+   LastUpgradeVersion = "9999"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "51A5347310028ACCAF45A4C3"
+               BlueprintIdentifier = "swift_qrcodejs::QRCodeSwift"
                BuildableName = "QRCodeSwift.framework"
-               BlueprintName = "QRCodeSwift_iOS"
+               BlueprintName = "QRCodeSwift"
                ReferencedContainer = "container:swift_qrcodejs.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,21 +26,20 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      onlyGenerateCoverageForSpecifiedTargets = "NO"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "swift_qrcodejs::QRCodeSwiftTests"
+               BuildableName = "QRCodeSwiftTests.xctest"
+               BlueprintName = "QRCodeSwiftTests"
+               ReferencedContainer = "container:swift_qrcodejs.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "51A5347310028ACCAF45A4C3"
-            BuildableName = "QRCodeSwift.framework"
-            BlueprintName = "QRCodeSwift_iOS"
-            ReferencedContainer = "container:swift_qrcodejs.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <CommandLineArguments>
-      </CommandLineArguments>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -52,17 +51,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "51A5347310028ACCAF45A4C3"
-            BuildableName = "QRCodeSwift.framework"
-            BlueprintName = "QRCodeSwift_iOS"
-            ReferencedContainer = "container:swift_qrcodejs.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <CommandLineArguments>
-      </CommandLineArguments>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -70,18 +58,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "51A5347310028ACCAF45A4C3"
-            BuildableName = "QRCodeSwift.framework"
-            BlueprintName = "QRCodeSwift_iOS"
-            ReferencedContainer = "container:swift_qrcodejs.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
-      <CommandLineArguments>
-      </CommandLineArguments>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -1,6 +1,5 @@
 # QRCodeSwift (swift_qrcodejs)
 
-
 [![Latest Release](https://img.shields.io/github/v/release/ApolloZhu/swift_qrcodejs?sort=semver)](https://github.com/ApolloZhu/swift_qrcodejs/releases)
 [![MIT License](https://img.shields.io/github/license/ApolloZhu/swift_qrcodejs.svg)](./LICENSE)
 [![Swift 5.0+](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FApolloZhu%2Fswift_qrcodejs%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/ApolloZhu/swift_qrcodejs)
