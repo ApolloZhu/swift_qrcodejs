@@ -1,15 +1,16 @@
 # QRCodeSwift (swift_qrcodejs)
 
-[![CocoaPods Version](https://img.shields.io/cocoapods/v/swift_qrcodejs.svg?style=flat)](http://cocoapods.org/pods/swift_qrcodejs)
-[![CocoaPods Compatible Platforms](https://img.shields.io/cocoapods/p/swift_qrcodejs.svg?style=flat)](http://cocoapods.org/pods/swift_qrcodejs)
-[![Swift Package Manager Compatible](https://github.com/ApolloZhu/swift_qrcodejs/workflows/SPM/badge.svg)](https://swiftpackageindex.com/ApolloZhu/swift_qrcodejs)
-[![Carthage Compatible](https://github.com/ApolloZhu/swift_qrcodejs/workflows/Carthage/badge.svg)](https://github.com/Carthage/Carthage)
 
-[![Swift 5.0](https://img.shields.io/badge/Swift-5.0-ffac45.svg)](https://swift.org)
+[![Latest Release](https://img.shields.io/github/v/release/ApolloZhu/swift_qrcodejs?sort=semver)](https://github.com/ApolloZhu/swift_qrcodejs/releases)
 [![MIT License](https://img.shields.io/github/license/ApolloZhu/swift_qrcodejs.svg)](./LICENSE)
-[![Code Coverage](https://codecov.io/gh/ApolloZhu/swift_qrcodejs/branch/master/graphs/badge.svg)](https://codecov.io/gh/ApolloZhu/swift_qrcodejs/branch/master)
-[![Documentation](https://apollozhu.github.io/swift_qrcodejs/badge.svg)](https://apollozhu.github.io/swift_qrcodejs)
+[![Swift 5.0+](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FApolloZhu%2Fswift_qrcodejs%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/ApolloZhu/swift_qrcodejs)
+[![Compatible with All Platforms](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FApolloZhu%2Fswift_qrcodejs%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/ApolloZhu/swift_qrcodejs)
 
+[![Documentation](https://apollozhu.github.io/swift_qrcodejs/badge.svg)](https://apollozhu.github.io/swift_qrcodejs)
+[![Code Coverage](https://codecov.io/gh/ApolloZhu/swift_qrcodejs/branch/master/graphs/badge.svg)](https://codecov.io/gh/ApolloZhu/swift_qrcodejs/branch/master)
+[![CocoaPods Compatible](https://github.com/ApolloZhu/swift_qrcodejs/workflows/CocoaPods/badge.svg)](https://swiftpackageindex.com/ApolloZhu/swift_qrcodejs)
+[![Swift Package Manager Compatible](https://github.com/ApolloZhu/swift_qrcodejs/workflows/Swift%20Package%20Manager/badge.svg)](https://swiftpackageindex.com/ApolloZhu/swift_qrcodejs)
+[![Carthage Compatible](https://github.com/ApolloZhu/swift_qrcodejs/workflows/Carthage/badge.svg)](https://github.com/Carthage/Carthage)
 
 Cross-platform QRCode generator written in pure Swift, aiming to solve the awkward situation that there's no CIFilter for QRCode generation on Apple Watches.
 
