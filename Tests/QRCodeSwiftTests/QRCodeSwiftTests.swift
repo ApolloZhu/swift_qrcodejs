@@ -47,7 +47,7 @@ private func randomStringOfUTF8Length(_ length: Int) -> String {
     return str
 }
 
-class swift_qrcodejsTests: XCTestCase {
+class QRCodeSwiftTests: XCTestCase {
     func testSimple() throws {
         try expect(QRCode("https://gist.github.com/agentgt/1700331"),
                withFill: "##", andPatch: "  ",

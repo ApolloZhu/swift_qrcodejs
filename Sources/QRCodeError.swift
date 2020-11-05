@@ -26,14 +26,14 @@ public enum QRCodeError: Error {
     case dataLengthExceedsCapacityLimit
     /// Can not encode the given string using the specified encoding.
     case text(String, incompatibleWithEncoding: String.Encoding)
-    /// Fill a new issue on GitHub with swift_qrcodejs, or submit a pull request.
+    /// Fill a new issue on GitHub, or submit a pull request.
     case internalError(ImplmentationError)
 
     /// Should probably contact developer is you ever see any of these.
     public enum ImplmentationError {
-        /// swift_qrcodejs fail to determine how large is the data.
+        /// fail to determine how large is the data.
         case dataLengthIndeterminable
-        /// swift_qrcodejs fail to find appropriate container for your data.
+        /// fail to find appropriate container for your data.
         case dataLength(Int, exceedsCapacityLimit: Int)
     }
 }
