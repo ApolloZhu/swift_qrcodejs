@@ -1,19 +1,9 @@
 name: Documentation
 
-on:
-  release:
-    types: [ published ]
+on: release
 
 jobs:
-  pod:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Publish to CocoaPods Trunk
-        run: pod trunk push
-        env:
-          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
-  docs:
+  jazzy:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2

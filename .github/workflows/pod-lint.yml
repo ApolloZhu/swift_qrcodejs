@@ -1,4 +1,4 @@
-name: CocoaPods
+name: CocoaPods Lint
 
 on: [push, pull_request]
 
@@ -7,5 +7,5 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Lint CocoaPods
+    - name: Lint Pod Spec
       run: pod lib lint
