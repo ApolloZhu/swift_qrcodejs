@@ -20,9 +20,12 @@
  SOFTWARE.
  */
 
-import swift_qrcodejs
+import QRCodeSwift
 import Foundation
+
 let args = ProcessInfo.processInfo.arguments
+let ENV = ProcessInfo.processInfo.environment
+
 let link: String
 if args.count > 1 {
     link = args.last!
@@ -33,5 +36,14 @@ if args.count > 1 {
     link = input!
 }
 let qr = try QRCode(link)
-let inverse = "\u{1B}[7m  ", normal = "\u{1B}[0m  "
-print(qr.toString(filledWith: inverse, patchedWith: normal))
+
+let background, foreground: String
+if ENV.keys.contains("__XCODE_BUILT_PRODUCTS_DIR_PATHS") {
+    background = "  "
+    foreground = "MM"
+} else {
+    background = "\u{1B}[7m  "
+    foreground = "\u{1B}[0m  "
+}
+
+print(qr.toString(filledWith: background, patchedWith: foreground))

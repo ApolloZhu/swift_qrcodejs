@@ -1,0 +1,11 @@
+name: CocoaPods
+
+on: [push, pull_request]
+
+jobs:
+  pod:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Lint CocoaPods
+      run: pod lib lint

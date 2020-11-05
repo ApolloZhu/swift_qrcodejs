@@ -7,23 +7,16 @@ let package = Package(
     name: "swift_qrcodejs",
     products: [
         .library(
-            name: "swift_qrcodejs",
-            targets: ["swift_qrcodejs"]),
-        .executable(
-            name: "swift_qrcodejs-cli",
-            targets: ["swift_qrcodejs-cli"]),
+            name: "QRCodeSwift",
+            targets: ["QRCodeSwift"]),
     ],
     targets: [
         .target(
-            name: "swift_qrcodejs",
+            name: "QRCodeSwift",
             dependencies: [],
             path: "Sources/"),
-        .target(
-            name: "swift_qrcodejs-cli",
-            dependencies: ["swift_qrcodejs"],
-            path: "Example/"),
         .testTarget(
-            name: "swift_qrcodejsTests",
-            dependencies: ["swift_qrcodejs"]),
+            name: "QRCodeSwiftTests",
+            dependencies: ["QRCodeSwift"]),
     ]
 )

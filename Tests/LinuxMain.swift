@@ -1,6 +1,6 @@
 import XCTest
-@testable import swift_qrcodejsTests
+@testable import QRCodeSwiftTests
 
 XCTMain([
-    testCase(swift_qrcodejsTests.allTests),
+    testCase(QRCodeSwiftTests.allTests),
 ])

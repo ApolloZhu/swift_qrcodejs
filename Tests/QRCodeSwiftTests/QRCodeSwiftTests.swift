@@ -21,7 +21,7 @@
  */
 
 import XCTest
-@testable import swift_qrcodejs
+@testable import QRCodeSwift
 
 private func expect(_ generator: @autoclosure () throws -> QRCode, withFill fill: String, andPatch patch: String, toMatch expected: String) throws {
     let qrCode = try generator()

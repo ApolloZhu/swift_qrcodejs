@@ -46,10 +46,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Accelerate/Accelerate.h>
 
-//! Project version number for swift_qrcodejs.
-FOUNDATION_EXPORT double swift_qrcodejs_VersionNumber;
+//! Project version number for QRCodeSwift.
+FOUNDATION_EXPORT double QRCodeSwift_VersionNumber;
 
-//! Project version string for swift_qrcodejs.
-FOUNDATION_EXPORT const unsigned char swift_qrcodejs_VersionString[];
+//! Project version string for QRCodeSwift.
+FOUNDATION_EXPORT const unsigned char QRCodeSwift_VersionString[];

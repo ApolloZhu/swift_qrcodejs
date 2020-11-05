@@ -20,7 +20,7 @@ jobs:
       - name: Install Jazzy
         run: sudo gem install jazzy
       - name: Generate Documentation
-        run: jazzy --clean --author ${{ github.repository_owner }} --author_url https://${{ github.repository_owner }}.github.io --github_url https://github.com/${{ github.repository }} --github-file-prefix https://github.com/${{ github.repository }}/tree/${{ github.event.release.tag_name }} --module-version ${{ github.event.release.tag_name }} --swift-build-tool spm --module swift_qrcodejs --root-url https://${{ github.repository_owner }}.github.io/swift_qrcodejs/ --dash_url https://${{ github.repository_owner }}.github.io/swift_qrcodejs/docsets/swift_qrcodejs.xml
+        run: jazzy --clean --author ${{ github.repository_owner }} --author_url https://${{ github.repository_owner }}.github.io --github_url https://github.com/${{ github.repository }} --github-file-prefix https://github.com/${{ github.repository }}/tree/${{ github.event.release.tag_name }} --module-version ${{ github.event.release.tag_name }} --swift-build-tool spm --module QRCodeSwift --root-url https://${{ github.repository_owner }}.github.io/swift_qrcodejs/ --dash_url https://${{ github.repository_owner }}.github.io/swift_qrcodejs/docsets/QRCodeSwift.xml
       - name: Publish
         uses: peaceiris/actions-gh-pages@v3
         with:

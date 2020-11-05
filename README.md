@@ -1,4 +1,4 @@
-# swift_qrcodejs
+# QRCodeSwift (swift_qrcodejs)
 
 [![CocoaPods Version](https://img.shields.io/cocoapods/v/swift_qrcodejs.svg?style=flat)](http://cocoapods.org/pods/swift_qrcodejs)
 [![CocoaPods Compatible Platforms](https://img.shields.io/cocoapods/p/swift_qrcodejs.svg?style=flat)](http://cocoapods.org/pods/swift_qrcodejs)
@@ -24,6 +24,8 @@ dependencies: [
 ]
 ```
 
+... then add `QRCodeSwift` module/target from package `swift_qrcodejs` as your dependency.
+
 </details>
 
 <details>
@@ -47,14 +49,14 @@ github "ApolloZhu/swift_qrcodejs" ~> 2.1.0
 <details>
 <summary><strong>Manually</strong></summary>
 
-Copy all the `.swift` files from the `Sources` folder into your project.
+Add all the `.swift` files from the `Sources` folder into your project.
 
 </details>
 
 ## Usage
 
 ```swift
-import swift_qrcodejs
+import QRCodeSwift
 
 guard let qrCode = try? QRCode("Hello World!") else {
     fatalError("Failed to generate QRCode")
@@ -66,11 +68,11 @@ For more, checkout the [documentation](https://apollozhu.github.io/swift_qrcodej
 
 ## Example Projects
 
-- [swift_qrcodejs-cli](./Example/main.swift): lightweight command line tool to generate QRCodes.
+- [QRCodeSwiftCLI](./Example/main.swift): lightweight command line tool to generate QRCodes.
 - [EFQRCode](https://github.com/EyreFree/EFQRCode): popular Swift framework that generates stylized QRCode images.
 - [Apple Watch Bilibili](https://github.com/ApolloZhu/Apple-Watch-Bilibili): login onto bilibili with QRCode.
 
 ## License
 
 MIT License. Modified based on [qrcodejs](https://github.com/davidshimjs/qrcodejs).
- See [LICENSE](./LICENSE) and each individual file header for more information.
+See [LICENSE](./LICENSE) and each individual file header for more information.
